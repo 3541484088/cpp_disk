@@ -1,0 +1,95 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "register_server",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/register_server.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "config_server",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/config_server.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xauth_server",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xauth_server.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xlog_server",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xlog_server.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xms_gateway",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xms_gateway.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xms_upload_service",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xms_upload_service.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xms_download_service",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xms_download_service.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xms_dir_service",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xms_dir_service.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "config_gui",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/config_gui.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "xms_disk_client_gui",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/debug/bin/xms_disk_client_gui.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/build/debug/bin",
+      "console": "integratedTerminal"
+    }
+  ]
+}

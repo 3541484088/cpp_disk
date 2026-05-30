@@ -1,0 +1,47 @@
+# 修正后的正确版本（删除了错误的*.cmake规则）
+cat > .gitignore << 'EOF'
+# ==============================================
+# 绝对必须忽略的文件（即使自己用也不能传）
+# ==============================================
+
+# C++编译生成文件
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.out
+*.app
+*.dylib
+*.pdb
+
+# CMake构建生成文件
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+Makefile
+
+# 日志和临时文件
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# 操作系统自动生成文件
+.DS_Store
+Thumbs.db
+.Trashes
+
+# 敏感信息文件（绝对不能上传！）
+*.local
+config.ini
+.env
+*.password
+*.key
+EOF
