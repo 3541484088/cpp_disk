@@ -1,0 +1,264 @@
+syntax="proto3";	//版本号
+package xmsg;		//名称空间
+import "xmsg_type.proto";
+
+//消息头
+message XMsgHead
+{
+	//消息数据大小，不包括头
+	int32 msg_size = 1;
+
+	//消息类型
+	MsgType msg_type = 2;
+
+	//令牌 登录时写入登录信息，未登录
+	string token = 3;
+
+	//微服务名称，服务路径
+    string service_name = 4;
+
+	int64 msg_id = 5;
+
+	string username = 6;
+
+	string rolename = 7;
+
+	//消息体的md5校验
+	bytes md5 = 8;
+
+	//数据偏移
+	int64 offset = 9;
+
+}
+
+//心跳
+message XMsgHeart
+{
+	int64 count = 1;
+}
+
+//通用应答 MSG_REGISTER_RES 注册服务响应
+message XMessageRes
+{
+	enum XReturn
+	{
+		NONE = 0;  //返回0 失败原因为空
+		OK = 1;
+		ERROR = 2;
+	}
+	XReturn return = 1;
+	bytes msg = 2;
+}
+
+
+// 用户注册 微服务架构建立用户系统，只用于微服务端登录，不涉及权限，权限由业务层
+// 系统只有一个root用户
+// MSG_ADD_USER
+message XAddUserReq
+{
+	string username = 1;	//用户名
+	string password = 2;	//md5密码串
+	string rolename = 3;	//角色名称，为账号扩展角色权限
+}
+
+message XChangePasswordReq
+{
+	string username = 1;		//用户名
+	string password = 2;		//md5密码串
+	string new_password = 3;	//修改的密码串
+}
+
+///用户登录请求 MSG_LOGIN_REQ
+message XLoginReq
+{
+	string username = 1;	//用户名
+	string password = 2;	//md5密码串
+}
+
+//登录请求应答返回消息 MSG_LOGIN_RES
+message XLoginRes
+{
+	enum XLoginResType
+	{
+		NONE = 0;	//未操作
+		LOGGING  = 1; //登录中
+		OK = 2;		//登录成功
+		ERROR=3;	//用户或密码错误
+		NOUSER=4;	//用户不存在
+		SERVER_ERROR = 5;//	服务器连接错误
+	}
+
+	XLoginResType res = 1;
+
+	//登录成功返回令牌，失败未填
+	string token = 2;
+
+	//token 超时时间
+	int32 expired_time = 3;
+
+	string rolename = 4;
+
+	string username = 5;
+}
+
+//目录请求
+message XDirReq
+{
+	string path = 1;
+}
+
+//目录应答
+message XDirRes
+{
+	enum XDirType
+	{
+		OK = 0;		//目录获取成功
+		ERROR = 1;	//目录获取失败
+		NODIR = 2;	//目录不存在
+	}
+	message XDir
+	{
+		string filename = 1;
+		int32 filesize = 2;
+	}
+	XDirType res = 1;
+	repeated XDir dirs = 2;	//目录文件列表
+}
+
+
+
+
+
+//MSG_REGISTER_REQ = 5;	//注册服务请求
+/*message XRegisterReq
+{
+	string name = 1;//服务名称
+	int32 port = 2;	//服务端口
+	string ip = 3;	//服务ip
+	bool is_find = 4;	//是否被发现为服务提供者
+}*/
+
+enum XServiceType
+{
+	ONE = 0;	//只取一个服务
+	ALL = 1;	//取全部服务
+}
+
+message XServiceInfo
+{
+	string name = 1;
+	string ip = 2;
+	int32 port = 3;
+	bool is_find = 4; //是否被发现为可用的服务，默认不可发现
+}
+
+message XServiceList
+{
+	repeated XServiceInfo service = 1;
+	string name = 2;
+}
+
+
+message XServiceMap
+{
+
+	map<string,XServiceList> service_map = 1;
+	XMessageRes res = 2;
+
+	XServiceType type = 3;
+
+}
+
+//MSG_GET_SERVICE_REQ = 7;	//获取服务请求
+message XGetServiceReq
+{
+	string name = 1;// 服务名称，可以为空，获取全部服务
+	XServiceType type = 2;
+}
+
+
+//MSG_GET_SERVICE_RES = 8;	//获取服务响应
+
+
+///存储配置信息
+message XConfig
+{
+	string service_name = 1;
+	int32 service_port = 2;
+	string  service_ip = 3;
+	bytes private_pb = 4;			//私有配置序列化，客户端不需要解析，可服务提供解析
+	bytes proto = 5;
+}
+
+//加载配置请求响应 XConfig
+message XLoadConfigReq
+{
+	int32 service_port = 1;
+	string service_ip = 2;
+}
+
+message XDirConfig
+{
+	string root = 1;
+}
+
+
+//加载获取配置列表
+//MSG_LOAD_ALL_CONFIG_REQ = 13;	//XLoadAllConfigReq
+message XLoadAllConfigReq
+{
+	int32 page = 1;			//第几页的页数 从1开始
+	int32 page_count = 2;	//每页显示的记录数
+}
+
+//MSG_LOAD_ALL_CONFIG_RES = 14;	//XConfigList
+
+//返回配置列表
+//只返回微服务名称，IP和port
+message XConfigList
+{
+	repeated XConfig config = 1;
+}
+
+
+
+//网关配置
+message XGatewayConfig
+{
+	bool is_ssl = 1;			//是否开启ssl通信
+	string crt_path = 2;		//证书路径
+	string key_path = 3;		//私钥路径
+	string ca_path=4;			//验证客户端证书签名CA，可以为空不验证
+}
+
+
+//权限微服务配置
+message XAuthConfig
+{
+	int32 token_timeout_sec = 1;	//登录token
+	//string db_ip = 1;		//数据库ip 默认 127.0.0.1
+	//string dp_user = 2;		//数据库用户 默认 root
+	//string dp_pass = 3;		//数据库密码  建议要加密存储 默认为0
+	//string dp_type = 4;		//数据库类型，暂时只支持mysql，以后可能加redis
+	//string dp_name = 5;		//数据库名称 	默认 xms
+}
+
+
+enum XLogLevel
+{
+	XLOG_DEBUG = 0;
+	XLOG_INFO = 1;
+	XLOG_ERROR = 2;
+	XLOG_FATAL = 3;
+}
+message XAddLogReq
+{
+	string service_ip = 1;
+	int32 service_port = 2 ;
+	string service_name = 3;
+	bytes log_txt = 4;
+	int32 log_time = 5;	//时间戳
+	XLogLevel log_level = 6;	//日志级别
+	string filename = 7;
+	int32 line = 9;
+}

@@ -8,7 +8,6 @@
 #include "xconfig_client.h"
 #include "config_edit.h"
 #include <QtWidgets/QApplication>
-#include <QTextCodec>
 
 /**
  * @brief 配置管理GUI主函数
@@ -19,7 +18,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     ConfigGui w;
     w.show();
     return a.exec();

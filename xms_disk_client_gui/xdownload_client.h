@@ -19,6 +19,7 @@ public:
         RegCB((xmsg::MsgType)xdisk::DOWNLOAD_SLICE_REQ, (MsgCBFunc)&XDownloadClient::DownloadSliceReq);
     }
     bool set_file(xdisk::XFileInfo file);
+    bool CheckAndFixDuplicateExtension();
 
     void TimerCB() override;
 

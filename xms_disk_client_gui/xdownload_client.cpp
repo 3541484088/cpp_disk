@@ -15,7 +15,11 @@ using namespace xdisk;
 bool XDownloadClient::set_file(xdisk::XFileInfo file)
 {
     this->file_ = file;
-    filesystem::path fpath(file.local_path());
+    
+    // 修复：检查并修复重复扩展名问题
+    CheckAndFixDuplicateExtension();
+    
+    filesystem::path fpath(file_.local_path());
     string path = fpath.string();
     cout << "set_file path: " << path << endl;
 
@@ -46,6 +50,35 @@ bool XDownloadClient::set_file(xdisk::XFileInfo file)
         return false;
     }
     return true;
+}
+
+// 修复：检查文件名是否有重复后缀
+bool XDownloadClient::CheckAndFixDuplicateExtension()
+{
+    filesystem::path fpath(file_.local_path());
+    string filename = fpath.filename().string();
+    
+    // 检查是否有重复的扩展名（如 .exe.exe）
+    size_t dot_pos = filename.find_last_of('.');
+    if (dot_pos != string::npos && dot_pos > 0)
+    {
+        string extension = filename.substr(dot_pos);
+        size_t prev_dot_pos = filename.find_last_of('.', dot_pos - 1);
+        if (prev_dot_pos != string::npos)
+        {
+            string prev_extension = filename.substr(prev_dot_pos);
+            if (extension == prev_extension)
+            {
+                // 移除重复的扩展名
+                string fixed_filename = filename.substr(0, dot_pos);
+                filesystem::path fixed_path = fpath.parent_path() / fixed_filename;
+                file_.set_local_path(fixed_path.string());
+                cout << "Fixed duplicate extension: " << filename << " -> " << fixed_filename << endl;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void XDownloadClient::ConnectedCB()
