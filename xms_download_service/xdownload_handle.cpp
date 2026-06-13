@@ -15,7 +15,7 @@ using namespace std;
 #ifdef _WIN32
 #define DIR_ROOT "./server_root/"
 #else
-#define DIR_ROOT "/root/xms/"
+#define DIR_ROOT "/mnt/xms/"
 #endif
 
 // 文件信息文件前缀

@@ -154,6 +154,43 @@ void XUploadClient::SendSlice()
 void XUploadClient::UploadFileRes(xmsg::XMsgHead *head, XMsg *msg)
 {
     cout << "UploadFileRes 1 " << endl;
+    
+    // 检查是否为秒传响应
+    xmsg::XMessageRes res;
+    if (res.ParseFromArray(msg->data, msg->size))
+    {
+        if (res.msg() == "SEC_UPLOAD")
+        {
+            cout << "SEC_UPLOAD detected! Skipping file transfer." << endl;
+            is_sec_upload_ = true;
+            // 秒传：提示并直接走完成流程
+            XFileManager::Instance()->ErrorSig(
+                "File already exists, upload skipped");
+            XFileManager::Instance()->UploadEnd(task_id);
+            string filedir = file_.filedir();
+            if (filedir.empty() || filedir == "/")
+                XFileManager::Instance()->GetDir("/");
+            else
+                XFileManager::Instance()->GetDir(filedir);
+            ClearTimer();
+            Close();
+            DropInMsg();
+            return;
+        }
+
+        // 检查错误响应
+        if (res.return_() != XMessageRes::OK)
+        {
+            cout << "UploadFileRes error: " << res.msg() << endl;
+            XFileManager::Instance()->ErrorSig(
+                string("Upload failed: ") + res.msg());
+            ClearTimer();
+            Close();
+            DropInMsg();
+            return;
+        }
+    }
+
     //开始发送数据时，已经发送的值，要确保缓冲已经都发送成功
     //根据协议，接收到服务器的反馈，缓冲肯定已发送完毕
     begin_send_data_size_ = send_data_size();

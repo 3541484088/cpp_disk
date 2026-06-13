@@ -171,11 +171,28 @@ void XMSDiskClientGui::DoubleClicked(int row, int col)
                     return;
                     
                 XFileInfo task;
-                task.set_filename(filename);
+                QString filename = item->text();
+                task.set_filename(filename.toStdString());
                 task.set_filedir(remote_dir_);
-                QString rawpath = QDir(localpath).filePath(QString::fromStdString(filename));
+                QString rawpath = QDir(localpath).filePath(filename);
                 QString filepath = QDir::toNativeSeparators(rawpath);
                 task.set_local_path(filepath.toStdString());
+
+                // 检查是否为加密文件，弹窗输入密码
+                if (file.is_enc())
+                {
+                    FilePassword pass_dia;
+                    pass_dia.setWindowTitle("Download encrypted file");
+                    if (pass_dia.exec() == QDialog::Accepted)
+                    {
+                        this->xfm_->set_password(pass_dia.password);
+                    }
+                    else
+                    {
+                        return; // 用户取消输入密码，取消下载
+                    }
+                }
+
                 xfm_->DownloadFile(task);
                 
                 TaskTab();
@@ -240,35 +257,56 @@ void XMSDiskClientGui::Back()
 void XMSDiskClientGui::Delete()
 {
     auto tab = ui.filetableWidget;
-    int row = -1;
+
+    // 检查是否有选中项
+    bool has_checked = false;
     for (int i = 0; i < tab->rowCount(); i++)
     {
         auto w = tab->cellWidget(i, 0);
         if (!w) continue;
         auto check = (QCheckBox*)w->layout()->itemAt(0)->widget();
-        //auto check = (QCheckBox*)tab->cellWidget(i, 0);
-        if (!check) continue;
-        if (check->isChecked())
-        {
-            row = i;
-            break;
-        }
+        if (check && check->isChecked()) { has_checked = true; break; }
     }
-    if (row < 0)
+    if (!has_checked)
     {
         QMessageBox::information(this, "", QString::fromUtf8("未选择删除文件"));
         return;
     }
+
     auto re = QMessageBox::information(this, "", QString::fromUtf8("确认删除文件吗"), QMessageBox::Ok | QMessageBox::Cancel);
     if (re & QMessageBox::Cancel)
         return;
 
-    auto item = ui.filetableWidget->item(row, 1);
-    string filename(item->text().toLocal8Bit().constData());
-    XFileInfo file;
-    file.set_filename(filename);
-    //file.set_filedir()
-    this->xfm_->DeleteFile(file);
+    // 遍历所有选中项逐个删除
+    for (int i = 0; i < tab->rowCount(); i++)
+    {
+        auto w = tab->cellWidget(i, 0);
+        if (!w) continue;
+        auto check = (QCheckBox*)w->layout()->itemAt(0)->widget();
+        if (!check || !check->isChecked()) continue;
+
+        auto item = tab->item(i, 1);
+        if (!item) continue;
+
+        string filename(item->text().toLocal8Bit().constData());
+
+        // 检查该文件是否为目录
+        bool is_dir = false;
+        for (auto &f : ::file_list)
+        {
+            if (f.filename() == filename)
+            {
+                is_dir = f.is_dir();
+                break;
+            }
+        }
+
+        XFileInfo file;
+        file.set_filename(filename);
+        file.set_filedir(remote_dir_);
+        file.set_is_dir(is_dir);
+        this->xfm_->DeleteFile(file);
+    }
 }
 
 void XMSDiskClientGui::Download()
@@ -297,18 +335,37 @@ void XMSDiskClientGui::Download()
         return;
     }
     // 获取选择的文件名
-    auto item = ui.filetableWidget->item(row, 1);
-    string filename(item->text().toLocal8Bit().constData());
+    QString filename = ui.filetableWidget->item(row, 1)->text();
     // 获取保存路径
     QString localpath = QFileDialog::getExistingDirectory(this, QString::fromUtf8("请选择保存路径"));
     if (localpath.isEmpty())
         return;
     XFileInfo task;
-    task.set_filename(filename);
+    task.set_filename(filename.toStdString());
     task.set_filedir(remote_dir_);
-    QString rawpath = QDir(localpath).filePath(QString::fromStdString(filename));
+    QString rawpath = QDir(localpath).filePath(filename);
     QString filepath = QDir::toNativeSeparators(rawpath);
     task.set_local_path(filepath.toStdString());
+
+    // 检查是否为加密文件，弹窗输入密码
+    for (auto &f : ::file_list)
+    {
+        if (f.filename() == filename && f.is_enc())
+        {
+            FilePassword pass_dia;
+            pass_dia.setWindowTitle("Download encrypted file");
+            if (pass_dia.exec() == QDialog::Accepted)
+            {
+                this->xfm_->set_password(pass_dia.password);
+            }
+            else
+            {
+                return; // 用户取消输入密码，取消下载
+            }
+            break;
+        }
+    }
+
     xfm_->DownloadFile(task);
 }
 

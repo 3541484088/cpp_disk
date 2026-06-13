@@ -90,9 +90,22 @@ void XGetDirClient::NewDirReq(std::string path)
 void XGetDirClient::NewDirRes(xmsg::XMsgHead *head, XMsg *msg)
 {
     cout << "NewDirRes" << endl;
+
+    // 解析响应，检查是否成功
+    XMessageRes res;
+    if (res.ParseFromArray(msg->data, msg->size))
+    {
+        if (res.return_() != XMessageRes::OK)
+        {
+            // 失败则弹窗提示
+            XFileManager::Instance()->ErrorSig(res.msg());
+            return;
+        }
+    }
+
+    // 成功则刷新目录
     xdisk::XGetDirReq req;
     req.set_root(cur_dir_);
-    
     GetDirReq(req);
 }
 

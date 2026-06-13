@@ -13,9 +13,7 @@ target_include_directories(xauth_client
     PRIVATE ${XDISK_ENV_ROOT}/include
 )
 
-target_compile_definitions(xauth_client PRIVATE
-    _CRT_SECURE_NO_WARNINGS
-)
+# _CRT_SECURE_NO_WARNINGS 已在 XdiskCommon.cmake 中全局配置
 
 target_link_libraries(xauth_client PUBLIC xplatform)
 
@@ -36,10 +34,9 @@ target_include_directories(xauth_server PRIVATE
     ${XDISK_MYSQL_DIR}/include
 )
 
-target_compile_definitions(xauth_server PRIVATE
-    _CRT_SECURE_NO_WARNINGS
-    _CONSOLE
-)
+if(WIN32)
+    target_compile_definitions(xauth_server PRIVATE _CONSOLE)
+endif()
 
 target_link_libraries(xauth_server PRIVATE
     xauth_client

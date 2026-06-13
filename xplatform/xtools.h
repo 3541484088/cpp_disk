@@ -37,6 +37,9 @@ XCOM_API std::list< XToolFileInfo > GetDirList(std::string path);
 //删除文件
 XCOM_API void XDelFile(std::string path);
 
+//递归删除目录
+XCOM_API void XDelDir(std::string path);
+
 //创建目录
 XCOM_API void XNewDir(std::string path);
 

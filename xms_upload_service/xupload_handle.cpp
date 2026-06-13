@@ -50,9 +50,57 @@ void XUploadHandle::UploadFileReq(xmsg::XMsgHead *head, XMsg *msg)
     // 创建目录
     XNewDir(path);
 
-    path += cur_file_.filename();
+    string file_path = path + cur_file_.filename();
+    string info_path = path + FILE_INFO_NAME_PRE + cur_file_.filename();
 
-    ofs_.open(path, ios::binary);
+    // ====== 秒传检测：检查目标文件是否已存在且MD5匹配 ======
+    is_sec_upload_ = false;
+    if (!cur_file_.md5().empty())
+    {
+        // 检查目标文件和元信息文件是否都存在
+        ifstream ifs_file(file_path, ios::binary);
+        if (ifs_file.is_open())
+        {
+            ifs_file.close();
+            ifstream ifs_info(info_path, ios::binary);
+            if (ifs_info.is_open())
+            {
+                xdisk::XFileInfo exist_info;
+                if (exist_info.ParseFromIstream(&ifs_info))
+                {
+                    ifs_info.close();
+                    if (exist_info.md5() == cur_file_.md5() &&
+                        exist_info.is_enc() == cur_file_.is_enc())
+                    {
+                        // MD5完全一致，秒传！
+                        is_sec_upload_ = true;
+                        cout << "SEC_UPLOAD: file already exists, md5 matched! path=" << file_path << endl;
+                        LOGINFO("SEC_UPLOAD: file already exists, md5 matched!");
+                        
+                        res.set_return_(XMessageRes::OK);
+                        res.set_msg("SEC_UPLOAD");
+                        head->set_msg_type((MsgType)UPLOAD_FILE_RES);
+                        SendMsg(head, &res);
+                        return;
+                    }
+                }
+                ifs_info.close();
+            }
+        }
+    }
+
+    // 秒传检测未通过时，检查同名文件是否已存在
+    if (XFileExist(file_path))
+    {
+        // 文件已存在但 MD5 不同或加密状态不同，拒绝覆盖
+        res.set_return_(XMessageRes::ERROR);
+        res.set_msg("File already exists");
+        head->set_msg_type((MsgType)UPLOAD_FILE_RES);
+        SendMsg(head, &res);
+        return;
+    }
+
+    ofs_.open(file_path, ios::binary);
 
     // 需要校验权限
     res.set_return_(XMessageRes::OK);
@@ -60,7 +108,7 @@ void XUploadHandle::UploadFileReq(xmsg::XMsgHead *head, XMsg *msg)
     if (!ofs_.is_open())
     {
         stringstream ss;
-        ss << "UploadFileReq open file failed!" << path;
+        ss << "UploadFileReq open file failed!" << file_path;
         res.set_return_(XMessageRes::ERROR);
         res.set_msg(ss.str());
         LOGINFO(ss.str().c_str())
@@ -80,6 +128,17 @@ void XUploadHandle::UploadFileReq(xmsg::XMsgHead *head, XMsg *msg)
  */
 void XUploadHandle::SendSliceReq(xmsg::XMsgHead *head, XMsg *msg)
 {
+    // 秒传跳过切片接收
+    if (is_sec_upload_)
+    {
+        XMessageRes res;
+        res.set_return_(XMessageRes::OK);
+        res.set_msg("SEC_UPLOAD");
+        head->set_msg_type((MsgType)SEND_SLICE_RES);
+        SendMsg(head, &res);
+        return;
+    }
+
     head->set_msg_type((MsgType)SEND_SLICE_RES);
     XMessageRes res;
     if (head->md5().empty())
@@ -120,6 +179,17 @@ void XUploadHandle::SendSliceReq(xmsg::XMsgHead *head, XMsg *msg)
  */
 void XUploadHandle::UploadFileEndReq(xmsg::XMsgHead *head, XMsg *msg)
 {
+    // 秒传跳过文件结束处理
+    if (is_sec_upload_)
+    {
+        head->set_msg_type((MsgType)UPLOAD_FILE_END_RES);
+        XMessageRes res;
+        res.set_return_(XMessageRes::OK);
+        res.set_msg("SEC_UPLOAD");
+        SendMsg(head, &res);
+        return;
+    }
+
     ofs_.close();
     
     // 文件信息存储 .filename.info

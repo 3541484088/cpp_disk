@@ -212,7 +212,8 @@ void XDownloadClient::DownloadSliceReq(xmsg::XMsgHead *head, XMsg *msg)
         string file_md5 = XMD5_base64((unsigned char*)all_md5_base64_.data(), all_md5_base64_.size());
         if (file_.md5() != file_md5)
         {
-            cerr << "file is not complete" << endl;
+            XFileManager::Instance()->ErrorSig(
+                "Decryption failed: wrong password or file corrupted");
         }
 
         ClearTimer();

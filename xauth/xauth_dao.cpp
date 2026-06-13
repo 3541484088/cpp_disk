@@ -242,6 +242,7 @@ bool XAuthDao::CheckToken(const xmsg::XMsgHead *head, xmsg::XLoginRes *user_res)
     // 设置用户信息
     user_res->set_username(rows[0][0].data);
     user_res->set_rolename(rows[0][1].data);
+    user_res->set_res(XLoginRes::OK);
     return true;
 }
 

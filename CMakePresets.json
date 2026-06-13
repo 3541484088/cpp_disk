@@ -26,10 +26,38 @@
       "inherits": "windows-debug-x64",
       "binaryDir": "${sourceDir}/build/release",
       "cacheVariables": {}
+    },
+    {
+      "name": "linux-debug",
+      "displayName": "Linux Debug (Ubuntu 22.04/24.04)",
+      "description": "GCC + Debug + x64. 先运行 scripts/ubuntu_install_deps.sh 安装依赖",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/linux_debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE":      "Debug",
+        "XDISK_ENV_ROOT":        "/opt/xdisk_env",
+        "XDISK_LIBEVENT_DIR":    "/usr",
+        "XDISK_OPENSSL_DIR":     "/usr",
+        "XDISK_PROTOBUF_DIR":    "/opt/xdisk_env/protobuf",
+        "XDISK_MYSQL_DIR":       "/usr",
+        "XDISK_QT_DIR":          "/usr",
+        "CMAKE_PREFIX_PATH":     "/opt/xdisk_env/protobuf"
+      }
+    },
+    {
+      "name": "linux-release",
+      "displayName": "Linux Release",
+      "inherits": "linux-debug",
+      "binaryDir": "${sourceDir}/build/linux_release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
     }
   ],
   "buildPresets": [
-    { "name": "debug-build",   "configurePreset": "windows-debug-x64" },
-    { "name": "release-build", "configurePreset": "windows-release-x64" }
+    { "name": "win-debug-build",   "configurePreset": "windows-debug-x64" },
+    { "name": "win-release-build", "configurePreset": "windows-release-x64" },
+    { "name": "linux-debug-build",  "configurePreset": "linux-debug" },
+    { "name": "linux-release-build","configurePreset": "linux-release" }
   ]
 }

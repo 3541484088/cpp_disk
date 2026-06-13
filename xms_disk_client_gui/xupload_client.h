@@ -60,4 +60,6 @@ private:
     //加密文件类
     XAES *aes_ = 0;
 
+    // 是否秒传
+    bool is_sec_upload_ = false;
 };

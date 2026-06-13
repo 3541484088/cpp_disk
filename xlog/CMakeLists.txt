@@ -15,9 +15,10 @@ target_include_directories(xlog_server PRIVATE
 
 target_compile_definitions(xlog_server PRIVATE
     STATIC
-    _CRT_SECURE_NO_WARNINGS
-    _CONSOLE
 )
+if(WIN32)
+    target_compile_definitions(xlog_server PRIVATE _CONSOLE)
+endif()
 
 target_link_libraries(xlog_server PRIVATE
     xplatform

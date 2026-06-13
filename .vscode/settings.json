@@ -1,6 +1,15 @@
+// {
+//   "cmake.configureOnOpen": true,
+//   "cmake.defaultConfigurePreset": "windows-debug-x64",
+//   "cmake.defaultBuildPreset": "debug-build",
+//   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+// }
+
+
+//linux 配置文件
 {
   "cmake.configureOnOpen": true,
-  "cmake.defaultConfigurePreset": "windows-debug-x64",
-  "cmake.defaultBuildPreset": "debug-build",
+  "cmake.defaultConfigurePreset": "linux-debug",
+  "cmake.defaultBuildPreset": "linux-debug-build",
   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
 }

@@ -7,6 +7,7 @@
 #include "xdir_handle.h"
 #include "xtools.h"
 #include "xlog_client.h"
+#include <io.h>
 
 // 平台相关的根目录定义
 #ifdef _WIN32
@@ -98,6 +99,18 @@ void XDirHandle::NewDirReq(xmsg::XMsgHead *head, XMsg *msg)
     path += req.root();
     path += "/";
 
+    // 检查目录是否已存在
+    if (_access(path.c_str(), 0) == 0)
+    {
+        // 目录已存在，返回错误
+        XMessageRes res;
+        res.set_return_(XMessageRes::ERROR);
+        res.set_msg("Directory already exists");
+        head->set_msg_type((MsgType)NEW_DIR_RES);
+        SendMsg(head, &res);
+        return;
+    }
+
     // 创建目录
     XNewDir(path);
     XMessageRes res;
@@ -172,10 +185,18 @@ void XDirHandle::DeleteFileReq(xmsg::XMsgHead *head, XMsg *msg)
     info_path += req.filename();
     
     // 删除文件（如果是目录需要递归删除）
-    XDelFile(path);
-
-    // 删除信息文件
-    XDelFile(info_path);
+    if (req.is_dir())
+    {
+        // 递归删除目录及其内容
+        XDelDir(path);
+    }
+    else
+    {
+        // 删除实际文件
+        XDelFile(path);
+        // 删除信息文件（目录没有信息文件）
+        XDelFile(info_path);
+    }
     
     // 判断是否删除成功，检查是否存在文件
     head->set_msg_type((xmsg::MsgType)xdisk::DELETE_FILE_RES);

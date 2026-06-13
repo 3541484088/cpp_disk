@@ -5,10 +5,14 @@ include(../cmake/XdiskCommon.cmake)
 
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 
-add_executable(xms_gateway
-    ${SOURCES}
-    ${XDISK_OPENSSL_DIR}/include/openssl/applink.c
-)
+if(WIN32)
+    add_executable(xms_gateway
+        ${SOURCES}
+        ${XDISK_OPENSSL_DIR}/include/openssl/applink.c
+    )
+else()
+    add_executable(xms_gateway ${SOURCES})
+endif()
 
 target_include_directories(xms_gateway PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -17,10 +21,10 @@ target_include_directories(xms_gateway PRIVATE
     ${XDISK_OPENSSL_DIR}/include
 )
 
-target_compile_definitions(xms_gateway PRIVATE
-    _CRT_SECURE_NO_WARNINGS
-    _CONSOLE
-)
+# _CRT_SECURE_NO_WARNINGS 已在 XdiskCommon.cmake 中全局配置
+if(WIN32)
+    target_compile_definitions(xms_gateway PRIVATE _CONSOLE)
+endif()
 
 target_link_libraries(xms_gateway PRIVATE
     xplatform

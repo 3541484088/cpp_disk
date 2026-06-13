@@ -530,6 +530,54 @@ XCOM_API void XNewDir(std::string path)
 }
 
 /**
+ * @brief 递归删除目录
+ * @param path 要删除的目录路径
+ * 
+ * 递归遍历目录内所有文件和子目录，全部删除后再删除自身
+ */
+XCOM_API void XDelDir(std::string path)
+{
+#ifdef _WIN32
+    // 遍历目录中的所有条目
+    _finddata_t file;
+    string dirpath = path + "/*.*";
+    intptr_t dir = _findfirst(dirpath.c_str(), &file);
+    if (dir < 0)
+    {
+        // 目录不存在或无法打开，尝试直接删除
+        _rmdir(path.c_str());
+        return;
+    }
+    do
+    {
+        string name = file.name;
+        if (name == "." || name == "..")
+            continue;
+
+        string fullpath = path + "/" + name;
+        if (file.attrib & _A_SUBDIR)
+        {
+            // 递归删除子目录
+            XDelDir(fullpath);
+        }
+        else
+        {
+            // 删除文件
+            DeleteFileA(fullpath.c_str());
+        }
+    } while (_findnext(dir, &file) == 0);
+    _findclose(dir);
+
+    // 删除自身
+    _rmdir(path.c_str());
+#else
+    // Linux平台使用系统命令
+    string cmd = "rm -rf \"" + path + "\"";
+    system(cmd.c_str());
+#endif
+}
+
+/**
  * @brief 删除文件
  * @param path 要删除的文件路径
  * 
