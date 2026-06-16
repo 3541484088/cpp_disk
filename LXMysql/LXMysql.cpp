@@ -123,19 +123,13 @@ namespace LX {
             ifs.close();
         }
         
-        // 交互式输入数据库配置
+        // 使用默认配置连接数据库（避免交互式输入）
         cout << "input the db set" << endl;
-        cout << "input db host:";
-        cin >> db.host;
-        cout << "input db user:";
-        cin >> db.user;
-        cout << "input db pass:";
-        GetPassword(db.pass, sizeof(db.pass) - 1);
-        cout << endl;
-        cout << "input db dbname(xms):";
-        cin >> db.db_name;
-        cout << "input db port(3306):";
-        cin >> db.port;
+        strcpy(db.host, "127.0.0.1");
+        strcpy(db.user, "root");
+        strcpy(db.pass, "18720559329");
+        strcpy(db.db_name, "xms");
+        db.port = 3306;
         
         // 保存配置到文件
         ofstream ofs;

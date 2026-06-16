@@ -169,3 +169,9 @@ XCOM_API std::string XGetSizeString(long long size);
 
 //获取文件图标文件名
 XCOM_API std::string XGetIconFilename(std::string filename, bool is_dir);
+
+// 返回服务端文件存储根目录，末尾带 '/'。
+// 基于可执行文件所在目录计算，不受进程工作目录影响：
+//   Windows: {exe_dir}/server_root/
+//   Linux:   /mnt/xms/
+XCOM_API std::string GetDirRoot();

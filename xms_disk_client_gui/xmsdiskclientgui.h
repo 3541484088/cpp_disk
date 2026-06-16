@@ -29,13 +29,14 @@ public slots:
     void RefreshData(xdisk::XFileInfoList file_list, std::string);
     void RefreshDiskInfo(xdisk::XDiskInfo info);
     void DoubleClicked(int row, int col);
-    
+
     void SelectFile(QModelIndex index);
     void TaskTab();
     void MyTab();
     void ErrorSlot(std::string err);
-    //文件是否加密上传
+    void InfoSlot(std::string msg);
     void FileEnc();
+    void ShowSharePanel();
     void set_xfm(XFileManager *fm) { xfm_ = fm; }
 private:
     Ui::XMSDiskClientGuiClass ui;

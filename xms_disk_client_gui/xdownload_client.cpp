@@ -7,21 +7,33 @@
 #include <cerrno>
 #include <cstring>
 #include <filesystem>
+#include <vector>
+#include <QString>
 
 using namespace std;
 using namespace xmsg;
 using namespace xdisk;
 
+static constexpr long long DOWNLOAD_SLICE_BYTE = 10000000;
+
+// UTF-8 std::string → filesystem::path（Windows 用 wstring 绕过 ANSI 限制）
+static std::filesystem::path utf8_to_path(const std::string &utf8)
+{
+#ifdef _WIN32
+    return std::filesystem::path(QString::fromUtf8(utf8.c_str()).toStdWString());
+#else
+    return std::filesystem::path(utf8);
+#endif
+}
+
 bool XDownloadClient::set_file(xdisk::XFileInfo file)
 {
     this->file_ = file;
-    
+
     // 修复：检查并修复重复扩展名问题
     CheckAndFixDuplicateExtension();
-    
-    filesystem::path fpath(file_.local_path());
-    string path = fpath.string();
-    cout << "set_file path: " << path << endl;
+
+    filesystem::path fpath = utf8_to_path(file_.local_path());
 
     if (fpath.has_parent_path())
     {
@@ -31,7 +43,7 @@ bool XDownloadClient::set_file(xdisk::XFileInfo file)
             error_code ec;
             if (!filesystem::create_directories(parent, ec))
             {
-                string msg = string("无法创建目录: ") + parent.string() + " (" + ec.message() + ")";
+                string msg = string("无法创建目录: ") + parent.u8string() + " (" + ec.message() + ")";
                 cout << msg << endl;
                 LOGERROR(msg.c_str());
                 XFileManager::Instance()->ErrorSig(msg);
@@ -40,10 +52,51 @@ bool XDownloadClient::set_file(xdisk::XFileInfo file)
         }
     }
 
-    ofs_.open(path, ios::binary);
+    // ====== 断点续传：检查本地是否已有部分下载的文件 ======
+    exist_size_ = 0;
+    is_resume_ = false;
+    if (filesystem::exists(fpath))
+    {
+        error_code ec;
+        long long raw_size = filesystem::file_size(fpath, ec);
+        if (!ec && raw_size > 0)
+        {
+            // 对齐到分片边界，丢弃最后一个可能不完整的分片
+            long long aligned = (raw_size / DOWNLOAD_SLICE_BYTE) * DOWNLOAD_SLICE_BYTE;
+            if (aligned > 0)
+            {
+                exist_size_ = aligned;
+                is_resume_ = true;
+                // 截断本地文件到对齐位置
+                filesystem::resize_file(fpath, aligned, ec);
+                if (ec)
+                {
+                    cout << "RESUME_DOWNLOAD: resize_file failed: " << ec.message() << ", starting from scratch" << endl;
+                    exist_size_ = 0;
+                    is_resume_ = false;
+                }
+                else
+                {
+                    cout << "RESUME_DOWNLOAD: local file aligned to " << exist_size_ << " (raw=" << raw_size << ")" << endl;
+                }
+            }
+            // raw_size < one slice: start over, don't resume from partial slice
+        }
+    }
+
+    // 以追加模式打开文件（续传时不截断已有数据）
+    if (is_resume_)
+    {
+        ofs_.open(fpath, ios::binary | ios::app);
+    }
+    else
+    {
+        ofs_.open(fpath, ios::binary);
+    }
+
     if (!ofs_.is_open())
     {
-        string msg = string("无法打开文件: ") + path + " (errno=" + to_string(errno) + ": " + strerror(errno) + ")";
+        string msg = string("无法打开文件: ") + file_.local_path() + " (errno=" + to_string(errno) + ": " + strerror(errno) + ")";
         cout << msg << endl;
         LOGERROR(msg.c_str());
         XFileManager::Instance()->ErrorSig(msg);
@@ -55,9 +108,9 @@ bool XDownloadClient::set_file(xdisk::XFileInfo file)
 // 修复：检查文件名是否有重复后缀
 bool XDownloadClient::CheckAndFixDuplicateExtension()
 {
-    filesystem::path fpath(file_.local_path());
-    string filename = fpath.filename().string();
-    
+    filesystem::path fpath = utf8_to_path(file_.local_path());
+    string filename = fpath.filename().u8string();
+
     // 检查是否有重复的扩展名（如 .exe.exe）
     size_t dot_pos = filename.find_last_of('.');
     if (dot_pos != string::npos && dot_pos > 0)
@@ -71,8 +124,8 @@ bool XDownloadClient::CheckAndFixDuplicateExtension()
             {
                 // 移除重复的扩展名
                 string fixed_filename = filename.substr(0, dot_pos);
-                filesystem::path fixed_path = fpath.parent_path() / fixed_filename;
-                file_.set_local_path(fixed_path.string());
+                filesystem::path fixed_path = fpath.parent_path() / filesystem::path(fixed_filename);
+                file_.set_local_path(fixed_path.u8string());
                 cout << "Fixed duplicate extension: " << filename << " -> " << fixed_filename << endl;
                 return true;
             }
@@ -83,23 +136,25 @@ bool XDownloadClient::CheckAndFixDuplicateExtension()
 
 void XDownloadClient::ConnectedCB()
 {
-    //XMsgHead head;
-    //head.set_msg_type((MsgType)DOWNLOAD_FILE_REQ);
-    //head.set_username("root");// 临时测试用，后面改为登陆信息
-    //SendMsg(&head, &file_);
-    SendMsg((MsgType)DOWNLOAD_FILE_REQ, &file_);
-    cout << "XDownloadClient::Connect()" << endl;
+    // 发送下载请求，附带本地已有文件大小（用于断点续传）
+    XMsgHead head;
+    head.set_msg_type((MsgType)DOWNLOAD_FILE_REQ);
+    head.set_offset(exist_size_);
+    SendMsg(&head, &file_);
+    cout << "XDownloadClient::Connect() offset=" << exist_size_ << endl;
 }
 
 //确认文件信息
 void XDownloadClient::DownloadFileRes(xmsg::XMsgHead *head, XMsg *msg)
-{/*
-    XFileInfo res;*/
+{
+    // 保存本地路径，ParseFromArray 会清空整个 proto（包括 local_path）
+    string saved_local_path = file_.local_path();
     if (!file_.ParseFromArray(msg->data, msg->size))
     {
         cout << "XDownloadClient::DownloadFileRes ParseFromArray failed!" << endl;
         return;
     }
+    file_.set_local_path(saved_local_path);
 
     cout << "服务端返回文件信息: " << file_.DebugString() << endl;
 
@@ -111,6 +166,7 @@ void XDownloadClient::DownloadFileRes(xmsg::XMsgHead *head, XMsg *msg)
         ofs_.close();
         ClearTimer();
         Close();
+        DropInMsg();
         return;
     }
 
@@ -123,6 +179,10 @@ void XDownloadClient::DownloadFileRes(xmsg::XMsgHead *head, XMsg *msg)
             LOGERROR("please set password");
             //具体的提示的语言，可以根据字符串替换为不同的语言
             XFileManager::Instance()->ErrorSig("NO PASSWORD");
+            ofs_.close();
+            ClearTimer();
+            Close();
+            DropInMsg();
             return;
         }
         aes_ = XAES::Create();
@@ -137,10 +197,16 @@ void XDownloadClient::DownloadFileRes(xmsg::XMsgHead *head, XMsg *msg)
     //h.set_msg_type((MsgType)DOWNLOAD_FILE_BEGTIN);
     //h.set_username("root");// 临时测试用，后面改为登陆信息
     //SendMsg(&h, &file_);
-    SendMsg((MsgType)DOWNLOAD_FILE_BEGTIN, &file_);
+    SendMsg((MsgType)DOWNLOAD_FILE_BEGIN, &file_);
 
     begin_recv_data_size_ = recv_data_size();
-    XFileManager::Instance()->DownloadProcess(task_id, 0);
+    // 断点续传时，初始化 net_size 为已存在文件的大小
+    if (is_resume_)
+    {
+        file_.set_net_size(exist_size_);
+        cout << "RESUME_DOWNLOAD: init net_size=" << exist_size_ << endl;
+    }
+    XFileManager::Instance()->DownloadProcess(task_id, is_resume_ ? exist_size_ : 0LL);
 
 }
 
@@ -151,73 +217,122 @@ void XDownloadClient::DownloadSliceReq(xmsg::XMsgHead *head, XMsg *msg)
     file_.set_net_size(recved);
     const char *data = msg->data;
     long long size = msg->size;
+    char *dec_data = nullptr;
     if (file_.is_enc())
     {
-        char *dec_data = new char[msg->size];
+        dec_data = new char[msg->size];
         size = aes_->Decrypt((unsigned char*)msg->data, msg->size, (unsigned char*)dec_data);
         if (size <= 0)
         {
             LOGERROR("aes_->Decrypt failed!");
-            delete dec_data;
+            delete[] dec_data;
+            dec_data = nullptr;
+            ofs_.close();
+            std::error_code ec;
+            std::filesystem::remove(utf8_to_path(file_.local_path()), ec);
+            XFileManager::Instance()->ErrorSig("Decryption failed: wrong password or corrupted data");
+            ClearTimer();
+            Close();
+            DropInMsg();
             return;
         }
+
+
         if (recved > file_.ori_size())
         {
-            size = size -(recved - file_.ori_size());
+            size = size - (recved - file_.ori_size());
         }
         data = dec_data;
     }
 
     string md5_base64 = XMD5_base64((unsigned char*)data, size);
-    // md5_base64s_.push_back(md5_base64);
     all_md5_base64_ += md5_base64;
 
     ofs_.write(data, size);
-    if (ofs_.bad())
+    bool write_failed = ofs_.bad();
+    if (dec_data)
     {
-        string msg = string("写入文件失败: ") + file_.local_path() + " ，请检查磁盘空间和路径权限";
-        LOGERROR(msg.c_str());
-        XFileManager::Instance()->ErrorSig(msg);
-        if (file_.is_enc())
-        {
-            delete data;
-        }
+        delete[] dec_data;
+        dec_data = nullptr;
+        data = nullptr;
+    }
+    if (write_failed)
+    {
+        string errmsg = string("写入文件失败: ") + file_.local_path() + " ，请检查磁盘空间和路径权限";
+        LOGERROR(errmsg.c_str());
+        XFileManager::Instance()->ErrorSig(errmsg);
         ofs_.close();
         ClearTimer();
         Close();
+        DropInMsg();
         return;
     }
-    if (file_.is_enc())
-    {
-        delete data;
-    }
-    //XMsgHead h;
-    //h.set_msg_type((MsgType)DOWNLOAD_SLICE_RES);
-    //h.set_username("root");// 临时测试用，后面改为登陆信息
-    //SendMsg(&h, &file_);
+
     SendMsg((MsgType)DOWNLOAD_SLICE_RES, &file_);
-    //文件接收结束
+
+    // 文件接收结束
     if (file_.filesize() == file_.net_size())
     {
         ofs_.flush();
-
-        cout << "下载完成验证: filesize=" << file_.filesize() << ", net_size=" << file_.net_size() << ", all_md5_base64_.size()=" << all_md5_base64_.size() << endl;
-
         ofs_.close();
 
-        cout << "下载完成: " << file_.local_path() << " (size=" << file_.filesize() << ")" << endl;
+        cout << "下载完成验证: filesize=" << file_.filesize() << ", net_size=" << file_.net_size() << endl;
 
-        XFileManager::Instance()->DownloadEnd(task_id_);
-        //校验整个文件的md5
-        string file_md5 = XMD5_base64((unsigned char*)all_md5_base64_.data(), all_md5_base64_.size());
-        if (file_.md5() != file_md5)
+        // 校验整个文件的 MD5（断点续传模式下从磁盘读取校验）
+        bool md5_ok = true;
+        if (!file_.md5().empty())
         {
-            XFileManager::Instance()->ErrorSig(
-                "Decryption failed: wrong password or file corrupted");
+            if (!is_resume_)
+            {
+                // 非续传模式：使用累积的分片 MD5 字符串校验
+                string file_md5 = XMD5_base64((unsigned char*)all_md5_base64_.data(), all_md5_base64_.size());
+                if (file_.md5() != file_md5)
+                {
+                    md5_ok = false;
+                }
+            }
+            else
+            {
+                // 续传模式：从磁盘读取完整文件，重新计算各分片 MD5 后校验
+                std::ifstream verify_ifs(utf8_to_path(file_.local_path()), std::ios::binary);
+                if (verify_ifs)
+                {
+                    std::string all_md5;
+                    std::vector<char> vbuf(DOWNLOAD_SLICE_BYTE);
+                    while (verify_ifs.read(vbuf.data(), DOWNLOAD_SLICE_BYTE) || verify_ifs.gcount() > 0)
+                    {
+                        long long n = verify_ifs.gcount();
+                        all_md5 += XMD5_base64((unsigned char*)vbuf.data(), n);
+                    }
+                    verify_ifs.close();
+                    string file_md5 = XMD5_base64((unsigned char*)all_md5.data(), all_md5.size());
+                    if (file_.md5() != file_md5)
+                    {
+                        md5_ok = false;
+                    }
+                }
+            }
+
+            if (!md5_ok)
+            {
+                // 密码错误或文件损坏，删除已写入的垃圾文件
+                std::error_code ec;
+                std::filesystem::remove(utf8_to_path(file_.local_path()), ec);
+                XFileManager::Instance()->ErrorSig(
+                    "Decryption failed: wrong password or file corrupted");
+            }
         }
+
+        if (md5_ok)
+        {
+            cout << "下载完成: " << file_.local_path() << " (size=" << file_.filesize() << ")" << endl;
+            XFileManager::Instance()->DownloadEnd(task_id_);
+        }
+        // md5 失败时不调用 DownloadEnd，任务不标记完成
 
         ClearTimer();
         Close();
+        DropInMsg();
     }
 }
 //通过定时器跟踪进度
@@ -228,8 +343,8 @@ void XDownloadClient::TimerCB()
     auto size = BufferSize();
 
 
-    //已发送的数据
-    long long recved = recv_data_size() - begin_recv_data_size_ ;
+    //已发送的数据（续传时包含已存在的部分文件大小）
+    long long recved = recv_data_size() - begin_recv_data_size_ + exist_size_;
 
     cout << recved << ":" << file_.filesize() << endl;
     XFileManager::Instance()->DownloadProcess(task_id_, recved);

@@ -77,7 +77,7 @@ void FileManager::UploadFile(std::string filename, std::string file_local_path, 
 }
 
 //���ȴ�0~1000
-void FileManager::UploadProcess(int task_id, int process)
+void FileManager::UploadProcess(int task_id, long long process)
 {
 
 }

@@ -34,10 +34,11 @@ int main(int argc, char *argv[])
     {
         return -1;
     }
-    xsm_fm.InitFileManager(gateway_ip, API_GATEWAY_PORT);
-    //auto res = XAuthClient::Get()->GetLogin();
-    //xsm_fm.set_login(XAuthClient::Get()->GetLogin());
+    // set_login 必须在 InitFileManager 之前：InitFileManager 启动异步 TCP 连接，
+    // ConnectedCB 会立刻发 GET_DIR_REQ；若此时 login_ 为空则 token 缺失，
+    // 网关 CheckToken 失败会静默丢弃请求，目录永远不刷新。
     xsm_fm.set_login(XAuthClient::Get()->GetLogin());
+    xsm_fm.InitFileManager(gateway_ip, API_GATEWAY_PORT);
     XMSDiskClientGui w(&xsm_fm);
     w.show();
     return a.exec();

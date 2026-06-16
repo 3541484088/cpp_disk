@@ -10,5 +10,6 @@ taskkill /F /IM xms_gateway.exe 2>nul
 taskkill /F /IM xms_dir_service.exe 2>nul
 taskkill /F /IM xms_upload_service.exe 2>nul
 taskkill /F /IM xms_download_service.exe 2>nul
+taskkill /F /IM xms_share_service.exe 2>nul
 echo All services stopped.
 timeout /t 2 /nobreak >nul

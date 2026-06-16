@@ -2,10 +2,22 @@
 #include "xget_dir_client.h"
 #include "xupload_client.h"
 #include "xdownload_client.h"
+#include "xshare_client.h"
 #include "xtools.h"
 #include <fstream>
+#include <filesystem>
+#include <QString>
 using namespace xdisk;
 using namespace std;
+
+static std::filesystem::path utf8_to_path(const std::string &utf8)
+{
+#ifdef _WIN32
+    return std::filesystem::path(QString::fromUtf8(utf8.c_str()).toStdWString());
+#else
+    return std::filesystem::path(utf8);
+#endif
+}
 
 XMSFileManager::XMSFileManager()
 {
@@ -21,6 +33,7 @@ XMSFileManager::~XMSFileManager()
 void XMSFileManager::set_login(xmsg::XLoginRes login)
 {
     XGetDirClient::Get()->set_login(&login);
+    XShareClient::Get()->set_login(&login);
     XFileManager::set_login(login);
 }
 
@@ -36,6 +49,23 @@ void XMSFileManager::NewDir(std::string path)
 
 void XMSFileManager::GetDir(std::string root)
 {
+    // Route shared folder paths to the share service instead of the dir service.
+    // Format: "_shared/{folder_id}" or "_shared/{folder_id}/{sub_path}"
+    if (root.rfind("_shared/", 0) == 0)
+    {
+        string rest = root.substr(8); // after "_shared/"
+        size_t slash = rest.find('/');
+        string id_str = (slash == string::npos) ? rest : rest.substr(0, slash);
+        string sub    = (slash == string::npos) ? "" : rest.substr(slash + 1);
+        if (!id_str.empty() &&
+            id_str.find_first_not_of("0123456789") == string::npos)
+        {
+            int64_t folder_id = atoll(id_str.c_str());
+            root_ = root;
+            XShareClient::Get()->GetSharedDir(folder_id, sub);
+            return;
+        }
+    }
     XGetDirReq req;
     req.set_root(root);
     root_ = root;
@@ -44,20 +74,67 @@ void XMSFileManager::GetDir(std::string root)
 
 void XMSFileManager::InitFileManager(std::string server_ip, int server_port)
 {
-
     XGetDirClient::RegMsgCallback();
     XUploadClient::RegMsgCallback();
     XDownloadClient::RegMsgCallback();
-
+    XShareClient::RegMsgCallback();
 
     XGetDirClient::Get()->set_server_ip(server_ip.c_str());
     XGetDirClient::Get()->set_server_port(server_port);
-    //XGetDirClient::Get()->set_timer_ms(100);
-    
-
     XGetDirClient::Get()->StartConnect();
 
+    XShareClient::Get()->set_server_ip(server_ip.c_str());
+    XShareClient::Get()->set_server_port(server_port);
+    XShareClient::Get()->StartConnect();
+}
 
+void XMSFileManager::CreateShareFolder(const string &name,
+                                       const vector<xdisk::XShareUser> &users)
+{
+    XShareClient::Get()->CreateShareFolder(name, users);
+}
+
+void XMSFileManager::GetSharedFolders()
+{
+    XShareClient::Get()->GetSharedFolders();
+}
+
+void XMSFileManager::GetSharedDir(int64_t folder_id, const string &path)
+{
+    XShareClient::Get()->GetSharedDir(folder_id, path);
+}
+
+void XMSFileManager::UploadToSharedFolder(int64_t folder_id,
+                                          const string &sub_dir)
+{
+    XShareClient::Get()->UploadSharedFile(folder_id, sub_dir);
+}
+
+void XMSFileManager::AddSharedUser(int64_t folder_id,
+                                   const vector<xdisk::XShareUser> &users)
+{
+    XShareClient::Get()->AddShareUser(folder_id, users);
+}
+
+void XMSFileManager::RemoveSharedUser(int64_t folder_id,
+                                      const vector<string> &usernames)
+{
+    XShareClient::Get()->RemoveShareUser(folder_id, usernames);
+}
+
+void XMSFileManager::DownloadFromSharedFolder(int64_t folder_id,
+                                              const string &filename,
+                                              const string &filedir,
+                                              const string &local_path)
+{
+    XShareClient::Get()->DownloadSharedFile(folder_id, filename, filedir, local_path);
+}
+
+void XMSFileManager::DeleteFromSharedFolder(int64_t folder_id,
+                                            const string &filename,
+                                            const string &filedir)
+{
+    XShareClient::Get()->DeleteSharedFile(folder_id, filename, filedir);
 }
 void XMSFileManager::DownloadFile(xdisk::XFileInfo file)
 {
@@ -81,7 +158,7 @@ void XMSFileManager::DownloadFile(xdisk::XFileInfo file)
     auto client = new XDownloadClient();
 
     client->set_auto_connect(false);
-    client->set_auto_delete(false);
+    client->set_auto_delete(true);
     client->set_server_ip(ip.c_str());
     client->set_server_port(port);
     if (!client->set_file(file))
@@ -124,7 +201,7 @@ void XMSFileManager::UploadFile(xdisk::XFileInfo file)
 
 
 
-    ifstream ifs(file.local_path(), ios::ate);
+    ifstream ifs(utf8_to_path(file.local_path()), ios::ate);
     if (!ifs)
     {
         cout << "UploadFile failed!" << file.local_path() << endl;
@@ -139,8 +216,11 @@ void XMSFileManager::UploadFile(xdisk::XFileInfo file)
     //file.set_local_path(file_local_path);
     file.set_filesize(filesize);
 
+    // Shared-folder uploads must not be encrypted: other members don't have the
+    // uploader's password and would receive garbled data on download.
+    bool is_shared = file.filedir().rfind("_shared/", 0) == 0;
     auto pass = password();
-    if (!pass.empty())
+    if (!pass.empty() && !is_shared)
     {
         file.set_is_enc(true);
         file.set_password(pass);
@@ -149,17 +229,21 @@ void XMSFileManager::UploadFile(xdisk::XFileInfo file)
 
     auto client = new XUploadClient();
 
-    
+
     client->set_auto_connect(false);
-    client->set_auto_delete(false);
+    client->set_auto_delete(true);
     client->set_server_ip(ip.c_str());
     client->set_server_port(port);
     auto user = login();
     client->set_login(&user);
     if (!client->set_file(file))
     {
-        cout << "client->LoadFile failed!" << endl;
-        
+        string errmsg;
+        if (file.filesize() == 0)
+            errmsg = string("上传失败：文件为空 ") + file.local_path();
+        else
+            errmsg = string("上传失败：无法打开文件 ") + file.local_path() + " ，请检查路径权限";
+        XFileManager::Instance()->ErrorSig(errmsg);
         delete client;
         return;
     }

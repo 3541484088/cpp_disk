@@ -42,4 +42,5 @@ private:
     int sendsize_ = 0;                  //已经发送的文件大小
     XAES *aes_ = 0;                     //加密文件
     bool is_sec_upload_ = false;        //是否秒传
+    long long exist_size_ = 0;          //已存在的文件大小（用于断点续传）
 };

@@ -43,6 +43,8 @@
 #define DOWNLOAD_NAME "download"
 #define DIR_PORT 20300
 #define DIR_NAME "dir"
+#define SHARE_PORT 20400
+#define SHARE_NAME "share"
 
 
 

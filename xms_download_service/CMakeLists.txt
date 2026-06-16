@@ -10,6 +10,7 @@ add_executable(xms_download_service ${SOURCES})
 target_include_directories(xms_download_service PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${XDISK_ENV_ROOT}/include
+    ../LXMysql
 )
 
 # _CRT_SECURE_NO_WARNINGS 已在 XdiskCommon.cmake 中全局配置
@@ -21,6 +22,7 @@ target_link_libraries(xms_download_service PRIVATE
     xplatform
     register_client
     xdisk_pb
+    LXMysql
 )
 
 set_target_properties(xms_download_service PROPERTIES

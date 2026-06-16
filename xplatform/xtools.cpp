@@ -13,6 +13,8 @@
 #include <openssl/aes.h>
 #include <openssl/sha.h>
 #include "xmsg_com.pb.h"
+#include <filesystem>
+#include <chrono>
 
 #ifdef _WIN32
 #include <io.h>
@@ -512,84 +514,52 @@ XCOM_API bool XFileExist(const std::string& s)
  */
 XCOM_API void XNewDir(std::string path)
 {
-    string tmp = XFormatDir(path);
-
-    vector<string> paths;
-    XStringSplit(paths, tmp, "/");
-
-    string tmpstr = "";
-    for (auto s : paths)
-    {
-        tmpstr += s + "/";
-        // 如果目录不存在则创建
-        if (_access(tmpstr.c_str(), 0) == -1)
-        {
-            _mkdir(tmpstr.c_str());
-        }
-    }
+#ifdef _WIN32
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, nullptr, 0);
+    std::wstring wpath(wlen - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, &wpath[0], wlen);
+    std::filesystem::path fspath(wpath);
+#else
+    std::filesystem::path fspath(path);
+#endif
+    std::error_code ec;
+    std::filesystem::create_directories(fspath, ec);
 }
 
 /**
  * @brief 递归删除目录
- * @param path 要删除的目录路径
- * 
- * 递归遍历目录内所有文件和子目录，全部删除后再删除自身
+ * @param path 要删除的目录路径（UTF-8）
  */
 XCOM_API void XDelDir(std::string path)
 {
 #ifdef _WIN32
-    // 遍历目录中的所有条目
-    _finddata_t file;
-    string dirpath = path + "/*.*";
-    intptr_t dir = _findfirst(dirpath.c_str(), &file);
-    if (dir < 0)
-    {
-        // 目录不存在或无法打开，尝试直接删除
-        _rmdir(path.c_str());
-        return;
-    }
-    do
-    {
-        string name = file.name;
-        if (name == "." || name == "..")
-            continue;
-
-        string fullpath = path + "/" + name;
-        if (file.attrib & _A_SUBDIR)
-        {
-            // 递归删除子目录
-            XDelDir(fullpath);
-        }
-        else
-        {
-            // 删除文件
-            DeleteFileA(fullpath.c_str());
-        }
-    } while (_findnext(dir, &file) == 0);
-    _findclose(dir);
-
-    // 删除自身
-    _rmdir(path.c_str());
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, nullptr, 0);
+    std::wstring wpath(wlen - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, &wpath[0], wlen);
+    std::filesystem::path fspath(wpath);
 #else
-    // Linux平台使用系统命令
-    string cmd = "rm -rf \"" + path + "\"";
-    system(cmd.c_str());
+    std::filesystem::path fspath(path);
 #endif
+    std::error_code ec;
+    std::filesystem::remove_all(fspath, ec);
 }
 
 /**
  * @brief 删除文件
- * @param path 要删除的文件路径
- * 
- * Windows平台使用DeleteFileA，Linux平台使用remove
+ * @param path 要删除的文件路径（UTF-8）
  */
 XCOM_API void XDelFile(std::string path)
 {
 #ifdef _WIN32
-    DeleteFileA(path.c_str());
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, nullptr, 0);
+    std::wstring wpath(wlen - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, &wpath[0], wlen);
+    std::filesystem::path fspath(wpath);
 #else
-    remove(path.c_str());
+    std::filesystem::path fspath(path);
 #endif
+    std::error_code ec;
+    std::filesystem::remove(fspath, ec);
 }
 
 /**
@@ -602,71 +572,51 @@ XCOM_API void XDelFile(std::string path)
 XCOM_API std::list< XToolFileInfo > GetDirList(std::string path)
 {
     std::list< XToolFileInfo > file_list;
+    namespace fs = std::filesystem;
 
+    // path 是 UTF-8；Windows 上 filesystem::path 从 string 构造按 ANSI 解，
+    // 需要先转 wstring 才能正确处理中文路径。
 #ifdef _WIN32
-    // 使用Windows API遍历目录
-    _finddata_t file;
-    string dirpath = path + "/*.*";
-    
-    // 打开目录查找
-    intptr_t dir = _findfirst(dirpath.c_str(), &file);
-    if (dir < 0)
-        return file_list;
-    
-    char time_buf[128] = { 0 };
-    do
-    {
-        XToolFileInfo file_info;
-        if (file.attrib & _A_SUBDIR)
-        {
-            file_info.is_dir = true;
-        }
-        file_info.filename = file.name;
-        file_info.filesize = file.size;
-        file_info.time_write = file.time_write;
-        
-        // 格式化时间为 "YYYY-MM-DD HH:MM:SS" 格式
-        time_t tm = file_info.time_write;
-        strftime(time_buf, sizeof(time_buf), "%F %T", localtime(&tm));
-        file_info.time_str = time_buf;
-        file_list.push_back(file_info);
-    } while (_findnext(dir, &file) == 0);
-    _findclose(dir);
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, nullptr, 0);
+    std::wstring wpath(wlen - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, path.c_str(), -1, &wpath[0], wlen);
+    fs::path fspath(wpath);
 #else
-    // 使用POSIX API遍历目录
-    const char *dir = path.c_str();
-    DIR *dp = 0;
-    struct dirent *entry = 0;
-    struct stat statbuf;
-    
-    dp = opendir(dir);
-    if (dp == NULL)
-        return file_list;
-    
-    chdir(dir);
-    while ((entry = readdir(dp)) != NULL)
-    {
-        XToolFileInfo file_info;
-        lstat(entry->d_name, &statbuf);
-        
-        if (S_ISDIR(statbuf.st_mode))
-        {
-            file_info.is_dir = true;
-        }
-        file_info.filename = entry->d_name;
-        file_info.filesize = statbuf.st_size;
-        file_info.time_write = statbuf.st_mtime;
-        
-        // 格式化时间为 "YYYY-MM-DD HH:MM:SS" 格式
-        time_t tm = file_info.time_write;
-        char time_buf[32] = {0};
-        strftime(time_buf, sizeof(time_buf), "%F %T", localtime(&tm));
-        file_info.time_str = time_buf;
-        file_list.push_back(file_info);
-    }
-    closedir(dp);
+    fs::path fspath(path);
 #endif
 
+    std::error_code ec;
+    for (auto &entry : fs::directory_iterator(fspath, ec))
+    {
+        XToolFileInfo file_info;
+        file_info.filename = entry.path().filename().u8string();  // 统一 UTF-8
+        file_info.is_dir   = entry.is_directory(ec);
+        file_info.filesize = file_info.is_dir ? 0 : (long long)entry.file_size(ec);
+
+        // 修改时间转字符串
+        try
+        {
+            auto ftime   = entry.last_write_time(ec);
+            auto now_ft  = fs::file_time_type::clock::now();
+            auto now_sys = std::chrono::system_clock::now();
+            auto delta   = ftime - now_ft;
+            auto sys_tp  = now_sys +
+                std::chrono::duration_cast<std::chrono::system_clock::duration>(delta);
+            time_t tt = std::chrono::system_clock::to_time_t(sys_tp);
+            char buf[32] = {};
+#ifdef _WIN32
+            struct tm t; localtime_s(&t, &tt);
+#else
+            struct tm t; localtime_r(&tt, &t);
+#endif
+            strftime(buf, sizeof(buf), "%Y-%m-%d %H:%M:%S", &t);
+            file_info.time_str  = buf;
+            file_info.time_write = tt;
+        }
+        catch (...) {}
+
+        file_list.push_back(file_info);
+    }
     return file_list;
 }
 /**
@@ -1069,4 +1019,19 @@ XCOM_API std::string XGBKToUTF8(const std::string& gbk_str)
     result = gbk_str;
 #endif
     return result;
+}
+std::string GetDirRoot()
+{
+#ifdef _WIN32
+    char buf[MAX_PATH] = {};
+    GetModuleFileNameA(NULL, buf, MAX_PATH);
+    std::string path(buf);
+    // 截到最后一个 '\' 保留目录部分
+    auto pos = path.find_last_of("\\/");
+    if (pos != std::string::npos)
+        path = path.substr(0, pos + 1);
+    return path + "server_root/";
+#else
+    return "/mnt/xms/";
+#endif
 }

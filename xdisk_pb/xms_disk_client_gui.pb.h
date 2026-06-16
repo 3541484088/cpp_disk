@@ -49,9 +49,27 @@ struct TableStruct_xms_5fdisk_5fclient_5fgui_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto;
 namespace xdisk {
+class XAddShareUserReq;
+struct XAddShareUserReqDefaultTypeInternal;
+extern XAddShareUserReqDefaultTypeInternal _XAddShareUserReq_default_instance_;
+class XCreateShareFolderReq;
+struct XCreateShareFolderReqDefaultTypeInternal;
+extern XCreateShareFolderReqDefaultTypeInternal _XCreateShareFolderReq_default_instance_;
+class XCreateShareFolderRes;
+struct XCreateShareFolderResDefaultTypeInternal;
+extern XCreateShareFolderResDefaultTypeInternal _XCreateShareFolderRes_default_instance_;
+class XDeleteSharedFileReq;
+struct XDeleteSharedFileReqDefaultTypeInternal;
+extern XDeleteSharedFileReqDefaultTypeInternal _XDeleteSharedFileReq_default_instance_;
 class XDiskInfo;
 struct XDiskInfoDefaultTypeInternal;
 extern XDiskInfoDefaultTypeInternal _XDiskInfo_default_instance_;
+class XDownloadSharedFileReq;
+struct XDownloadSharedFileReqDefaultTypeInternal;
+extern XDownloadSharedFileReqDefaultTypeInternal _XDownloadSharedFileReq_default_instance_;
+class XDownloadSharedFileRes;
+struct XDownloadSharedFileResDefaultTypeInternal;
+extern XDownloadSharedFileResDefaultTypeInternal _XDownloadSharedFileRes_default_instance_;
 class XFileInfo;
 struct XFileInfoDefaultTypeInternal;
 extern XFileInfoDefaultTypeInternal _XFileInfo_default_instance_;
@@ -76,15 +94,48 @@ extern XFileTaskListDefaultTypeInternal _XFileTaskList_default_instance_;
 class XGetDirReq;
 struct XGetDirReqDefaultTypeInternal;
 extern XGetDirReqDefaultTypeInternal _XGetDirReq_default_instance_;
+class XGetSharedDirReq;
+struct XGetSharedDirReqDefaultTypeInternal;
+extern XGetSharedDirReqDefaultTypeInternal _XGetSharedDirReq_default_instance_;
+class XGetSharedDirRes;
+struct XGetSharedDirResDefaultTypeInternal;
+extern XGetSharedDirResDefaultTypeInternal _XGetSharedDirRes_default_instance_;
+class XGetSharedFoldersReq;
+struct XGetSharedFoldersReqDefaultTypeInternal;
+extern XGetSharedFoldersReqDefaultTypeInternal _XGetSharedFoldersReq_default_instance_;
+class XGetSharedFoldersRes;
+struct XGetSharedFoldersResDefaultTypeInternal;
+extern XGetSharedFoldersResDefaultTypeInternal _XGetSharedFoldersRes_default_instance_;
 class XMsgTask;
 struct XMsgTaskDefaultTypeInternal;
 extern XMsgTaskDefaultTypeInternal _XMsgTask_default_instance_;
+class XRemoveShareUserReq;
+struct XRemoveShareUserReqDefaultTypeInternal;
+extern XRemoveShareUserReqDefaultTypeInternal _XRemoveShareUserReq_default_instance_;
+class XShareUser;
+struct XShareUserDefaultTypeInternal;
+extern XShareUserDefaultTypeInternal _XShareUser_default_instance_;
+class XSharedFolderInfo;
+struct XSharedFolderInfoDefaultTypeInternal;
+extern XSharedFolderInfoDefaultTypeInternal _XSharedFolderInfo_default_instance_;
 class XTaskList;
 struct XTaskListDefaultTypeInternal;
 extern XTaskListDefaultTypeInternal _XTaskList_default_instance_;
+class XUploadSharedFileReq;
+struct XUploadSharedFileReqDefaultTypeInternal;
+extern XUploadSharedFileReqDefaultTypeInternal _XUploadSharedFileReq_default_instance_;
+class XUploadSharedFileRes;
+struct XUploadSharedFileResDefaultTypeInternal;
+extern XUploadSharedFileResDefaultTypeInternal _XUploadSharedFileRes_default_instance_;
 }  // namespace xdisk
 PROTOBUF_NAMESPACE_OPEN
+template<> ::xdisk::XAddShareUserReq* Arena::CreateMaybeMessage<::xdisk::XAddShareUserReq>(Arena*);
+template<> ::xdisk::XCreateShareFolderReq* Arena::CreateMaybeMessage<::xdisk::XCreateShareFolderReq>(Arena*);
+template<> ::xdisk::XCreateShareFolderRes* Arena::CreateMaybeMessage<::xdisk::XCreateShareFolderRes>(Arena*);
+template<> ::xdisk::XDeleteSharedFileReq* Arena::CreateMaybeMessage<::xdisk::XDeleteSharedFileReq>(Arena*);
 template<> ::xdisk::XDiskInfo* Arena::CreateMaybeMessage<::xdisk::XDiskInfo>(Arena*);
+template<> ::xdisk::XDownloadSharedFileReq* Arena::CreateMaybeMessage<::xdisk::XDownloadSharedFileReq>(Arena*);
+template<> ::xdisk::XDownloadSharedFileRes* Arena::CreateMaybeMessage<::xdisk::XDownloadSharedFileRes>(Arena*);
 template<> ::xdisk::XFileInfo* Arena::CreateMaybeMessage<::xdisk::XFileInfo>(Arena*);
 template<> ::xdisk::XFileInfoList* Arena::CreateMaybeMessage<::xdisk::XFileInfoList>(Arena*);
 template<> ::xdisk::XFileMsgMap* Arena::CreateMaybeMessage<::xdisk::XFileMsgMap>(Arena*);
@@ -93,8 +144,17 @@ template<> ::xdisk::XFileSlice* Arena::CreateMaybeMessage<::xdisk::XFileSlice>(A
 template<> ::xdisk::XFileTask* Arena::CreateMaybeMessage<::xdisk::XFileTask>(Arena*);
 template<> ::xdisk::XFileTaskList* Arena::CreateMaybeMessage<::xdisk::XFileTaskList>(Arena*);
 template<> ::xdisk::XGetDirReq* Arena::CreateMaybeMessage<::xdisk::XGetDirReq>(Arena*);
+template<> ::xdisk::XGetSharedDirReq* Arena::CreateMaybeMessage<::xdisk::XGetSharedDirReq>(Arena*);
+template<> ::xdisk::XGetSharedDirRes* Arena::CreateMaybeMessage<::xdisk::XGetSharedDirRes>(Arena*);
+template<> ::xdisk::XGetSharedFoldersReq* Arena::CreateMaybeMessage<::xdisk::XGetSharedFoldersReq>(Arena*);
+template<> ::xdisk::XGetSharedFoldersRes* Arena::CreateMaybeMessage<::xdisk::XGetSharedFoldersRes>(Arena*);
 template<> ::xdisk::XMsgTask* Arena::CreateMaybeMessage<::xdisk::XMsgTask>(Arena*);
+template<> ::xdisk::XRemoveShareUserReq* Arena::CreateMaybeMessage<::xdisk::XRemoveShareUserReq>(Arena*);
+template<> ::xdisk::XShareUser* Arena::CreateMaybeMessage<::xdisk::XShareUser>(Arena*);
+template<> ::xdisk::XSharedFolderInfo* Arena::CreateMaybeMessage<::xdisk::XSharedFolderInfo>(Arena*);
 template<> ::xdisk::XTaskList* Arena::CreateMaybeMessage<::xdisk::XTaskList>(Arena*);
+template<> ::xdisk::XUploadSharedFileReq* Arena::CreateMaybeMessage<::xdisk::XUploadSharedFileReq>(Arena*);
+template<> ::xdisk::XUploadSharedFileRes* Arena::CreateMaybeMessage<::xdisk::XUploadSharedFileRes>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace xdisk {
 
@@ -110,7 +170,7 @@ enum XFileMsgType : int {
   UPLOAD_FILE_END_RES = 1009,
   DOWNLOAD_FILE_REQ = 1010,
   DOWNLOAD_FILE_RES = 1011,
-  DOWNLOAD_FILE_BEGTIN = 10012,
+  DOWNLOAD_FILE_BEGIN = 10012,
   DOWNLOAD_SLICE_REQ = 1012,
   DOWNLOAD_SLICE_RES = 1013,
   DELETE_FILE_REQ = 1014,
@@ -119,12 +179,28 @@ enum XFileMsgType : int {
   NEW_DIR_RES = 1017,
   GET_DISK_INFO_REQ = 1018,
   GET_DISK_INFO_RES = 1019,
+  CREATE_SHARE_FOLDER_REQ = 2001,
+  CREATE_SHARE_FOLDER_RES = 2002,
+  ADD_SHARE_USER_REQ = 2003,
+  ADD_SHARE_USER_RES = 2004,
+  REMOVE_SHARE_USER_REQ = 2005,
+  REMOVE_SHARE_USER_RES = 2006,
+  GET_SHARED_FOLDERS_REQ = 2007,
+  GET_SHARED_FOLDERS_RES = 2008,
+  GET_SHARED_DIR_REQ = 2009,
+  GET_SHARED_DIR_RES = 2010,
+  DOWNLOAD_SHARED_FILE_REQ = 2011,
+  DOWNLOAD_SHARED_FILE_RES = 2012,
+  UPLOAD_SHARED_FILE_REQ = 2013,
+  UPLOAD_SHARED_FILE_RES = 2014,
+  DELETE_SHARED_FILE_REQ = 2015,
+  DELETE_SHARED_FILE_RES = 2016,
   XFileMsgType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   XFileMsgType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool XFileMsgType_IsValid(int value);
 constexpr XFileMsgType XFileMsgType_MIN = FILE_MSG_NONE;
-constexpr XFileMsgType XFileMsgType_MAX = DOWNLOAD_FILE_BEGTIN;
+constexpr XFileMsgType XFileMsgType_MAX = DOWNLOAD_FILE_BEGIN;
 constexpr int XFileMsgType_ARRAYSIZE = XFileMsgType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* XFileMsgType_descriptor();
@@ -2017,6 +2093,2661 @@ class XFileTaskList final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
 };
+// -------------------------------------------------------------------
+
+class XShareUser final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XShareUser) */ {
+ public:
+  inline XShareUser() : XShareUser(nullptr) {}
+  ~XShareUser() override;
+  explicit PROTOBUF_CONSTEXPR XShareUser(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XShareUser(const XShareUser& from);
+  XShareUser(XShareUser&& from) noexcept
+    : XShareUser() {
+    *this = ::std::move(from);
+  }
+
+  inline XShareUser& operator=(const XShareUser& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XShareUser& operator=(XShareUser&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XShareUser& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XShareUser* internal_default_instance() {
+    return reinterpret_cast<const XShareUser*>(
+               &_XShareUser_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    11;
+
+  friend void swap(XShareUser& a, XShareUser& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XShareUser* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XShareUser* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XShareUser* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XShareUser>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XShareUser& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XShareUser& from) {
+    XShareUser::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XShareUser* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XShareUser";
+  }
+  protected:
+  explicit XShareUser(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUsernameFieldNumber = 1,
+    kPermissionLevelFieldNumber = 2,
+  };
+  // string username = 1;
+  void clear_username();
+  const std::string& username() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_username(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_username();
+  PROTOBUF_NODISCARD std::string* release_username();
+  void set_allocated_username(std::string* username);
+  private:
+  const std::string& _internal_username() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_username(const std::string& value);
+  std::string* _internal_mutable_username();
+  public:
+
+  // string permission_level = 2;
+  void clear_permission_level();
+  const std::string& permission_level() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_permission_level(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_permission_level();
+  PROTOBUF_NODISCARD std::string* release_permission_level();
+  void set_allocated_permission_level(std::string* permission_level);
+  private:
+  const std::string& _internal_permission_level() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_permission_level(const std::string& value);
+  std::string* _internal_mutable_permission_level();
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XShareUser)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr username_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr permission_level_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XSharedFolderInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XSharedFolderInfo) */ {
+ public:
+  inline XSharedFolderInfo() : XSharedFolderInfo(nullptr) {}
+  ~XSharedFolderInfo() override;
+  explicit PROTOBUF_CONSTEXPR XSharedFolderInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XSharedFolderInfo(const XSharedFolderInfo& from);
+  XSharedFolderInfo(XSharedFolderInfo&& from) noexcept
+    : XSharedFolderInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline XSharedFolderInfo& operator=(const XSharedFolderInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XSharedFolderInfo& operator=(XSharedFolderInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XSharedFolderInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XSharedFolderInfo* internal_default_instance() {
+    return reinterpret_cast<const XSharedFolderInfo*>(
+               &_XSharedFolderInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    12;
+
+  friend void swap(XSharedFolderInfo& a, XSharedFolderInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XSharedFolderInfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XSharedFolderInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XSharedFolderInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XSharedFolderInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XSharedFolderInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XSharedFolderInfo& from) {
+    XSharedFolderInfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XSharedFolderInfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XSharedFolderInfo";
+  }
+  protected:
+  explicit XSharedFolderInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kOwnerFieldNumber = 2,
+    kNameFieldNumber = 3,
+    kCreatedAtFieldNumber = 4,
+    kIdFieldNumber = 1,
+    kUserCountFieldNumber = 5,
+    kFileCountFieldNumber = 6,
+  };
+  // string owner = 2;
+  void clear_owner();
+  const std::string& owner() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_owner(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_owner();
+  PROTOBUF_NODISCARD std::string* release_owner();
+  void set_allocated_owner(std::string* owner);
+  private:
+  const std::string& _internal_owner() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_owner(const std::string& value);
+  std::string* _internal_mutable_owner();
+  public:
+
+  // string name = 3;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string created_at = 4;
+  void clear_created_at();
+  const std::string& created_at() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_created_at(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_created_at();
+  PROTOBUF_NODISCARD std::string* release_created_at();
+  void set_allocated_created_at(std::string* created_at);
+  private:
+  const std::string& _internal_created_at() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_created_at(const std::string& value);
+  std::string* _internal_mutable_created_at();
+  public:
+
+  // int64 id = 1;
+  void clear_id();
+  int64_t id() const;
+  void set_id(int64_t value);
+  private:
+  int64_t _internal_id() const;
+  void _internal_set_id(int64_t value);
+  public:
+
+  // int32 user_count = 5;
+  void clear_user_count();
+  int32_t user_count() const;
+  void set_user_count(int32_t value);
+  private:
+  int32_t _internal_user_count() const;
+  void _internal_set_user_count(int32_t value);
+  public:
+
+  // int32 file_count = 6;
+  void clear_file_count();
+  int32_t file_count() const;
+  void set_file_count(int32_t value);
+  private:
+  int32_t _internal_file_count() const;
+  void _internal_set_file_count(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XSharedFolderInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr owner_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr created_at_;
+    int64_t id_;
+    int32_t user_count_;
+    int32_t file_count_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XCreateShareFolderReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XCreateShareFolderReq) */ {
+ public:
+  inline XCreateShareFolderReq() : XCreateShareFolderReq(nullptr) {}
+  ~XCreateShareFolderReq() override;
+  explicit PROTOBUF_CONSTEXPR XCreateShareFolderReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XCreateShareFolderReq(const XCreateShareFolderReq& from);
+  XCreateShareFolderReq(XCreateShareFolderReq&& from) noexcept
+    : XCreateShareFolderReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XCreateShareFolderReq& operator=(const XCreateShareFolderReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XCreateShareFolderReq& operator=(XCreateShareFolderReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XCreateShareFolderReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XCreateShareFolderReq* internal_default_instance() {
+    return reinterpret_cast<const XCreateShareFolderReq*>(
+               &_XCreateShareFolderReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    13;
+
+  friend void swap(XCreateShareFolderReq& a, XCreateShareFolderReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XCreateShareFolderReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XCreateShareFolderReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XCreateShareFolderReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XCreateShareFolderReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XCreateShareFolderReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XCreateShareFolderReq& from) {
+    XCreateShareFolderReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XCreateShareFolderReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XCreateShareFolderReq";
+  }
+  protected:
+  explicit XCreateShareFolderReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUsersFieldNumber = 2,
+    kNameFieldNumber = 1,
+  };
+  // repeated .xdisk.XShareUser users = 2;
+  int users_size() const;
+  private:
+  int _internal_users_size() const;
+  public:
+  void clear_users();
+  ::xdisk::XShareUser* mutable_users(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >*
+      mutable_users();
+  private:
+  const ::xdisk::XShareUser& _internal_users(int index) const;
+  ::xdisk::XShareUser* _internal_add_users();
+  public:
+  const ::xdisk::XShareUser& users(int index) const;
+  ::xdisk::XShareUser* add_users();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >&
+      users() const;
+
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XCreateShareFolderReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser > users_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XCreateShareFolderRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XCreateShareFolderRes) */ {
+ public:
+  inline XCreateShareFolderRes() : XCreateShareFolderRes(nullptr) {}
+  ~XCreateShareFolderRes() override;
+  explicit PROTOBUF_CONSTEXPR XCreateShareFolderRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XCreateShareFolderRes(const XCreateShareFolderRes& from);
+  XCreateShareFolderRes(XCreateShareFolderRes&& from) noexcept
+    : XCreateShareFolderRes() {
+    *this = ::std::move(from);
+  }
+
+  inline XCreateShareFolderRes& operator=(const XCreateShareFolderRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XCreateShareFolderRes& operator=(XCreateShareFolderRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XCreateShareFolderRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XCreateShareFolderRes* internal_default_instance() {
+    return reinterpret_cast<const XCreateShareFolderRes*>(
+               &_XCreateShareFolderRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    14;
+
+  friend void swap(XCreateShareFolderRes& a, XCreateShareFolderRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XCreateShareFolderRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XCreateShareFolderRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XCreateShareFolderRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XCreateShareFolderRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XCreateShareFolderRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XCreateShareFolderRes& from) {
+    XCreateShareFolderRes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XCreateShareFolderRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XCreateShareFolderRes";
+  }
+  protected:
+  explicit XCreateShareFolderRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMsgFieldNumber = 2,
+    kFolderIdFieldNumber = 3,
+    kCodeFieldNumber = 1,
+  };
+  // bytes msg = 2;
+  void clear_msg();
+  const std::string& msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // int64 folder_id = 3;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // int32 code = 1;
+  void clear_code();
+  int32_t code() const;
+  void set_code(int32_t value);
+  private:
+  int32_t _internal_code() const;
+  void _internal_set_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XCreateShareFolderRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+    int64_t folder_id_;
+    int32_t code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XAddShareUserReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XAddShareUserReq) */ {
+ public:
+  inline XAddShareUserReq() : XAddShareUserReq(nullptr) {}
+  ~XAddShareUserReq() override;
+  explicit PROTOBUF_CONSTEXPR XAddShareUserReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XAddShareUserReq(const XAddShareUserReq& from);
+  XAddShareUserReq(XAddShareUserReq&& from) noexcept
+    : XAddShareUserReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XAddShareUserReq& operator=(const XAddShareUserReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XAddShareUserReq& operator=(XAddShareUserReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XAddShareUserReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XAddShareUserReq* internal_default_instance() {
+    return reinterpret_cast<const XAddShareUserReq*>(
+               &_XAddShareUserReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    15;
+
+  friend void swap(XAddShareUserReq& a, XAddShareUserReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XAddShareUserReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XAddShareUserReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XAddShareUserReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XAddShareUserReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XAddShareUserReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XAddShareUserReq& from) {
+    XAddShareUserReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XAddShareUserReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XAddShareUserReq";
+  }
+  protected:
+  explicit XAddShareUserReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUsersFieldNumber = 2,
+    kFolderIdFieldNumber = 1,
+  };
+  // repeated .xdisk.XShareUser users = 2;
+  int users_size() const;
+  private:
+  int _internal_users_size() const;
+  public:
+  void clear_users();
+  ::xdisk::XShareUser* mutable_users(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >*
+      mutable_users();
+  private:
+  const ::xdisk::XShareUser& _internal_users(int index) const;
+  ::xdisk::XShareUser* _internal_add_users();
+  public:
+  const ::xdisk::XShareUser& users(int index) const;
+  ::xdisk::XShareUser* add_users();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >&
+      users() const;
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XAddShareUserReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser > users_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XRemoveShareUserReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XRemoveShareUserReq) */ {
+ public:
+  inline XRemoveShareUserReq() : XRemoveShareUserReq(nullptr) {}
+  ~XRemoveShareUserReq() override;
+  explicit PROTOBUF_CONSTEXPR XRemoveShareUserReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XRemoveShareUserReq(const XRemoveShareUserReq& from);
+  XRemoveShareUserReq(XRemoveShareUserReq&& from) noexcept
+    : XRemoveShareUserReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XRemoveShareUserReq& operator=(const XRemoveShareUserReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XRemoveShareUserReq& operator=(XRemoveShareUserReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XRemoveShareUserReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XRemoveShareUserReq* internal_default_instance() {
+    return reinterpret_cast<const XRemoveShareUserReq*>(
+               &_XRemoveShareUserReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    16;
+
+  friend void swap(XRemoveShareUserReq& a, XRemoveShareUserReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XRemoveShareUserReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XRemoveShareUserReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XRemoveShareUserReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XRemoveShareUserReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XRemoveShareUserReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XRemoveShareUserReq& from) {
+    XRemoveShareUserReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XRemoveShareUserReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XRemoveShareUserReq";
+  }
+  protected:
+  explicit XRemoveShareUserReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUsernamesFieldNumber = 2,
+    kFolderIdFieldNumber = 1,
+  };
+  // repeated string usernames = 2;
+  int usernames_size() const;
+  private:
+  int _internal_usernames_size() const;
+  public:
+  void clear_usernames();
+  const std::string& usernames(int index) const;
+  std::string* mutable_usernames(int index);
+  void set_usernames(int index, const std::string& value);
+  void set_usernames(int index, std::string&& value);
+  void set_usernames(int index, const char* value);
+  void set_usernames(int index, const char* value, size_t size);
+  std::string* add_usernames();
+  void add_usernames(const std::string& value);
+  void add_usernames(std::string&& value);
+  void add_usernames(const char* value);
+  void add_usernames(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& usernames() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_usernames();
+  private:
+  const std::string& _internal_usernames(int index) const;
+  std::string* _internal_add_usernames();
+  public:
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XRemoveShareUserReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> usernames_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XGetSharedFoldersReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XGetSharedFoldersReq) */ {
+ public:
+  inline XGetSharedFoldersReq() : XGetSharedFoldersReq(nullptr) {}
+  ~XGetSharedFoldersReq() override;
+  explicit PROTOBUF_CONSTEXPR XGetSharedFoldersReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XGetSharedFoldersReq(const XGetSharedFoldersReq& from);
+  XGetSharedFoldersReq(XGetSharedFoldersReq&& from) noexcept
+    : XGetSharedFoldersReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XGetSharedFoldersReq& operator=(const XGetSharedFoldersReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XGetSharedFoldersReq& operator=(XGetSharedFoldersReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XGetSharedFoldersReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XGetSharedFoldersReq* internal_default_instance() {
+    return reinterpret_cast<const XGetSharedFoldersReq*>(
+               &_XGetSharedFoldersReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(XGetSharedFoldersReq& a, XGetSharedFoldersReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XGetSharedFoldersReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XGetSharedFoldersReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XGetSharedFoldersReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XGetSharedFoldersReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XGetSharedFoldersReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XGetSharedFoldersReq& from) {
+    XGetSharedFoldersReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XGetSharedFoldersReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XGetSharedFoldersReq";
+  }
+  protected:
+  explicit XGetSharedFoldersReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kUsernameFieldNumber = 1,
+  };
+  // string username = 1;
+  void clear_username();
+  const std::string& username() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_username(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_username();
+  PROTOBUF_NODISCARD std::string* release_username();
+  void set_allocated_username(std::string* username);
+  private:
+  const std::string& _internal_username() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_username(const std::string& value);
+  std::string* _internal_mutable_username();
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XGetSharedFoldersReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr username_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XGetSharedFoldersRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XGetSharedFoldersRes) */ {
+ public:
+  inline XGetSharedFoldersRes() : XGetSharedFoldersRes(nullptr) {}
+  ~XGetSharedFoldersRes() override;
+  explicit PROTOBUF_CONSTEXPR XGetSharedFoldersRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XGetSharedFoldersRes(const XGetSharedFoldersRes& from);
+  XGetSharedFoldersRes(XGetSharedFoldersRes&& from) noexcept
+    : XGetSharedFoldersRes() {
+    *this = ::std::move(from);
+  }
+
+  inline XGetSharedFoldersRes& operator=(const XGetSharedFoldersRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XGetSharedFoldersRes& operator=(XGetSharedFoldersRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XGetSharedFoldersRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XGetSharedFoldersRes* internal_default_instance() {
+    return reinterpret_cast<const XGetSharedFoldersRes*>(
+               &_XGetSharedFoldersRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  friend void swap(XGetSharedFoldersRes& a, XGetSharedFoldersRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XGetSharedFoldersRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XGetSharedFoldersRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XGetSharedFoldersRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XGetSharedFoldersRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XGetSharedFoldersRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XGetSharedFoldersRes& from) {
+    XGetSharedFoldersRes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XGetSharedFoldersRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XGetSharedFoldersRes";
+  }
+  protected:
+  explicit XGetSharedFoldersRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFoldersFieldNumber = 1,
+  };
+  // repeated .xdisk.XSharedFolderInfo folders = 1;
+  int folders_size() const;
+  private:
+  int _internal_folders_size() const;
+  public:
+  void clear_folders();
+  ::xdisk::XSharedFolderInfo* mutable_folders(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XSharedFolderInfo >*
+      mutable_folders();
+  private:
+  const ::xdisk::XSharedFolderInfo& _internal_folders(int index) const;
+  ::xdisk::XSharedFolderInfo* _internal_add_folders();
+  public:
+  const ::xdisk::XSharedFolderInfo& folders(int index) const;
+  ::xdisk::XSharedFolderInfo* add_folders();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XSharedFolderInfo >&
+      folders() const;
+
+  // @@protoc_insertion_point(class_scope:xdisk.XGetSharedFoldersRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XSharedFolderInfo > folders_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XGetSharedDirReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XGetSharedDirReq) */ {
+ public:
+  inline XGetSharedDirReq() : XGetSharedDirReq(nullptr) {}
+  ~XGetSharedDirReq() override;
+  explicit PROTOBUF_CONSTEXPR XGetSharedDirReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XGetSharedDirReq(const XGetSharedDirReq& from);
+  XGetSharedDirReq(XGetSharedDirReq&& from) noexcept
+    : XGetSharedDirReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XGetSharedDirReq& operator=(const XGetSharedDirReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XGetSharedDirReq& operator=(XGetSharedDirReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XGetSharedDirReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XGetSharedDirReq* internal_default_instance() {
+    return reinterpret_cast<const XGetSharedDirReq*>(
+               &_XGetSharedDirReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  friend void swap(XGetSharedDirReq& a, XGetSharedDirReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XGetSharedDirReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XGetSharedDirReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XGetSharedDirReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XGetSharedDirReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XGetSharedDirReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XGetSharedDirReq& from) {
+    XGetSharedDirReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XGetSharedDirReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XGetSharedDirReq";
+  }
+  protected:
+  explicit XGetSharedDirReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPathFieldNumber = 2,
+    kFolderIdFieldNumber = 1,
+  };
+  // string path = 2;
+  void clear_path();
+  const std::string& path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_path();
+  PROTOBUF_NODISCARD std::string* release_path();
+  void set_allocated_path(std::string* path);
+  private:
+  const std::string& _internal_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_path(const std::string& value);
+  std::string* _internal_mutable_path();
+  public:
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XGetSharedDirReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr path_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XGetSharedDirRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XGetSharedDirRes) */ {
+ public:
+  inline XGetSharedDirRes() : XGetSharedDirRes(nullptr) {}
+  ~XGetSharedDirRes() override;
+  explicit PROTOBUF_CONSTEXPR XGetSharedDirRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XGetSharedDirRes(const XGetSharedDirRes& from);
+  XGetSharedDirRes(XGetSharedDirRes&& from) noexcept
+    : XGetSharedDirRes() {
+    *this = ::std::move(from);
+  }
+
+  inline XGetSharedDirRes& operator=(const XGetSharedDirRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XGetSharedDirRes& operator=(XGetSharedDirRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XGetSharedDirRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XGetSharedDirRes* internal_default_instance() {
+    return reinterpret_cast<const XGetSharedDirRes*>(
+               &_XGetSharedDirRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    20;
+
+  friend void swap(XGetSharedDirRes& a, XGetSharedDirRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XGetSharedDirRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XGetSharedDirRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XGetSharedDirRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XGetSharedDirRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XGetSharedDirRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XGetSharedDirRes& from) {
+    XGetSharedDirRes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XGetSharedDirRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XGetSharedDirRes";
+  }
+  protected:
+  explicit XGetSharedDirRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilesFieldNumber = 3,
+    kMsgFieldNumber = 2,
+    kCodeFieldNumber = 1,
+  };
+  // repeated .xdisk.XFileInfo files = 3;
+  int files_size() const;
+  private:
+  int _internal_files_size() const;
+  public:
+  void clear_files();
+  ::xdisk::XFileInfo* mutable_files(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XFileInfo >*
+      mutable_files();
+  private:
+  const ::xdisk::XFileInfo& _internal_files(int index) const;
+  ::xdisk::XFileInfo* _internal_add_files();
+  public:
+  const ::xdisk::XFileInfo& files(int index) const;
+  ::xdisk::XFileInfo* add_files();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XFileInfo >&
+      files() const;
+
+  // bytes msg = 2;
+  void clear_msg();
+  const std::string& msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // int32 code = 1;
+  void clear_code();
+  int32_t code() const;
+  void set_code(int32_t value);
+  private:
+  int32_t _internal_code() const;
+  void _internal_set_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XGetSharedDirRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XFileInfo > files_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+    int32_t code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XDownloadSharedFileReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XDownloadSharedFileReq) */ {
+ public:
+  inline XDownloadSharedFileReq() : XDownloadSharedFileReq(nullptr) {}
+  ~XDownloadSharedFileReq() override;
+  explicit PROTOBUF_CONSTEXPR XDownloadSharedFileReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XDownloadSharedFileReq(const XDownloadSharedFileReq& from);
+  XDownloadSharedFileReq(XDownloadSharedFileReq&& from) noexcept
+    : XDownloadSharedFileReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XDownloadSharedFileReq& operator=(const XDownloadSharedFileReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XDownloadSharedFileReq& operator=(XDownloadSharedFileReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XDownloadSharedFileReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XDownloadSharedFileReq* internal_default_instance() {
+    return reinterpret_cast<const XDownloadSharedFileReq*>(
+               &_XDownloadSharedFileReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  friend void swap(XDownloadSharedFileReq& a, XDownloadSharedFileReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XDownloadSharedFileReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XDownloadSharedFileReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XDownloadSharedFileReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XDownloadSharedFileReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XDownloadSharedFileReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XDownloadSharedFileReq& from) {
+    XDownloadSharedFileReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XDownloadSharedFileReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XDownloadSharedFileReq";
+  }
+  protected:
+  explicit XDownloadSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilenameFieldNumber = 2,
+    kFiledirFieldNumber = 3,
+    kLocalPathFieldNumber = 4,
+    kFolderIdFieldNumber = 1,
+  };
+  // string filename = 2;
+  void clear_filename();
+  const std::string& filename() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filename(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filename();
+  PROTOBUF_NODISCARD std::string* release_filename();
+  void set_allocated_filename(std::string* filename);
+  private:
+  const std::string& _internal_filename() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filename(const std::string& value);
+  std::string* _internal_mutable_filename();
+  public:
+
+  // string filedir = 3;
+  void clear_filedir();
+  const std::string& filedir() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filedir(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filedir();
+  PROTOBUF_NODISCARD std::string* release_filedir();
+  void set_allocated_filedir(std::string* filedir);
+  private:
+  const std::string& _internal_filedir() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filedir(const std::string& value);
+  std::string* _internal_mutable_filedir();
+  public:
+
+  // bytes local_path = 4;
+  void clear_local_path();
+  const std::string& local_path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_local_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_local_path();
+  PROTOBUF_NODISCARD std::string* release_local_path();
+  void set_allocated_local_path(std::string* local_path);
+  private:
+  const std::string& _internal_local_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_local_path(const std::string& value);
+  std::string* _internal_mutable_local_path();
+  public:
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XDownloadSharedFileReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filedir_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr local_path_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XDownloadSharedFileRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XDownloadSharedFileRes) */ {
+ public:
+  inline XDownloadSharedFileRes() : XDownloadSharedFileRes(nullptr) {}
+  ~XDownloadSharedFileRes() override;
+  explicit PROTOBUF_CONSTEXPR XDownloadSharedFileRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XDownloadSharedFileRes(const XDownloadSharedFileRes& from);
+  XDownloadSharedFileRes(XDownloadSharedFileRes&& from) noexcept
+    : XDownloadSharedFileRes() {
+    *this = ::std::move(from);
+  }
+
+  inline XDownloadSharedFileRes& operator=(const XDownloadSharedFileRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XDownloadSharedFileRes& operator=(XDownloadSharedFileRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XDownloadSharedFileRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XDownloadSharedFileRes* internal_default_instance() {
+    return reinterpret_cast<const XDownloadSharedFileRes*>(
+               &_XDownloadSharedFileRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  friend void swap(XDownloadSharedFileRes& a, XDownloadSharedFileRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XDownloadSharedFileRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XDownloadSharedFileRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XDownloadSharedFileRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XDownloadSharedFileRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XDownloadSharedFileRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XDownloadSharedFileRes& from) {
+    XDownloadSharedFileRes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XDownloadSharedFileRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XDownloadSharedFileRes";
+  }
+  protected:
+  explicit XDownloadSharedFileRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMsgFieldNumber = 2,
+    kAuthorizedPathFieldNumber = 3,
+    kFileInfoFieldNumber = 4,
+    kCodeFieldNumber = 1,
+  };
+  // bytes msg = 2;
+  void clear_msg();
+  const std::string& msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // string authorized_path = 3;
+  void clear_authorized_path();
+  const std::string& authorized_path() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_authorized_path(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_authorized_path();
+  PROTOBUF_NODISCARD std::string* release_authorized_path();
+  void set_allocated_authorized_path(std::string* authorized_path);
+  private:
+  const std::string& _internal_authorized_path() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_authorized_path(const std::string& value);
+  std::string* _internal_mutable_authorized_path();
+  public:
+
+  // .xdisk.XFileInfo file_info = 4;
+  bool has_file_info() const;
+  private:
+  bool _internal_has_file_info() const;
+  public:
+  void clear_file_info();
+  const ::xdisk::XFileInfo& file_info() const;
+  PROTOBUF_NODISCARD ::xdisk::XFileInfo* release_file_info();
+  ::xdisk::XFileInfo* mutable_file_info();
+  void set_allocated_file_info(::xdisk::XFileInfo* file_info);
+  private:
+  const ::xdisk::XFileInfo& _internal_file_info() const;
+  ::xdisk::XFileInfo* _internal_mutable_file_info();
+  public:
+  void unsafe_arena_set_allocated_file_info(
+      ::xdisk::XFileInfo* file_info);
+  ::xdisk::XFileInfo* unsafe_arena_release_file_info();
+
+  // int32 code = 1;
+  void clear_code();
+  int32_t code() const;
+  void set_code(int32_t value);
+  private:
+  int32_t _internal_code() const;
+  void _internal_set_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XDownloadSharedFileRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr authorized_path_;
+    ::xdisk::XFileInfo* file_info_;
+    int32_t code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XUploadSharedFileReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XUploadSharedFileReq) */ {
+ public:
+  inline XUploadSharedFileReq() : XUploadSharedFileReq(nullptr) {}
+  ~XUploadSharedFileReq() override;
+  explicit PROTOBUF_CONSTEXPR XUploadSharedFileReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XUploadSharedFileReq(const XUploadSharedFileReq& from);
+  XUploadSharedFileReq(XUploadSharedFileReq&& from) noexcept
+    : XUploadSharedFileReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XUploadSharedFileReq& operator=(const XUploadSharedFileReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XUploadSharedFileReq& operator=(XUploadSharedFileReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XUploadSharedFileReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XUploadSharedFileReq* internal_default_instance() {
+    return reinterpret_cast<const XUploadSharedFileReq*>(
+               &_XUploadSharedFileReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(XUploadSharedFileReq& a, XUploadSharedFileReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XUploadSharedFileReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XUploadSharedFileReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XUploadSharedFileReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XUploadSharedFileReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XUploadSharedFileReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XUploadSharedFileReq& from) {
+    XUploadSharedFileReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XUploadSharedFileReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XUploadSharedFileReq";
+  }
+  protected:
+  explicit XUploadSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFiledirFieldNumber = 2,
+    kFolderIdFieldNumber = 1,
+  };
+  // string filedir = 2;
+  void clear_filedir();
+  const std::string& filedir() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filedir(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filedir();
+  PROTOBUF_NODISCARD std::string* release_filedir();
+  void set_allocated_filedir(std::string* filedir);
+  private:
+  const std::string& _internal_filedir() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filedir(const std::string& value);
+  std::string* _internal_mutable_filedir();
+  public:
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XUploadSharedFileReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filedir_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XUploadSharedFileRes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XUploadSharedFileRes) */ {
+ public:
+  inline XUploadSharedFileRes() : XUploadSharedFileRes(nullptr) {}
+  ~XUploadSharedFileRes() override;
+  explicit PROTOBUF_CONSTEXPR XUploadSharedFileRes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XUploadSharedFileRes(const XUploadSharedFileRes& from);
+  XUploadSharedFileRes(XUploadSharedFileRes&& from) noexcept
+    : XUploadSharedFileRes() {
+    *this = ::std::move(from);
+  }
+
+  inline XUploadSharedFileRes& operator=(const XUploadSharedFileRes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XUploadSharedFileRes& operator=(XUploadSharedFileRes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XUploadSharedFileRes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XUploadSharedFileRes* internal_default_instance() {
+    return reinterpret_cast<const XUploadSharedFileRes*>(
+               &_XUploadSharedFileRes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  friend void swap(XUploadSharedFileRes& a, XUploadSharedFileRes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XUploadSharedFileRes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XUploadSharedFileRes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XUploadSharedFileRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XUploadSharedFileRes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XUploadSharedFileRes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XUploadSharedFileRes& from) {
+    XUploadSharedFileRes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XUploadSharedFileRes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XUploadSharedFileRes";
+  }
+  protected:
+  explicit XUploadSharedFileRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAuthorizedFiledirFieldNumber = 2,
+    kMsgFieldNumber = 3,
+    kCodeFieldNumber = 1,
+  };
+  // string authorized_filedir = 2;
+  void clear_authorized_filedir();
+  const std::string& authorized_filedir() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_authorized_filedir(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_authorized_filedir();
+  PROTOBUF_NODISCARD std::string* release_authorized_filedir();
+  void set_allocated_authorized_filedir(std::string* authorized_filedir);
+  private:
+  const std::string& _internal_authorized_filedir() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_authorized_filedir(const std::string& value);
+  std::string* _internal_mutable_authorized_filedir();
+  public:
+
+  // bytes msg = 3;
+  void clear_msg();
+  const std::string& msg() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_msg(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_msg();
+  PROTOBUF_NODISCARD std::string* release_msg();
+  void set_allocated_msg(std::string* msg);
+  private:
+  const std::string& _internal_msg() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_msg(const std::string& value);
+  std::string* _internal_mutable_msg();
+  public:
+
+  // int32 code = 1;
+  void clear_code();
+  int32_t code() const;
+  void set_code(int32_t value);
+  private:
+  int32_t _internal_code() const;
+  void _internal_set_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XUploadSharedFileRes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr authorized_filedir_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr msg_;
+    int32_t code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class XDeleteSharedFileReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XDeleteSharedFileReq) */ {
+ public:
+  inline XDeleteSharedFileReq() : XDeleteSharedFileReq(nullptr) {}
+  ~XDeleteSharedFileReq() override;
+  explicit PROTOBUF_CONSTEXPR XDeleteSharedFileReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XDeleteSharedFileReq(const XDeleteSharedFileReq& from);
+  XDeleteSharedFileReq(XDeleteSharedFileReq&& from) noexcept
+    : XDeleteSharedFileReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XDeleteSharedFileReq& operator=(const XDeleteSharedFileReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XDeleteSharedFileReq& operator=(XDeleteSharedFileReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XDeleteSharedFileReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XDeleteSharedFileReq* internal_default_instance() {
+    return reinterpret_cast<const XDeleteSharedFileReq*>(
+               &_XDeleteSharedFileReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  friend void swap(XDeleteSharedFileReq& a, XDeleteSharedFileReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XDeleteSharedFileReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XDeleteSharedFileReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XDeleteSharedFileReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XDeleteSharedFileReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XDeleteSharedFileReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XDeleteSharedFileReq& from) {
+    XDeleteSharedFileReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XDeleteSharedFileReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XDeleteSharedFileReq";
+  }
+  protected:
+  explicit XDeleteSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFilenameFieldNumber = 2,
+    kFiledirFieldNumber = 3,
+    kFolderIdFieldNumber = 1,
+  };
+  // string filename = 2;
+  void clear_filename();
+  const std::string& filename() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filename(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filename();
+  PROTOBUF_NODISCARD std::string* release_filename();
+  void set_allocated_filename(std::string* filename);
+  private:
+  const std::string& _internal_filename() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filename(const std::string& value);
+  std::string* _internal_mutable_filename();
+  public:
+
+  // string filedir = 3;
+  void clear_filedir();
+  const std::string& filedir() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_filedir(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_filedir();
+  PROTOBUF_NODISCARD std::string* release_filedir();
+  void set_allocated_filedir(std::string* filedir);
+  private:
+  const std::string& _internal_filedir() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_filedir(const std::string& value);
+  std::string* _internal_mutable_filedir();
+  public:
+
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XDeleteSharedFileReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filename_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr filedir_;
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
 // ===================================================================
 
 
@@ -3255,9 +5986,1704 @@ XFileTaskList::downloads() const {
   return _impl_.downloads_;
 }
 
+// -------------------------------------------------------------------
+
+// XShareUser
+
+// string username = 1;
+inline void XShareUser::clear_username() {
+  _impl_.username_.ClearToEmpty();
+}
+inline const std::string& XShareUser::username() const {
+  // @@protoc_insertion_point(field_get:xdisk.XShareUser.username)
+  return _internal_username();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XShareUser::set_username(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.username_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XShareUser.username)
+}
+inline std::string* XShareUser::mutable_username() {
+  std::string* _s = _internal_mutable_username();
+  // @@protoc_insertion_point(field_mutable:xdisk.XShareUser.username)
+  return _s;
+}
+inline const std::string& XShareUser::_internal_username() const {
+  return _impl_.username_.Get();
+}
+inline void XShareUser::_internal_set_username(const std::string& value) {
+  
+  _impl_.username_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XShareUser::_internal_mutable_username() {
+  
+  return _impl_.username_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XShareUser::release_username() {
+  // @@protoc_insertion_point(field_release:xdisk.XShareUser.username)
+  return _impl_.username_.Release();
+}
+inline void XShareUser::set_allocated_username(std::string* username) {
+  if (username != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.username_.SetAllocated(username, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.username_.IsDefault()) {
+    _impl_.username_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XShareUser.username)
+}
+
+// string permission_level = 2;
+inline void XShareUser::clear_permission_level() {
+  _impl_.permission_level_.ClearToEmpty();
+}
+inline const std::string& XShareUser::permission_level() const {
+  // @@protoc_insertion_point(field_get:xdisk.XShareUser.permission_level)
+  return _internal_permission_level();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XShareUser::set_permission_level(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.permission_level_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XShareUser.permission_level)
+}
+inline std::string* XShareUser::mutable_permission_level() {
+  std::string* _s = _internal_mutable_permission_level();
+  // @@protoc_insertion_point(field_mutable:xdisk.XShareUser.permission_level)
+  return _s;
+}
+inline const std::string& XShareUser::_internal_permission_level() const {
+  return _impl_.permission_level_.Get();
+}
+inline void XShareUser::_internal_set_permission_level(const std::string& value) {
+  
+  _impl_.permission_level_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XShareUser::_internal_mutable_permission_level() {
+  
+  return _impl_.permission_level_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XShareUser::release_permission_level() {
+  // @@protoc_insertion_point(field_release:xdisk.XShareUser.permission_level)
+  return _impl_.permission_level_.Release();
+}
+inline void XShareUser::set_allocated_permission_level(std::string* permission_level) {
+  if (permission_level != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.permission_level_.SetAllocated(permission_level, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.permission_level_.IsDefault()) {
+    _impl_.permission_level_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XShareUser.permission_level)
+}
+
+// -------------------------------------------------------------------
+
+// XSharedFolderInfo
+
+// int64 id = 1;
+inline void XSharedFolderInfo::clear_id() {
+  _impl_.id_ = int64_t{0};
+}
+inline int64_t XSharedFolderInfo::_internal_id() const {
+  return _impl_.id_;
+}
+inline int64_t XSharedFolderInfo::id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.id)
+  return _internal_id();
+}
+inline void XSharedFolderInfo::_internal_set_id(int64_t value) {
+  
+  _impl_.id_ = value;
+}
+inline void XSharedFolderInfo::set_id(int64_t value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.id)
+}
+
+// string owner = 2;
+inline void XSharedFolderInfo::clear_owner() {
+  _impl_.owner_.ClearToEmpty();
+}
+inline const std::string& XSharedFolderInfo::owner() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.owner)
+  return _internal_owner();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XSharedFolderInfo::set_owner(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.owner_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.owner)
+}
+inline std::string* XSharedFolderInfo::mutable_owner() {
+  std::string* _s = _internal_mutable_owner();
+  // @@protoc_insertion_point(field_mutable:xdisk.XSharedFolderInfo.owner)
+  return _s;
+}
+inline const std::string& XSharedFolderInfo::_internal_owner() const {
+  return _impl_.owner_.Get();
+}
+inline void XSharedFolderInfo::_internal_set_owner(const std::string& value) {
+  
+  _impl_.owner_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::_internal_mutable_owner() {
+  
+  return _impl_.owner_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::release_owner() {
+  // @@protoc_insertion_point(field_release:xdisk.XSharedFolderInfo.owner)
+  return _impl_.owner_.Release();
+}
+inline void XSharedFolderInfo::set_allocated_owner(std::string* owner) {
+  if (owner != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.owner_.SetAllocated(owner, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.owner_.IsDefault()) {
+    _impl_.owner_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XSharedFolderInfo.owner)
+}
+
+// string name = 3;
+inline void XSharedFolderInfo::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& XSharedFolderInfo::name() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XSharedFolderInfo::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.name)
+}
+inline std::string* XSharedFolderInfo::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:xdisk.XSharedFolderInfo.name)
+  return _s;
+}
+inline const std::string& XSharedFolderInfo::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void XSharedFolderInfo::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::release_name() {
+  // @@protoc_insertion_point(field_release:xdisk.XSharedFolderInfo.name)
+  return _impl_.name_.Release();
+}
+inline void XSharedFolderInfo::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XSharedFolderInfo.name)
+}
+
+// string created_at = 4;
+inline void XSharedFolderInfo::clear_created_at() {
+  _impl_.created_at_.ClearToEmpty();
+}
+inline const std::string& XSharedFolderInfo::created_at() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.created_at)
+  return _internal_created_at();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XSharedFolderInfo::set_created_at(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.created_at_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.created_at)
+}
+inline std::string* XSharedFolderInfo::mutable_created_at() {
+  std::string* _s = _internal_mutable_created_at();
+  // @@protoc_insertion_point(field_mutable:xdisk.XSharedFolderInfo.created_at)
+  return _s;
+}
+inline const std::string& XSharedFolderInfo::_internal_created_at() const {
+  return _impl_.created_at_.Get();
+}
+inline void XSharedFolderInfo::_internal_set_created_at(const std::string& value) {
+  
+  _impl_.created_at_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::_internal_mutable_created_at() {
+  
+  return _impl_.created_at_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XSharedFolderInfo::release_created_at() {
+  // @@protoc_insertion_point(field_release:xdisk.XSharedFolderInfo.created_at)
+  return _impl_.created_at_.Release();
+}
+inline void XSharedFolderInfo::set_allocated_created_at(std::string* created_at) {
+  if (created_at != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.created_at_.SetAllocated(created_at, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.created_at_.IsDefault()) {
+    _impl_.created_at_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XSharedFolderInfo.created_at)
+}
+
+// int32 user_count = 5;
+inline void XSharedFolderInfo::clear_user_count() {
+  _impl_.user_count_ = 0;
+}
+inline int32_t XSharedFolderInfo::_internal_user_count() const {
+  return _impl_.user_count_;
+}
+inline int32_t XSharedFolderInfo::user_count() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.user_count)
+  return _internal_user_count();
+}
+inline void XSharedFolderInfo::_internal_set_user_count(int32_t value) {
+  
+  _impl_.user_count_ = value;
+}
+inline void XSharedFolderInfo::set_user_count(int32_t value) {
+  _internal_set_user_count(value);
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.user_count)
+}
+
+// int32 file_count = 6;
+inline void XSharedFolderInfo::clear_file_count() {
+  _impl_.file_count_ = 0;
+}
+inline int32_t XSharedFolderInfo::_internal_file_count() const {
+  return _impl_.file_count_;
+}
+inline int32_t XSharedFolderInfo::file_count() const {
+  // @@protoc_insertion_point(field_get:xdisk.XSharedFolderInfo.file_count)
+  return _internal_file_count();
+}
+inline void XSharedFolderInfo::_internal_set_file_count(int32_t value) {
+  
+  _impl_.file_count_ = value;
+}
+inline void XSharedFolderInfo::set_file_count(int32_t value) {
+  _internal_set_file_count(value);
+  // @@protoc_insertion_point(field_set:xdisk.XSharedFolderInfo.file_count)
+}
+
+// -------------------------------------------------------------------
+
+// XCreateShareFolderReq
+
+// string name = 1;
+inline void XCreateShareFolderReq::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& XCreateShareFolderReq::name() const {
+  // @@protoc_insertion_point(field_get:xdisk.XCreateShareFolderReq.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XCreateShareFolderReq::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XCreateShareFolderReq.name)
+}
+inline std::string* XCreateShareFolderReq::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:xdisk.XCreateShareFolderReq.name)
+  return _s;
+}
+inline const std::string& XCreateShareFolderReq::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void XCreateShareFolderReq::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XCreateShareFolderReq::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XCreateShareFolderReq::release_name() {
+  // @@protoc_insertion_point(field_release:xdisk.XCreateShareFolderReq.name)
+  return _impl_.name_.Release();
+}
+inline void XCreateShareFolderReq::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XCreateShareFolderReq.name)
+}
+
+// repeated .xdisk.XShareUser users = 2;
+inline int XCreateShareFolderReq::_internal_users_size() const {
+  return _impl_.users_.size();
+}
+inline int XCreateShareFolderReq::users_size() const {
+  return _internal_users_size();
+}
+inline void XCreateShareFolderReq::clear_users() {
+  _impl_.users_.Clear();
+}
+inline ::xdisk::XShareUser* XCreateShareFolderReq::mutable_users(int index) {
+  // @@protoc_insertion_point(field_mutable:xdisk.XCreateShareFolderReq.users)
+  return _impl_.users_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >*
+XCreateShareFolderReq::mutable_users() {
+  // @@protoc_insertion_point(field_mutable_list:xdisk.XCreateShareFolderReq.users)
+  return &_impl_.users_;
+}
+inline const ::xdisk::XShareUser& XCreateShareFolderReq::_internal_users(int index) const {
+  return _impl_.users_.Get(index);
+}
+inline const ::xdisk::XShareUser& XCreateShareFolderReq::users(int index) const {
+  // @@protoc_insertion_point(field_get:xdisk.XCreateShareFolderReq.users)
+  return _internal_users(index);
+}
+inline ::xdisk::XShareUser* XCreateShareFolderReq::_internal_add_users() {
+  return _impl_.users_.Add();
+}
+inline ::xdisk::XShareUser* XCreateShareFolderReq::add_users() {
+  ::xdisk::XShareUser* _add = _internal_add_users();
+  // @@protoc_insertion_point(field_add:xdisk.XCreateShareFolderReq.users)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >&
+XCreateShareFolderReq::users() const {
+  // @@protoc_insertion_point(field_list:xdisk.XCreateShareFolderReq.users)
+  return _impl_.users_;
+}
+
+// -------------------------------------------------------------------
+
+// XCreateShareFolderRes
+
+// int32 code = 1;
+inline void XCreateShareFolderRes::clear_code() {
+  _impl_.code_ = 0;
+}
+inline int32_t XCreateShareFolderRes::_internal_code() const {
+  return _impl_.code_;
+}
+inline int32_t XCreateShareFolderRes::code() const {
+  // @@protoc_insertion_point(field_get:xdisk.XCreateShareFolderRes.code)
+  return _internal_code();
+}
+inline void XCreateShareFolderRes::_internal_set_code(int32_t value) {
+  
+  _impl_.code_ = value;
+}
+inline void XCreateShareFolderRes::set_code(int32_t value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:xdisk.XCreateShareFolderRes.code)
+}
+
+// bytes msg = 2;
+inline void XCreateShareFolderRes::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& XCreateShareFolderRes::msg() const {
+  // @@protoc_insertion_point(field_get:xdisk.XCreateShareFolderRes.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XCreateShareFolderRes::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.msg_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XCreateShareFolderRes.msg)
+}
+inline std::string* XCreateShareFolderRes::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:xdisk.XCreateShareFolderRes.msg)
+  return _s;
+}
+inline const std::string& XCreateShareFolderRes::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void XCreateShareFolderRes::_internal_set_msg(const std::string& value) {
+  
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XCreateShareFolderRes::_internal_mutable_msg() {
+  
+  return _impl_.msg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XCreateShareFolderRes::release_msg() {
+  // @@protoc_insertion_point(field_release:xdisk.XCreateShareFolderRes.msg)
+  return _impl_.msg_.Release();
+}
+inline void XCreateShareFolderRes::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.msg_.SetAllocated(msg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.msg_.IsDefault()) {
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XCreateShareFolderRes.msg)
+}
+
+// int64 folder_id = 3;
+inline void XCreateShareFolderRes::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XCreateShareFolderRes::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XCreateShareFolderRes::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XCreateShareFolderRes.folder_id)
+  return _internal_folder_id();
+}
+inline void XCreateShareFolderRes::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XCreateShareFolderRes::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XCreateShareFolderRes.folder_id)
+}
+
+// -------------------------------------------------------------------
+
+// XAddShareUserReq
+
+// int64 folder_id = 1;
+inline void XAddShareUserReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XAddShareUserReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XAddShareUserReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XAddShareUserReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XAddShareUserReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XAddShareUserReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XAddShareUserReq.folder_id)
+}
+
+// repeated .xdisk.XShareUser users = 2;
+inline int XAddShareUserReq::_internal_users_size() const {
+  return _impl_.users_.size();
+}
+inline int XAddShareUserReq::users_size() const {
+  return _internal_users_size();
+}
+inline void XAddShareUserReq::clear_users() {
+  _impl_.users_.Clear();
+}
+inline ::xdisk::XShareUser* XAddShareUserReq::mutable_users(int index) {
+  // @@protoc_insertion_point(field_mutable:xdisk.XAddShareUserReq.users)
+  return _impl_.users_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >*
+XAddShareUserReq::mutable_users() {
+  // @@protoc_insertion_point(field_mutable_list:xdisk.XAddShareUserReq.users)
+  return &_impl_.users_;
+}
+inline const ::xdisk::XShareUser& XAddShareUserReq::_internal_users(int index) const {
+  return _impl_.users_.Get(index);
+}
+inline const ::xdisk::XShareUser& XAddShareUserReq::users(int index) const {
+  // @@protoc_insertion_point(field_get:xdisk.XAddShareUserReq.users)
+  return _internal_users(index);
+}
+inline ::xdisk::XShareUser* XAddShareUserReq::_internal_add_users() {
+  return _impl_.users_.Add();
+}
+inline ::xdisk::XShareUser* XAddShareUserReq::add_users() {
+  ::xdisk::XShareUser* _add = _internal_add_users();
+  // @@protoc_insertion_point(field_add:xdisk.XAddShareUserReq.users)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XShareUser >&
+XAddShareUserReq::users() const {
+  // @@protoc_insertion_point(field_list:xdisk.XAddShareUserReq.users)
+  return _impl_.users_;
+}
+
+// -------------------------------------------------------------------
+
+// XRemoveShareUserReq
+
+// int64 folder_id = 1;
+inline void XRemoveShareUserReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XRemoveShareUserReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XRemoveShareUserReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XRemoveShareUserReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XRemoveShareUserReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XRemoveShareUserReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XRemoveShareUserReq.folder_id)
+}
+
+// repeated string usernames = 2;
+inline int XRemoveShareUserReq::_internal_usernames_size() const {
+  return _impl_.usernames_.size();
+}
+inline int XRemoveShareUserReq::usernames_size() const {
+  return _internal_usernames_size();
+}
+inline void XRemoveShareUserReq::clear_usernames() {
+  _impl_.usernames_.Clear();
+}
+inline std::string* XRemoveShareUserReq::add_usernames() {
+  std::string* _s = _internal_add_usernames();
+  // @@protoc_insertion_point(field_add_mutable:xdisk.XRemoveShareUserReq.usernames)
+  return _s;
+}
+inline const std::string& XRemoveShareUserReq::_internal_usernames(int index) const {
+  return _impl_.usernames_.Get(index);
+}
+inline const std::string& XRemoveShareUserReq::usernames(int index) const {
+  // @@protoc_insertion_point(field_get:xdisk.XRemoveShareUserReq.usernames)
+  return _internal_usernames(index);
+}
+inline std::string* XRemoveShareUserReq::mutable_usernames(int index) {
+  // @@protoc_insertion_point(field_mutable:xdisk.XRemoveShareUserReq.usernames)
+  return _impl_.usernames_.Mutable(index);
+}
+inline void XRemoveShareUserReq::set_usernames(int index, const std::string& value) {
+  _impl_.usernames_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::set_usernames(int index, std::string&& value) {
+  _impl_.usernames_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::set_usernames(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.usernames_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::set_usernames(int index, const char* value, size_t size) {
+  _impl_.usernames_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:xdisk.XRemoveShareUserReq.usernames)
+}
+inline std::string* XRemoveShareUserReq::_internal_add_usernames() {
+  return _impl_.usernames_.Add();
+}
+inline void XRemoveShareUserReq::add_usernames(const std::string& value) {
+  _impl_.usernames_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::add_usernames(std::string&& value) {
+  _impl_.usernames_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::add_usernames(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.usernames_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:xdisk.XRemoveShareUserReq.usernames)
+}
+inline void XRemoveShareUserReq::add_usernames(const char* value, size_t size) {
+  _impl_.usernames_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:xdisk.XRemoveShareUserReq.usernames)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+XRemoveShareUserReq::usernames() const {
+  // @@protoc_insertion_point(field_list:xdisk.XRemoveShareUserReq.usernames)
+  return _impl_.usernames_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+XRemoveShareUserReq::mutable_usernames() {
+  // @@protoc_insertion_point(field_mutable_list:xdisk.XRemoveShareUserReq.usernames)
+  return &_impl_.usernames_;
+}
+
+// -------------------------------------------------------------------
+
+// XGetSharedFoldersReq
+
+// string username = 1;
+inline void XGetSharedFoldersReq::clear_username() {
+  _impl_.username_.ClearToEmpty();
+}
+inline const std::string& XGetSharedFoldersReq::username() const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedFoldersReq.username)
+  return _internal_username();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XGetSharedFoldersReq::set_username(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.username_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XGetSharedFoldersReq.username)
+}
+inline std::string* XGetSharedFoldersReq::mutable_username() {
+  std::string* _s = _internal_mutable_username();
+  // @@protoc_insertion_point(field_mutable:xdisk.XGetSharedFoldersReq.username)
+  return _s;
+}
+inline const std::string& XGetSharedFoldersReq::_internal_username() const {
+  return _impl_.username_.Get();
+}
+inline void XGetSharedFoldersReq::_internal_set_username(const std::string& value) {
+  
+  _impl_.username_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XGetSharedFoldersReq::_internal_mutable_username() {
+  
+  return _impl_.username_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XGetSharedFoldersReq::release_username() {
+  // @@protoc_insertion_point(field_release:xdisk.XGetSharedFoldersReq.username)
+  return _impl_.username_.Release();
+}
+inline void XGetSharedFoldersReq::set_allocated_username(std::string* username) {
+  if (username != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.username_.SetAllocated(username, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.username_.IsDefault()) {
+    _impl_.username_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XGetSharedFoldersReq.username)
+}
+
+// -------------------------------------------------------------------
+
+// XGetSharedFoldersRes
+
+// repeated .xdisk.XSharedFolderInfo folders = 1;
+inline int XGetSharedFoldersRes::_internal_folders_size() const {
+  return _impl_.folders_.size();
+}
+inline int XGetSharedFoldersRes::folders_size() const {
+  return _internal_folders_size();
+}
+inline void XGetSharedFoldersRes::clear_folders() {
+  _impl_.folders_.Clear();
+}
+inline ::xdisk::XSharedFolderInfo* XGetSharedFoldersRes::mutable_folders(int index) {
+  // @@protoc_insertion_point(field_mutable:xdisk.XGetSharedFoldersRes.folders)
+  return _impl_.folders_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XSharedFolderInfo >*
+XGetSharedFoldersRes::mutable_folders() {
+  // @@protoc_insertion_point(field_mutable_list:xdisk.XGetSharedFoldersRes.folders)
+  return &_impl_.folders_;
+}
+inline const ::xdisk::XSharedFolderInfo& XGetSharedFoldersRes::_internal_folders(int index) const {
+  return _impl_.folders_.Get(index);
+}
+inline const ::xdisk::XSharedFolderInfo& XGetSharedFoldersRes::folders(int index) const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedFoldersRes.folders)
+  return _internal_folders(index);
+}
+inline ::xdisk::XSharedFolderInfo* XGetSharedFoldersRes::_internal_add_folders() {
+  return _impl_.folders_.Add();
+}
+inline ::xdisk::XSharedFolderInfo* XGetSharedFoldersRes::add_folders() {
+  ::xdisk::XSharedFolderInfo* _add = _internal_add_folders();
+  // @@protoc_insertion_point(field_add:xdisk.XGetSharedFoldersRes.folders)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XSharedFolderInfo >&
+XGetSharedFoldersRes::folders() const {
+  // @@protoc_insertion_point(field_list:xdisk.XGetSharedFoldersRes.folders)
+  return _impl_.folders_;
+}
+
+// -------------------------------------------------------------------
+
+// XGetSharedDirReq
+
+// int64 folder_id = 1;
+inline void XGetSharedDirReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XGetSharedDirReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XGetSharedDirReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedDirReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XGetSharedDirReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XGetSharedDirReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XGetSharedDirReq.folder_id)
+}
+
+// string path = 2;
+inline void XGetSharedDirReq::clear_path() {
+  _impl_.path_.ClearToEmpty();
+}
+inline const std::string& XGetSharedDirReq::path() const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedDirReq.path)
+  return _internal_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XGetSharedDirReq::set_path(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XGetSharedDirReq.path)
+}
+inline std::string* XGetSharedDirReq::mutable_path() {
+  std::string* _s = _internal_mutable_path();
+  // @@protoc_insertion_point(field_mutable:xdisk.XGetSharedDirReq.path)
+  return _s;
+}
+inline const std::string& XGetSharedDirReq::_internal_path() const {
+  return _impl_.path_.Get();
+}
+inline void XGetSharedDirReq::_internal_set_path(const std::string& value) {
+  
+  _impl_.path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XGetSharedDirReq::_internal_mutable_path() {
+  
+  return _impl_.path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XGetSharedDirReq::release_path() {
+  // @@protoc_insertion_point(field_release:xdisk.XGetSharedDirReq.path)
+  return _impl_.path_.Release();
+}
+inline void XGetSharedDirReq::set_allocated_path(std::string* path) {
+  if (path != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.path_.SetAllocated(path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.path_.IsDefault()) {
+    _impl_.path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XGetSharedDirReq.path)
+}
+
+// -------------------------------------------------------------------
+
+// XGetSharedDirRes
+
+// int32 code = 1;
+inline void XGetSharedDirRes::clear_code() {
+  _impl_.code_ = 0;
+}
+inline int32_t XGetSharedDirRes::_internal_code() const {
+  return _impl_.code_;
+}
+inline int32_t XGetSharedDirRes::code() const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedDirRes.code)
+  return _internal_code();
+}
+inline void XGetSharedDirRes::_internal_set_code(int32_t value) {
+  
+  _impl_.code_ = value;
+}
+inline void XGetSharedDirRes::set_code(int32_t value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:xdisk.XGetSharedDirRes.code)
+}
+
+// bytes msg = 2;
+inline void XGetSharedDirRes::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& XGetSharedDirRes::msg() const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedDirRes.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XGetSharedDirRes::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.msg_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XGetSharedDirRes.msg)
+}
+inline std::string* XGetSharedDirRes::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:xdisk.XGetSharedDirRes.msg)
+  return _s;
+}
+inline const std::string& XGetSharedDirRes::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void XGetSharedDirRes::_internal_set_msg(const std::string& value) {
+  
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XGetSharedDirRes::_internal_mutable_msg() {
+  
+  return _impl_.msg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XGetSharedDirRes::release_msg() {
+  // @@protoc_insertion_point(field_release:xdisk.XGetSharedDirRes.msg)
+  return _impl_.msg_.Release();
+}
+inline void XGetSharedDirRes::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.msg_.SetAllocated(msg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.msg_.IsDefault()) {
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XGetSharedDirRes.msg)
+}
+
+// repeated .xdisk.XFileInfo files = 3;
+inline int XGetSharedDirRes::_internal_files_size() const {
+  return _impl_.files_.size();
+}
+inline int XGetSharedDirRes::files_size() const {
+  return _internal_files_size();
+}
+inline void XGetSharedDirRes::clear_files() {
+  _impl_.files_.Clear();
+}
+inline ::xdisk::XFileInfo* XGetSharedDirRes::mutable_files(int index) {
+  // @@protoc_insertion_point(field_mutable:xdisk.XGetSharedDirRes.files)
+  return _impl_.files_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XFileInfo >*
+XGetSharedDirRes::mutable_files() {
+  // @@protoc_insertion_point(field_mutable_list:xdisk.XGetSharedDirRes.files)
+  return &_impl_.files_;
+}
+inline const ::xdisk::XFileInfo& XGetSharedDirRes::_internal_files(int index) const {
+  return _impl_.files_.Get(index);
+}
+inline const ::xdisk::XFileInfo& XGetSharedDirRes::files(int index) const {
+  // @@protoc_insertion_point(field_get:xdisk.XGetSharedDirRes.files)
+  return _internal_files(index);
+}
+inline ::xdisk::XFileInfo* XGetSharedDirRes::_internal_add_files() {
+  return _impl_.files_.Add();
+}
+inline ::xdisk::XFileInfo* XGetSharedDirRes::add_files() {
+  ::xdisk::XFileInfo* _add = _internal_add_files();
+  // @@protoc_insertion_point(field_add:xdisk.XGetSharedDirRes.files)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::xdisk::XFileInfo >&
+XGetSharedDirRes::files() const {
+  // @@protoc_insertion_point(field_list:xdisk.XGetSharedDirRes.files)
+  return _impl_.files_;
+}
+
+// -------------------------------------------------------------------
+
+// XDownloadSharedFileReq
+
+// int64 folder_id = 1;
+inline void XDownloadSharedFileReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XDownloadSharedFileReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XDownloadSharedFileReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XDownloadSharedFileReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XDownloadSharedFileReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileReq.folder_id)
+}
+
+// string filename = 2;
+inline void XDownloadSharedFileReq::clear_filename() {
+  _impl_.filename_.ClearToEmpty();
+}
+inline const std::string& XDownloadSharedFileReq::filename() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileReq.filename)
+  return _internal_filename();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDownloadSharedFileReq::set_filename(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filename_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileReq.filename)
+}
+inline std::string* XDownloadSharedFileReq::mutable_filename() {
+  std::string* _s = _internal_mutable_filename();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileReq.filename)
+  return _s;
+}
+inline const std::string& XDownloadSharedFileReq::_internal_filename() const {
+  return _impl_.filename_.Get();
+}
+inline void XDownloadSharedFileReq::_internal_set_filename(const std::string& value) {
+  
+  _impl_.filename_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::_internal_mutable_filename() {
+  
+  return _impl_.filename_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::release_filename() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileReq.filename)
+  return _impl_.filename_.Release();
+}
+inline void XDownloadSharedFileReq::set_allocated_filename(std::string* filename) {
+  if (filename != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filename_.SetAllocated(filename, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filename_.IsDefault()) {
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileReq.filename)
+}
+
+// string filedir = 3;
+inline void XDownloadSharedFileReq::clear_filedir() {
+  _impl_.filedir_.ClearToEmpty();
+}
+inline const std::string& XDownloadSharedFileReq::filedir() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileReq.filedir)
+  return _internal_filedir();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDownloadSharedFileReq::set_filedir(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filedir_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileReq.filedir)
+}
+inline std::string* XDownloadSharedFileReq::mutable_filedir() {
+  std::string* _s = _internal_mutable_filedir();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileReq.filedir)
+  return _s;
+}
+inline const std::string& XDownloadSharedFileReq::_internal_filedir() const {
+  return _impl_.filedir_.Get();
+}
+inline void XDownloadSharedFileReq::_internal_set_filedir(const std::string& value) {
+  
+  _impl_.filedir_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::_internal_mutable_filedir() {
+  
+  return _impl_.filedir_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::release_filedir() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileReq.filedir)
+  return _impl_.filedir_.Release();
+}
+inline void XDownloadSharedFileReq::set_allocated_filedir(std::string* filedir) {
+  if (filedir != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filedir_.SetAllocated(filedir, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filedir_.IsDefault()) {
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileReq.filedir)
+}
+
+// bytes local_path = 4;
+inline void XDownloadSharedFileReq::clear_local_path() {
+  _impl_.local_path_.ClearToEmpty();
+}
+inline const std::string& XDownloadSharedFileReq::local_path() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileReq.local_path)
+  return _internal_local_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDownloadSharedFileReq::set_local_path(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.local_path_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileReq.local_path)
+}
+inline std::string* XDownloadSharedFileReq::mutable_local_path() {
+  std::string* _s = _internal_mutable_local_path();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileReq.local_path)
+  return _s;
+}
+inline const std::string& XDownloadSharedFileReq::_internal_local_path() const {
+  return _impl_.local_path_.Get();
+}
+inline void XDownloadSharedFileReq::_internal_set_local_path(const std::string& value) {
+  
+  _impl_.local_path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::_internal_mutable_local_path() {
+  
+  return _impl_.local_path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileReq::release_local_path() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileReq.local_path)
+  return _impl_.local_path_.Release();
+}
+inline void XDownloadSharedFileReq::set_allocated_local_path(std::string* local_path) {
+  if (local_path != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.local_path_.SetAllocated(local_path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.local_path_.IsDefault()) {
+    _impl_.local_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileReq.local_path)
+}
+
+// -------------------------------------------------------------------
+
+// XDownloadSharedFileRes
+
+// int32 code = 1;
+inline void XDownloadSharedFileRes::clear_code() {
+  _impl_.code_ = 0;
+}
+inline int32_t XDownloadSharedFileRes::_internal_code() const {
+  return _impl_.code_;
+}
+inline int32_t XDownloadSharedFileRes::code() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileRes.code)
+  return _internal_code();
+}
+inline void XDownloadSharedFileRes::_internal_set_code(int32_t value) {
+  
+  _impl_.code_ = value;
+}
+inline void XDownloadSharedFileRes::set_code(int32_t value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileRes.code)
+}
+
+// bytes msg = 2;
+inline void XDownloadSharedFileRes::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& XDownloadSharedFileRes::msg() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileRes.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDownloadSharedFileRes::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.msg_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileRes.msg)
+}
+inline std::string* XDownloadSharedFileRes::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileRes.msg)
+  return _s;
+}
+inline const std::string& XDownloadSharedFileRes::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void XDownloadSharedFileRes::_internal_set_msg(const std::string& value) {
+  
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileRes::_internal_mutable_msg() {
+  
+  return _impl_.msg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileRes::release_msg() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileRes.msg)
+  return _impl_.msg_.Release();
+}
+inline void XDownloadSharedFileRes::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.msg_.SetAllocated(msg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.msg_.IsDefault()) {
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileRes.msg)
+}
+
+// string authorized_path = 3;
+inline void XDownloadSharedFileRes::clear_authorized_path() {
+  _impl_.authorized_path_.ClearToEmpty();
+}
+inline const std::string& XDownloadSharedFileRes::authorized_path() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileRes.authorized_path)
+  return _internal_authorized_path();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDownloadSharedFileRes::set_authorized_path(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.authorized_path_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDownloadSharedFileRes.authorized_path)
+}
+inline std::string* XDownloadSharedFileRes::mutable_authorized_path() {
+  std::string* _s = _internal_mutable_authorized_path();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileRes.authorized_path)
+  return _s;
+}
+inline const std::string& XDownloadSharedFileRes::_internal_authorized_path() const {
+  return _impl_.authorized_path_.Get();
+}
+inline void XDownloadSharedFileRes::_internal_set_authorized_path(const std::string& value) {
+  
+  _impl_.authorized_path_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileRes::_internal_mutable_authorized_path() {
+  
+  return _impl_.authorized_path_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDownloadSharedFileRes::release_authorized_path() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileRes.authorized_path)
+  return _impl_.authorized_path_.Release();
+}
+inline void XDownloadSharedFileRes::set_allocated_authorized_path(std::string* authorized_path) {
+  if (authorized_path != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.authorized_path_.SetAllocated(authorized_path, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.authorized_path_.IsDefault()) {
+    _impl_.authorized_path_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileRes.authorized_path)
+}
+
+// .xdisk.XFileInfo file_info = 4;
+inline bool XDownloadSharedFileRes::_internal_has_file_info() const {
+  return this != internal_default_instance() && _impl_.file_info_ != nullptr;
+}
+inline bool XDownloadSharedFileRes::has_file_info() const {
+  return _internal_has_file_info();
+}
+inline void XDownloadSharedFileRes::clear_file_info() {
+  if (GetArenaForAllocation() == nullptr && _impl_.file_info_ != nullptr) {
+    delete _impl_.file_info_;
+  }
+  _impl_.file_info_ = nullptr;
+}
+inline const ::xdisk::XFileInfo& XDownloadSharedFileRes::_internal_file_info() const {
+  const ::xdisk::XFileInfo* p = _impl_.file_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xdisk::XFileInfo&>(
+      ::xdisk::_XFileInfo_default_instance_);
+}
+inline const ::xdisk::XFileInfo& XDownloadSharedFileRes::file_info() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDownloadSharedFileRes.file_info)
+  return _internal_file_info();
+}
+inline void XDownloadSharedFileRes::unsafe_arena_set_allocated_file_info(
+    ::xdisk::XFileInfo* file_info) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.file_info_);
+  }
+  _impl_.file_info_ = file_info;
+  if (file_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xdisk.XDownloadSharedFileRes.file_info)
+}
+inline ::xdisk::XFileInfo* XDownloadSharedFileRes::release_file_info() {
+  
+  ::xdisk::XFileInfo* temp = _impl_.file_info_;
+  _impl_.file_info_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::xdisk::XFileInfo* XDownloadSharedFileRes::unsafe_arena_release_file_info() {
+  // @@protoc_insertion_point(field_release:xdisk.XDownloadSharedFileRes.file_info)
+  
+  ::xdisk::XFileInfo* temp = _impl_.file_info_;
+  _impl_.file_info_ = nullptr;
+  return temp;
+}
+inline ::xdisk::XFileInfo* XDownloadSharedFileRes::_internal_mutable_file_info() {
+  
+  if (_impl_.file_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xdisk::XFileInfo>(GetArenaForAllocation());
+    _impl_.file_info_ = p;
+  }
+  return _impl_.file_info_;
+}
+inline ::xdisk::XFileInfo* XDownloadSharedFileRes::mutable_file_info() {
+  ::xdisk::XFileInfo* _msg = _internal_mutable_file_info();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDownloadSharedFileRes.file_info)
+  return _msg;
+}
+inline void XDownloadSharedFileRes::set_allocated_file_info(::xdisk::XFileInfo* file_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.file_info_;
+  }
+  if (file_info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(file_info);
+    if (message_arena != submessage_arena) {
+      file_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, file_info, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.file_info_ = file_info;
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDownloadSharedFileRes.file_info)
+}
+
+// -------------------------------------------------------------------
+
+// XUploadSharedFileReq
+
+// int64 folder_id = 1;
+inline void XUploadSharedFileReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XUploadSharedFileReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XUploadSharedFileReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XUploadSharedFileReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XUploadSharedFileReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XUploadSharedFileReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XUploadSharedFileReq.folder_id)
+}
+
+// string filedir = 2;
+inline void XUploadSharedFileReq::clear_filedir() {
+  _impl_.filedir_.ClearToEmpty();
+}
+inline const std::string& XUploadSharedFileReq::filedir() const {
+  // @@protoc_insertion_point(field_get:xdisk.XUploadSharedFileReq.filedir)
+  return _internal_filedir();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XUploadSharedFileReq::set_filedir(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filedir_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XUploadSharedFileReq.filedir)
+}
+inline std::string* XUploadSharedFileReq::mutable_filedir() {
+  std::string* _s = _internal_mutable_filedir();
+  // @@protoc_insertion_point(field_mutable:xdisk.XUploadSharedFileReq.filedir)
+  return _s;
+}
+inline const std::string& XUploadSharedFileReq::_internal_filedir() const {
+  return _impl_.filedir_.Get();
+}
+inline void XUploadSharedFileReq::_internal_set_filedir(const std::string& value) {
+  
+  _impl_.filedir_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileReq::_internal_mutable_filedir() {
+  
+  return _impl_.filedir_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileReq::release_filedir() {
+  // @@protoc_insertion_point(field_release:xdisk.XUploadSharedFileReq.filedir)
+  return _impl_.filedir_.Release();
+}
+inline void XUploadSharedFileReq::set_allocated_filedir(std::string* filedir) {
+  if (filedir != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filedir_.SetAllocated(filedir, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filedir_.IsDefault()) {
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XUploadSharedFileReq.filedir)
+}
+
+// -------------------------------------------------------------------
+
+// XUploadSharedFileRes
+
+// int32 code = 1;
+inline void XUploadSharedFileRes::clear_code() {
+  _impl_.code_ = 0;
+}
+inline int32_t XUploadSharedFileRes::_internal_code() const {
+  return _impl_.code_;
+}
+inline int32_t XUploadSharedFileRes::code() const {
+  // @@protoc_insertion_point(field_get:xdisk.XUploadSharedFileRes.code)
+  return _internal_code();
+}
+inline void XUploadSharedFileRes::_internal_set_code(int32_t value) {
+  
+  _impl_.code_ = value;
+}
+inline void XUploadSharedFileRes::set_code(int32_t value) {
+  _internal_set_code(value);
+  // @@protoc_insertion_point(field_set:xdisk.XUploadSharedFileRes.code)
+}
+
+// string authorized_filedir = 2;
+inline void XUploadSharedFileRes::clear_authorized_filedir() {
+  _impl_.authorized_filedir_.ClearToEmpty();
+}
+inline const std::string& XUploadSharedFileRes::authorized_filedir() const {
+  // @@protoc_insertion_point(field_get:xdisk.XUploadSharedFileRes.authorized_filedir)
+  return _internal_authorized_filedir();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XUploadSharedFileRes::set_authorized_filedir(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.authorized_filedir_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XUploadSharedFileRes.authorized_filedir)
+}
+inline std::string* XUploadSharedFileRes::mutable_authorized_filedir() {
+  std::string* _s = _internal_mutable_authorized_filedir();
+  // @@protoc_insertion_point(field_mutable:xdisk.XUploadSharedFileRes.authorized_filedir)
+  return _s;
+}
+inline const std::string& XUploadSharedFileRes::_internal_authorized_filedir() const {
+  return _impl_.authorized_filedir_.Get();
+}
+inline void XUploadSharedFileRes::_internal_set_authorized_filedir(const std::string& value) {
+  
+  _impl_.authorized_filedir_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileRes::_internal_mutable_authorized_filedir() {
+  
+  return _impl_.authorized_filedir_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileRes::release_authorized_filedir() {
+  // @@protoc_insertion_point(field_release:xdisk.XUploadSharedFileRes.authorized_filedir)
+  return _impl_.authorized_filedir_.Release();
+}
+inline void XUploadSharedFileRes::set_allocated_authorized_filedir(std::string* authorized_filedir) {
+  if (authorized_filedir != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.authorized_filedir_.SetAllocated(authorized_filedir, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.authorized_filedir_.IsDefault()) {
+    _impl_.authorized_filedir_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XUploadSharedFileRes.authorized_filedir)
+}
+
+// bytes msg = 3;
+inline void XUploadSharedFileRes::clear_msg() {
+  _impl_.msg_.ClearToEmpty();
+}
+inline const std::string& XUploadSharedFileRes::msg() const {
+  // @@protoc_insertion_point(field_get:xdisk.XUploadSharedFileRes.msg)
+  return _internal_msg();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XUploadSharedFileRes::set_msg(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.msg_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XUploadSharedFileRes.msg)
+}
+inline std::string* XUploadSharedFileRes::mutable_msg() {
+  std::string* _s = _internal_mutable_msg();
+  // @@protoc_insertion_point(field_mutable:xdisk.XUploadSharedFileRes.msg)
+  return _s;
+}
+inline const std::string& XUploadSharedFileRes::_internal_msg() const {
+  return _impl_.msg_.Get();
+}
+inline void XUploadSharedFileRes::_internal_set_msg(const std::string& value) {
+  
+  _impl_.msg_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileRes::_internal_mutable_msg() {
+  
+  return _impl_.msg_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XUploadSharedFileRes::release_msg() {
+  // @@protoc_insertion_point(field_release:xdisk.XUploadSharedFileRes.msg)
+  return _impl_.msg_.Release();
+}
+inline void XUploadSharedFileRes::set_allocated_msg(std::string* msg) {
+  if (msg != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.msg_.SetAllocated(msg, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.msg_.IsDefault()) {
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XUploadSharedFileRes.msg)
+}
+
+// -------------------------------------------------------------------
+
+// XDeleteSharedFileReq
+
+// int64 folder_id = 1;
+inline void XDeleteSharedFileReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XDeleteSharedFileReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XDeleteSharedFileReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDeleteSharedFileReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XDeleteSharedFileReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XDeleteSharedFileReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XDeleteSharedFileReq.folder_id)
+}
+
+// string filename = 2;
+inline void XDeleteSharedFileReq::clear_filename() {
+  _impl_.filename_.ClearToEmpty();
+}
+inline const std::string& XDeleteSharedFileReq::filename() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDeleteSharedFileReq.filename)
+  return _internal_filename();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDeleteSharedFileReq::set_filename(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filename_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDeleteSharedFileReq.filename)
+}
+inline std::string* XDeleteSharedFileReq::mutable_filename() {
+  std::string* _s = _internal_mutable_filename();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDeleteSharedFileReq.filename)
+  return _s;
+}
+inline const std::string& XDeleteSharedFileReq::_internal_filename() const {
+  return _impl_.filename_.Get();
+}
+inline void XDeleteSharedFileReq::_internal_set_filename(const std::string& value) {
+  
+  _impl_.filename_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDeleteSharedFileReq::_internal_mutable_filename() {
+  
+  return _impl_.filename_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDeleteSharedFileReq::release_filename() {
+  // @@protoc_insertion_point(field_release:xdisk.XDeleteSharedFileReq.filename)
+  return _impl_.filename_.Release();
+}
+inline void XDeleteSharedFileReq::set_allocated_filename(std::string* filename) {
+  if (filename != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filename_.SetAllocated(filename, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filename_.IsDefault()) {
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDeleteSharedFileReq.filename)
+}
+
+// string filedir = 3;
+inline void XDeleteSharedFileReq::clear_filedir() {
+  _impl_.filedir_.ClearToEmpty();
+}
+inline const std::string& XDeleteSharedFileReq::filedir() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDeleteSharedFileReq.filedir)
+  return _internal_filedir();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void XDeleteSharedFileReq::set_filedir(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.filedir_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:xdisk.XDeleteSharedFileReq.filedir)
+}
+inline std::string* XDeleteSharedFileReq::mutable_filedir() {
+  std::string* _s = _internal_mutable_filedir();
+  // @@protoc_insertion_point(field_mutable:xdisk.XDeleteSharedFileReq.filedir)
+  return _s;
+}
+inline const std::string& XDeleteSharedFileReq::_internal_filedir() const {
+  return _impl_.filedir_.Get();
+}
+inline void XDeleteSharedFileReq::_internal_set_filedir(const std::string& value) {
+  
+  _impl_.filedir_.Set(value, GetArenaForAllocation());
+}
+inline std::string* XDeleteSharedFileReq::_internal_mutable_filedir() {
+  
+  return _impl_.filedir_.Mutable(GetArenaForAllocation());
+}
+inline std::string* XDeleteSharedFileReq::release_filedir() {
+  // @@protoc_insertion_point(field_release:xdisk.XDeleteSharedFileReq.filedir)
+  return _impl_.filedir_.Release();
+}
+inline void XDeleteSharedFileReq::set_allocated_filedir(std::string* filedir) {
+  if (filedir != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.filedir_.SetAllocated(filedir, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.filedir_.IsDefault()) {
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:xdisk.XDeleteSharedFileReq.filedir)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -185,8 +185,228 @@ struct XFileTaskListDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XFileTaskListDefaultTypeInternal _XFileTaskList_default_instance_;
+PROTOBUF_CONSTEXPR XShareUser::XShareUser(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.username_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.permission_level_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XShareUserDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XShareUserDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XShareUserDefaultTypeInternal() {}
+  union {
+    XShareUser _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XShareUserDefaultTypeInternal _XShareUser_default_instance_;
+PROTOBUF_CONSTEXPR XSharedFolderInfo::XSharedFolderInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.owner_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.created_at_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.id_)*/int64_t{0}
+  , /*decltype(_impl_.user_count_)*/0
+  , /*decltype(_impl_.file_count_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XSharedFolderInfoDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XSharedFolderInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XSharedFolderInfoDefaultTypeInternal() {}
+  union {
+    XSharedFolderInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XSharedFolderInfoDefaultTypeInternal _XSharedFolderInfo_default_instance_;
+PROTOBUF_CONSTEXPR XCreateShareFolderReq::XCreateShareFolderReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.users_)*/{}
+  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XCreateShareFolderReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XCreateShareFolderReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XCreateShareFolderReqDefaultTypeInternal() {}
+  union {
+    XCreateShareFolderReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XCreateShareFolderReqDefaultTypeInternal _XCreateShareFolderReq_default_instance_;
+PROTOBUF_CONSTEXPR XCreateShareFolderRes::XCreateShareFolderRes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.msg_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_.code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XCreateShareFolderResDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XCreateShareFolderResDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XCreateShareFolderResDefaultTypeInternal() {}
+  union {
+    XCreateShareFolderRes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XCreateShareFolderResDefaultTypeInternal _XCreateShareFolderRes_default_instance_;
+PROTOBUF_CONSTEXPR XAddShareUserReq::XAddShareUserReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.users_)*/{}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XAddShareUserReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XAddShareUserReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XAddShareUserReqDefaultTypeInternal() {}
+  union {
+    XAddShareUserReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XAddShareUserReqDefaultTypeInternal _XAddShareUserReq_default_instance_;
+PROTOBUF_CONSTEXPR XRemoveShareUserReq::XRemoveShareUserReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.usernames_)*/{}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XRemoveShareUserReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XRemoveShareUserReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XRemoveShareUserReqDefaultTypeInternal() {}
+  union {
+    XRemoveShareUserReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XRemoveShareUserReqDefaultTypeInternal _XRemoveShareUserReq_default_instance_;
+PROTOBUF_CONSTEXPR XGetSharedFoldersReq::XGetSharedFoldersReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.username_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XGetSharedFoldersReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XGetSharedFoldersReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XGetSharedFoldersReqDefaultTypeInternal() {}
+  union {
+    XGetSharedFoldersReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XGetSharedFoldersReqDefaultTypeInternal _XGetSharedFoldersReq_default_instance_;
+PROTOBUF_CONSTEXPR XGetSharedFoldersRes::XGetSharedFoldersRes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.folders_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XGetSharedFoldersResDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XGetSharedFoldersResDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XGetSharedFoldersResDefaultTypeInternal() {}
+  union {
+    XGetSharedFoldersRes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XGetSharedFoldersResDefaultTypeInternal _XGetSharedFoldersRes_default_instance_;
+PROTOBUF_CONSTEXPR XGetSharedDirReq::XGetSharedDirReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XGetSharedDirReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XGetSharedDirReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XGetSharedDirReqDefaultTypeInternal() {}
+  union {
+    XGetSharedDirReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XGetSharedDirReqDefaultTypeInternal _XGetSharedDirReq_default_instance_;
+PROTOBUF_CONSTEXPR XGetSharedDirRes::XGetSharedDirRes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.files_)*/{}
+  , /*decltype(_impl_.msg_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XGetSharedDirResDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XGetSharedDirResDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XGetSharedDirResDefaultTypeInternal() {}
+  union {
+    XGetSharedDirRes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XGetSharedDirResDefaultTypeInternal _XGetSharedDirRes_default_instance_;
+PROTOBUF_CONSTEXPR XDownloadSharedFileReq::XDownloadSharedFileReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.filename_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.filedir_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.local_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XDownloadSharedFileReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XDownloadSharedFileReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XDownloadSharedFileReqDefaultTypeInternal() {}
+  union {
+    XDownloadSharedFileReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XDownloadSharedFileReqDefaultTypeInternal _XDownloadSharedFileReq_default_instance_;
+PROTOBUF_CONSTEXPR XDownloadSharedFileRes::XDownloadSharedFileRes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.msg_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.authorized_path_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.file_info_)*/nullptr
+  , /*decltype(_impl_.code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XDownloadSharedFileResDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XDownloadSharedFileResDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XDownloadSharedFileResDefaultTypeInternal() {}
+  union {
+    XDownloadSharedFileRes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XDownloadSharedFileResDefaultTypeInternal _XDownloadSharedFileRes_default_instance_;
+PROTOBUF_CONSTEXPR XUploadSharedFileReq::XUploadSharedFileReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.filedir_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XUploadSharedFileReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XUploadSharedFileReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XUploadSharedFileReqDefaultTypeInternal() {}
+  union {
+    XUploadSharedFileReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XUploadSharedFileReqDefaultTypeInternal _XUploadSharedFileReq_default_instance_;
+PROTOBUF_CONSTEXPR XUploadSharedFileRes::XUploadSharedFileRes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.authorized_filedir_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.msg_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XUploadSharedFileResDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XUploadSharedFileResDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XUploadSharedFileResDefaultTypeInternal() {}
+  union {
+    XUploadSharedFileRes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XUploadSharedFileResDefaultTypeInternal _XUploadSharedFileRes_default_instance_;
+PROTOBUF_CONSTEXPR XDeleteSharedFileReq::XDeleteSharedFileReq(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.filename_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.filedir_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.folder_id_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct XDeleteSharedFileReqDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR XDeleteSharedFileReqDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~XDeleteSharedFileReqDefaultTypeInternal() {}
+  union {
+    XDeleteSharedFileReq _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 XDeleteSharedFileReqDefaultTypeInternal _XDeleteSharedFileReq_default_instance_;
 }  // namespace xdisk
-static ::_pb::Metadata file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[11];
+static ::_pb::Metadata file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[26];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_xms_5fdisk_5fclient_5fgui_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_xms_5fdisk_5fclient_5fgui_2eproto = nullptr;
 
@@ -294,6 +514,136 @@ const uint32_t TableStruct_xms_5fdisk_5fclient_5fgui_2eproto::offsets[] PROTOBUF
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::xdisk::XFileTaskList, _impl_.uploads_),
   PROTOBUF_FIELD_OFFSET(::xdisk::XFileTaskList, _impl_.downloads_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XShareUser, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XShareUser, _impl_.username_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XShareUser, _impl_.permission_level_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.owner_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.created_at_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.user_count_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XSharedFolderInfo, _impl_.file_count_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderReq, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderReq, _impl_.users_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderRes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderRes, _impl_.code_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderRes, _impl_.msg_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XCreateShareFolderRes, _impl_.folder_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XAddShareUserReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XAddShareUserReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XAddShareUserReq, _impl_.users_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XRemoveShareUserReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XRemoveShareUserReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XRemoveShareUserReq, _impl_.usernames_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedFoldersReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedFoldersReq, _impl_.username_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedFoldersRes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedFoldersRes, _impl_.folders_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirReq, _impl_.path_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirRes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirRes, _impl_.code_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirRes, _impl_.msg_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XGetSharedDirRes, _impl_.files_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileReq, _impl_.filename_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileReq, _impl_.filedir_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileReq, _impl_.local_path_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileRes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileRes, _impl_.code_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileRes, _impl_.msg_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileRes, _impl_.authorized_path_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDownloadSharedFileRes, _impl_.file_info_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileReq, _impl_.filedir_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileRes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileRes, _impl_.code_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileRes, _impl_.authorized_filedir_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XUploadSharedFileRes, _impl_.msg_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDeleteSharedFileReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDeleteSharedFileReq, _impl_.folder_id_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDeleteSharedFileReq, _impl_.filename_),
+  PROTOBUF_FIELD_OFFSET(::xdisk::XDeleteSharedFileReq, _impl_.filedir_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::xdisk::XDiskInfo)},
@@ -307,6 +657,21 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 77, -1, -1, sizeof(::xdisk::XFileInfoList)},
   { 84, -1, -1, sizeof(::xdisk::XFileTask)},
   { 95, -1, -1, sizeof(::xdisk::XFileTaskList)},
+  { 103, -1, -1, sizeof(::xdisk::XShareUser)},
+  { 111, -1, -1, sizeof(::xdisk::XSharedFolderInfo)},
+  { 123, -1, -1, sizeof(::xdisk::XCreateShareFolderReq)},
+  { 131, -1, -1, sizeof(::xdisk::XCreateShareFolderRes)},
+  { 140, -1, -1, sizeof(::xdisk::XAddShareUserReq)},
+  { 148, -1, -1, sizeof(::xdisk::XRemoveShareUserReq)},
+  { 156, -1, -1, sizeof(::xdisk::XGetSharedFoldersReq)},
+  { 163, -1, -1, sizeof(::xdisk::XGetSharedFoldersRes)},
+  { 170, -1, -1, sizeof(::xdisk::XGetSharedDirReq)},
+  { 178, -1, -1, sizeof(::xdisk::XGetSharedDirRes)},
+  { 187, -1, -1, sizeof(::xdisk::XDownloadSharedFileReq)},
+  { 197, -1, -1, sizeof(::xdisk::XDownloadSharedFileRes)},
+  { 207, -1, -1, sizeof(::xdisk::XUploadSharedFileReq)},
+  { 215, -1, -1, sizeof(::xdisk::XUploadSharedFileRes)},
+  { 224, -1, -1, sizeof(::xdisk::XDeleteSharedFileReq)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -321,6 +686,21 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::xdisk::_XFileInfoList_default_instance_._instance,
   &::xdisk::_XFileTask_default_instance_._instance,
   &::xdisk::_XFileTaskList_default_instance_._instance,
+  &::xdisk::_XShareUser_default_instance_._instance,
+  &::xdisk::_XSharedFolderInfo_default_instance_._instance,
+  &::xdisk::_XCreateShareFolderReq_default_instance_._instance,
+  &::xdisk::_XCreateShareFolderRes_default_instance_._instance,
+  &::xdisk::_XAddShareUserReq_default_instance_._instance,
+  &::xdisk::_XRemoveShareUserReq_default_instance_._instance,
+  &::xdisk::_XGetSharedFoldersReq_default_instance_._instance,
+  &::xdisk::_XGetSharedFoldersRes_default_instance_._instance,
+  &::xdisk::_XGetSharedDirReq_default_instance_._instance,
+  &::xdisk::_XGetSharedDirRes_default_instance_._instance,
+  &::xdisk::_XDownloadSharedFileReq_default_instance_._instance,
+  &::xdisk::_XDownloadSharedFileRes_default_instance_._instance,
+  &::xdisk::_XUploadSharedFileReq_default_instance_._instance,
+  &::xdisk::_XUploadSharedFileRes_default_instance_._instance,
+  &::xdisk::_XDeleteSharedFileReq_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_xms_5fdisk_5fclient_5fgui_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -347,25 +727,64 @@ const char descriptor_table_protodef_xms_5fdisk_5fclient_5fgui_2eproto[] PROTOBU
   "\022\016\n\006is_sec\030\010 \001(\010\022\036\n\004file\030\t \001(\0132\020.xdisk.X"
   "FileInfo\"W\n\rXFileTaskList\022!\n\007uploads\030\001 \003"
   "(\0132\020.xdisk.XFileTask\022#\n\tdownloads\030\002 \003(\0132"
-  "\020.xdisk.XFileTask*\314\003\n\014XFileMsgType\022\021\n\rFI"
-  "LE_MSG_NONE\020\000\022\020\n\013GET_DIR_REQ\020\351\007\022\020\n\013GET_D"
-  "IR_RES\020\352\007\022\024\n\017UPLOAD_FILE_REQ\020\353\007\022\024\n\017UPLOA"
-  "D_FILE_RES\020\354\007\022\023\n\016SEND_SLICE_REQ\020\355\007\022\023\n\016SE"
-  "ND_SLICE_RES\020\357\007\022\030\n\023UPLOAD_FILE_END_REQ\020\360"
-  "\007\022\030\n\023UPLOAD_FILE_END_RES\020\361\007\022\026\n\021DOWNLOAD_"
-  "FILE_REQ\020\362\007\022\026\n\021DOWNLOAD_FILE_RES\020\363\007\022\031\n\024D"
-  "OWNLOAD_FILE_BEGTIN\020\234N\022\027\n\022DOWNLOAD_SLICE"
-  "_REQ\020\364\007\022\027\n\022DOWNLOAD_SLICE_RES\020\365\007\022\024\n\017DELE"
-  "TE_FILE_REQ\020\366\007\022\024\n\017DELETE_FILE_RES\020\367\007\022\020\n\013"
-  "NEW_DIR_REQ\020\370\007\022\020\n\013NEW_DIR_RES\020\371\007\022\026\n\021GET_"
-  "DISK_INFO_REQ\020\372\007\022\026\n\021GET_DISK_INFO_RES\020\373\007"
-  "b\006proto3"
+  "\020.xdisk.XFileTask\"8\n\nXShareUser\022\020\n\010usern"
+  "ame\030\001 \001(\t\022\030\n\020permission_level\030\002 \001(\t\"x\n\021X"
+  "SharedFolderInfo\022\n\n\002id\030\001 \001(\003\022\r\n\005owner\030\002 "
+  "\001(\t\022\014\n\004name\030\003 \001(\t\022\022\n\ncreated_at\030\004 \001(\t\022\022\n"
+  "\nuser_count\030\005 \001(\005\022\022\n\nfile_count\030\006 \001(\005\"G\n"
+  "\025XCreateShareFolderReq\022\014\n\004name\030\001 \001(\t\022 \n\005"
+  "users\030\002 \003(\0132\021.xdisk.XShareUser\"E\n\025XCreat"
+  "eShareFolderRes\022\014\n\004code\030\001 \001(\005\022\013\n\003msg\030\002 \001"
+  "(\014\022\021\n\tfolder_id\030\003 \001(\003\"G\n\020XAddShareUserRe"
+  "q\022\021\n\tfolder_id\030\001 \001(\003\022 \n\005users\030\002 \003(\0132\021.xd"
+  "isk.XShareUser\";\n\023XRemoveShareUserReq\022\021\n"
+  "\tfolder_id\030\001 \001(\003\022\021\n\tusernames\030\002 \003(\t\"(\n\024X"
+  "GetSharedFoldersReq\022\020\n\010username\030\001 \001(\t\"A\n"
+  "\024XGetSharedFoldersRes\022)\n\007folders\030\001 \003(\0132\030"
+  ".xdisk.XSharedFolderInfo\"3\n\020XGetSharedDi"
+  "rReq\022\021\n\tfolder_id\030\001 \001(\003\022\014\n\004path\030\002 \001(\t\"N\n"
+  "\020XGetSharedDirRes\022\014\n\004code\030\001 \001(\005\022\013\n\003msg\030\002"
+  " \001(\014\022\037\n\005files\030\003 \003(\0132\020.xdisk.XFileInfo\"b\n"
+  "\026XDownloadSharedFileReq\022\021\n\tfolder_id\030\001 \001"
+  "(\003\022\020\n\010filename\030\002 \001(\t\022\017\n\007filedir\030\003 \001(\t\022\022\n"
+  "\nlocal_path\030\004 \001(\014\"q\n\026XDownloadSharedFile"
+  "Res\022\014\n\004code\030\001 \001(\005\022\013\n\003msg\030\002 \001(\014\022\027\n\017author"
+  "ized_path\030\003 \001(\t\022#\n\tfile_info\030\004 \001(\0132\020.xdi"
+  "sk.XFileInfo\":\n\024XUploadSharedFileReq\022\021\n\t"
+  "folder_id\030\001 \001(\003\022\017\n\007filedir\030\002 \001(\t\"M\n\024XUpl"
+  "oadSharedFileRes\022\014\n\004code\030\001 \001(\005\022\032\n\022author"
+  "ized_filedir\030\002 \001(\t\022\013\n\003msg\030\003 \001(\014\"L\n\024XDele"
+  "teSharedFileReq\022\021\n\tfolder_id\030\001 \001(\003\022\020\n\010fi"
+  "lename\030\002 \001(\t\022\017\n\007filedir\030\003 \001(\t*\217\007\n\014XFileM"
+  "sgType\022\021\n\rFILE_MSG_NONE\020\000\022\020\n\013GET_DIR_REQ"
+  "\020\351\007\022\020\n\013GET_DIR_RES\020\352\007\022\024\n\017UPLOAD_FILE_REQ"
+  "\020\353\007\022\024\n\017UPLOAD_FILE_RES\020\354\007\022\023\n\016SEND_SLICE_"
+  "REQ\020\355\007\022\023\n\016SEND_SLICE_RES\020\357\007\022\030\n\023UPLOAD_FI"
+  "LE_END_REQ\020\360\007\022\030\n\023UPLOAD_FILE_END_RES\020\361\007\022"
+  "\026\n\021DOWNLOAD_FILE_REQ\020\362\007\022\026\n\021DOWNLOAD_FILE"
+  "_RES\020\363\007\022\030\n\023DOWNLOAD_FILE_BEGIN\020\234N\022\027\n\022DOW"
+  "NLOAD_SLICE_REQ\020\364\007\022\027\n\022DOWNLOAD_SLICE_RES"
+  "\020\365\007\022\024\n\017DELETE_FILE_REQ\020\366\007\022\024\n\017DELETE_FILE"
+  "_RES\020\367\007\022\020\n\013NEW_DIR_REQ\020\370\007\022\020\n\013NEW_DIR_RES"
+  "\020\371\007\022\026\n\021GET_DISK_INFO_REQ\020\372\007\022\026\n\021GET_DISK_"
+  "INFO_RES\020\373\007\022\034\n\027CREATE_SHARE_FOLDER_REQ\020\321"
+  "\017\022\034\n\027CREATE_SHARE_FOLDER_RES\020\322\017\022\027\n\022ADD_S"
+  "HARE_USER_REQ\020\323\017\022\027\n\022ADD_SHARE_USER_RES\020\324"
+  "\017\022\032\n\025REMOVE_SHARE_USER_REQ\020\325\017\022\032\n\025REMOVE_"
+  "SHARE_USER_RES\020\326\017\022\033\n\026GET_SHARED_FOLDERS_"
+  "REQ\020\327\017\022\033\n\026GET_SHARED_FOLDERS_RES\020\330\017\022\027\n\022G"
+  "ET_SHARED_DIR_REQ\020\331\017\022\027\n\022GET_SHARED_DIR_R"
+  "ES\020\332\017\022\035\n\030DOWNLOAD_SHARED_FILE_REQ\020\333\017\022\035\n\030"
+  "DOWNLOAD_SHARED_FILE_RES\020\334\017\022\033\n\026UPLOAD_SH"
+  "ARED_FILE_REQ\020\335\017\022\033\n\026UPLOAD_SHARED_FILE_R"
+  "ES\020\336\017\022\033\n\026DELETE_SHARED_FILE_REQ\020\337\017\022\033\n\026DE"
+  "LETE_SHARED_FILE_RES\020\340\017b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto = {
-    false, false, 1408, descriptor_table_protodef_xms_5fdisk_5fclient_5fgui_2eproto,
+    false, false, 2991, descriptor_table_protodef_xms_5fdisk_5fclient_5fgui_2eproto,
     "xms_disk_client_gui.proto",
-    &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once, nullptr, 0, 11,
+    &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once, nullptr, 0, 26,
     schemas, file_default_instances, TableStruct_xms_5fdisk_5fclient_5fgui_2eproto::offsets,
     file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto, file_level_enum_descriptors_xms_5fdisk_5fclient_5fgui_2eproto,
     file_level_service_descriptors_xms_5fdisk_5fclient_5fgui_2eproto,
@@ -402,6 +821,22 @@ bool XFileMsgType_IsValid(int value) {
     case 1017:
     case 1018:
     case 1019:
+    case 2001:
+    case 2002:
+    case 2003:
+    case 2004:
+    case 2005:
+    case 2006:
+    case 2007:
+    case 2008:
+    case 2009:
+    case 2010:
+    case 2011:
+    case 2012:
+    case 2013:
+    case 2014:
+    case 2015:
+    case 2016:
     case 10012:
       return true;
     default:
@@ -3115,6 +3550,3878 @@ void XFileTaskList::InternalSwap(XFileTaskList* other) {
       file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[10]);
 }
 
+// ===================================================================
+
+class XShareUser::_Internal {
+ public:
+};
+
+XShareUser::XShareUser(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XShareUser)
+}
+XShareUser::XShareUser(const XShareUser& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XShareUser* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , decltype(_impl_.permission_level_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_username().empty()) {
+    _this->_impl_.username_.Set(from._internal_username(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.permission_level_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.permission_level_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_permission_level().empty()) {
+    _this->_impl_.permission_level_.Set(from._internal_permission_level(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:xdisk.XShareUser)
+}
+
+inline void XShareUser::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , decltype(_impl_.permission_level_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.permission_level_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.permission_level_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XShareUser::~XShareUser() {
+  // @@protoc_insertion_point(destructor:xdisk.XShareUser)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XShareUser::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.username_.Destroy();
+  _impl_.permission_level_.Destroy();
+}
+
+void XShareUser::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XShareUser::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XShareUser)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.username_.ClearToEmpty();
+  _impl_.permission_level_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XShareUser::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string username = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_username();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XShareUser.username"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string permission_level = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_permission_level();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XShareUser.permission_level"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XShareUser::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XShareUser)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_username().data(), static_cast<int>(this->_internal_username().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XShareUser.username");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_username(), target);
+  }
+
+  // string permission_level = 2;
+  if (!this->_internal_permission_level().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_permission_level().data(), static_cast<int>(this->_internal_permission_level().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XShareUser.permission_level");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_permission_level(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XShareUser)
+  return target;
+}
+
+size_t XShareUser::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XShareUser)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_username());
+  }
+
+  // string permission_level = 2;
+  if (!this->_internal_permission_level().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_permission_level());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XShareUser::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XShareUser::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XShareUser::GetClassData() const { return &_class_data_; }
+
+
+void XShareUser::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XShareUser*>(&to_msg);
+  auto& from = static_cast<const XShareUser&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XShareUser)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_username().empty()) {
+    _this->_internal_set_username(from._internal_username());
+  }
+  if (!from._internal_permission_level().empty()) {
+    _this->_internal_set_permission_level(from._internal_permission_level());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XShareUser::CopyFrom(const XShareUser& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XShareUser)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XShareUser::IsInitialized() const {
+  return true;
+}
+
+void XShareUser::InternalSwap(XShareUser* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.username_, lhs_arena,
+      &other->_impl_.username_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.permission_level_, lhs_arena,
+      &other->_impl_.permission_level_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XShareUser::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[11]);
+}
+
+// ===================================================================
+
+class XSharedFolderInfo::_Internal {
+ public:
+};
+
+XSharedFolderInfo::XSharedFolderInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XSharedFolderInfo)
+}
+XSharedFolderInfo::XSharedFolderInfo(const XSharedFolderInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XSharedFolderInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.owner_){}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.created_at_){}
+    , decltype(_impl_.id_){}
+    , decltype(_impl_.user_count_){}
+    , decltype(_impl_.file_count_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.owner_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.owner_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_owner().empty()) {
+    _this->_impl_.owner_.Set(from._internal_owner(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.created_at_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.created_at_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_created_at().empty()) {
+    _this->_impl_.created_at_.Set(from._internal_created_at(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.id_, &from._impl_.id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.file_count_) -
+    reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.file_count_));
+  // @@protoc_insertion_point(copy_constructor:xdisk.XSharedFolderInfo)
+}
+
+inline void XSharedFolderInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.owner_){}
+    , decltype(_impl_.name_){}
+    , decltype(_impl_.created_at_){}
+    , decltype(_impl_.id_){int64_t{0}}
+    , decltype(_impl_.user_count_){0}
+    , decltype(_impl_.file_count_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.owner_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.owner_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.created_at_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.created_at_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XSharedFolderInfo::~XSharedFolderInfo() {
+  // @@protoc_insertion_point(destructor:xdisk.XSharedFolderInfo)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XSharedFolderInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.owner_.Destroy();
+  _impl_.name_.Destroy();
+  _impl_.created_at_.Destroy();
+}
+
+void XSharedFolderInfo::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XSharedFolderInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XSharedFolderInfo)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.owner_.ClearToEmpty();
+  _impl_.name_.ClearToEmpty();
+  _impl_.created_at_.ClearToEmpty();
+  ::memset(&_impl_.id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.file_count_) -
+      reinterpret_cast<char*>(&_impl_.id_)) + sizeof(_impl_.file_count_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XSharedFolderInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string owner = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_owner();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XSharedFolderInfo.owner"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XSharedFolderInfo.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string created_at = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_created_at();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XSharedFolderInfo.created_at"));
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 user_count = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _impl_.user_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 file_count = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _impl_.file_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XSharedFolderInfo::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XSharedFolderInfo)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_id(), target);
+  }
+
+  // string owner = 2;
+  if (!this->_internal_owner().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_owner().data(), static_cast<int>(this->_internal_owner().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XSharedFolderInfo.owner");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_owner(), target);
+  }
+
+  // string name = 3;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XSharedFolderInfo.name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_name(), target);
+  }
+
+  // string created_at = 4;
+  if (!this->_internal_created_at().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_created_at().data(), static_cast<int>(this->_internal_created_at().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XSharedFolderInfo.created_at");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_created_at(), target);
+  }
+
+  // int32 user_count = 5;
+  if (this->_internal_user_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_user_count(), target);
+  }
+
+  // int32 file_count = 6;
+  if (this->_internal_file_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(6, this->_internal_file_count(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XSharedFolderInfo)
+  return target;
+}
+
+size_t XSharedFolderInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XSharedFolderInfo)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string owner = 2;
+  if (!this->_internal_owner().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_owner());
+  }
+
+  // string name = 3;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string created_at = 4;
+  if (!this->_internal_created_at().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_created_at());
+  }
+
+  // int64 id = 1;
+  if (this->_internal_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_id());
+  }
+
+  // int32 user_count = 5;
+  if (this->_internal_user_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user_count());
+  }
+
+  // int32 file_count = 6;
+  if (this->_internal_file_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_file_count());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XSharedFolderInfo::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XSharedFolderInfo::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XSharedFolderInfo::GetClassData() const { return &_class_data_; }
+
+
+void XSharedFolderInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XSharedFolderInfo*>(&to_msg);
+  auto& from = static_cast<const XSharedFolderInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XSharedFolderInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_owner().empty()) {
+    _this->_internal_set_owner(from._internal_owner());
+  }
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  if (!from._internal_created_at().empty()) {
+    _this->_internal_set_created_at(from._internal_created_at());
+  }
+  if (from._internal_id() != 0) {
+    _this->_internal_set_id(from._internal_id());
+  }
+  if (from._internal_user_count() != 0) {
+    _this->_internal_set_user_count(from._internal_user_count());
+  }
+  if (from._internal_file_count() != 0) {
+    _this->_internal_set_file_count(from._internal_file_count());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XSharedFolderInfo::CopyFrom(const XSharedFolderInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XSharedFolderInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XSharedFolderInfo::IsInitialized() const {
+  return true;
+}
+
+void XSharedFolderInfo::InternalSwap(XSharedFolderInfo* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.owner_, lhs_arena,
+      &other->_impl_.owner_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.created_at_, lhs_arena,
+      &other->_impl_.created_at_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(XSharedFolderInfo, _impl_.file_count_)
+      + sizeof(XSharedFolderInfo::_impl_.file_count_)
+      - PROTOBUF_FIELD_OFFSET(XSharedFolderInfo, _impl_.id_)>(
+          reinterpret_cast<char*>(&_impl_.id_),
+          reinterpret_cast<char*>(&other->_impl_.id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XSharedFolderInfo::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[12]);
+}
+
+// ===================================================================
+
+class XCreateShareFolderReq::_Internal {
+ public:
+};
+
+XCreateShareFolderReq::XCreateShareFolderReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XCreateShareFolderReq)
+}
+XCreateShareFolderReq::XCreateShareFolderReq(const XCreateShareFolderReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XCreateShareFolderReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.users_){from._impl_.users_}
+    , decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:xdisk.XCreateShareFolderReq)
+}
+
+inline void XCreateShareFolderReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.users_){arena}
+    , decltype(_impl_.name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XCreateShareFolderReq::~XCreateShareFolderReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XCreateShareFolderReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XCreateShareFolderReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.users_.~RepeatedPtrField();
+  _impl_.name_.Destroy();
+}
+
+void XCreateShareFolderReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XCreateShareFolderReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XCreateShareFolderReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.users_.Clear();
+  _impl_.name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XCreateShareFolderReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XCreateShareFolderReq.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .xdisk.XShareUser users = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_users(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XCreateShareFolderReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XCreateShareFolderReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XCreateShareFolderReq.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // repeated .xdisk.XShareUser users = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_users_size()); i < n; i++) {
+    const auto& repfield = this->_internal_users(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XCreateShareFolderReq)
+  return target;
+}
+
+size_t XCreateShareFolderReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XCreateShareFolderReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .xdisk.XShareUser users = 2;
+  total_size += 1UL * this->_internal_users_size();
+  for (const auto& msg : this->_impl_.users_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XCreateShareFolderReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XCreateShareFolderReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XCreateShareFolderReq::GetClassData() const { return &_class_data_; }
+
+
+void XCreateShareFolderReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XCreateShareFolderReq*>(&to_msg);
+  auto& from = static_cast<const XCreateShareFolderReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XCreateShareFolderReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.users_.MergeFrom(from._impl_.users_);
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XCreateShareFolderReq::CopyFrom(const XCreateShareFolderReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XCreateShareFolderReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XCreateShareFolderReq::IsInitialized() const {
+  return true;
+}
+
+void XCreateShareFolderReq::InternalSwap(XCreateShareFolderReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.users_.InternalSwap(&other->_impl_.users_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XCreateShareFolderReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[13]);
+}
+
+// ===================================================================
+
+class XCreateShareFolderRes::_Internal {
+ public:
+};
+
+XCreateShareFolderRes::XCreateShareFolderRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XCreateShareFolderRes)
+}
+XCreateShareFolderRes::XCreateShareFolderRes(const XCreateShareFolderRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XCreateShareFolderRes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){}
+    , decltype(_impl_.folder_id_){}
+    , decltype(_impl_.code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.folder_id_, &from._impl_.folder_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.code_) -
+    reinterpret_cast<char*>(&_impl_.folder_id_)) + sizeof(_impl_.code_));
+  // @@protoc_insertion_point(copy_constructor:xdisk.XCreateShareFolderRes)
+}
+
+inline void XCreateShareFolderRes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , decltype(_impl_.code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XCreateShareFolderRes::~XCreateShareFolderRes() {
+  // @@protoc_insertion_point(destructor:xdisk.XCreateShareFolderRes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XCreateShareFolderRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.msg_.Destroy();
+}
+
+void XCreateShareFolderRes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XCreateShareFolderRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XCreateShareFolderRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.msg_.ClearToEmpty();
+  ::memset(&_impl_.folder_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.code_) -
+      reinterpret_cast<char*>(&_impl_.folder_id_)) + sizeof(_impl_.code_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XCreateShareFolderRes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes msg = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 folder_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XCreateShareFolderRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XCreateShareFolderRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_code(), target);
+  }
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_msg(), target);
+  }
+
+  // int64 folder_id = 3;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_folder_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XCreateShareFolderRes)
+  return target;
+}
+
+size_t XCreateShareFolderRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XCreateShareFolderRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_msg());
+  }
+
+  // int64 folder_id = 3;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XCreateShareFolderRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XCreateShareFolderRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XCreateShareFolderRes::GetClassData() const { return &_class_data_; }
+
+
+void XCreateShareFolderRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XCreateShareFolderRes*>(&to_msg);
+  auto& from = static_cast<const XCreateShareFolderRes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XCreateShareFolderRes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  if (from._internal_code() != 0) {
+    _this->_internal_set_code(from._internal_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XCreateShareFolderRes::CopyFrom(const XCreateShareFolderRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XCreateShareFolderRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XCreateShareFolderRes::IsInitialized() const {
+  return true;
+}
+
+void XCreateShareFolderRes::InternalSwap(XCreateShareFolderRes* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.msg_, lhs_arena,
+      &other->_impl_.msg_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(XCreateShareFolderRes, _impl_.code_)
+      + sizeof(XCreateShareFolderRes::_impl_.code_)
+      - PROTOBUF_FIELD_OFFSET(XCreateShareFolderRes, _impl_.folder_id_)>(
+          reinterpret_cast<char*>(&_impl_.folder_id_),
+          reinterpret_cast<char*>(&other->_impl_.folder_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XCreateShareFolderRes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[14]);
+}
+
+// ===================================================================
+
+class XAddShareUserReq::_Internal {
+ public:
+};
+
+XAddShareUserReq::XAddShareUserReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XAddShareUserReq)
+}
+XAddShareUserReq::XAddShareUserReq(const XAddShareUserReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XAddShareUserReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.users_){from._impl_.users_}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XAddShareUserReq)
+}
+
+inline void XAddShareUserReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.users_){arena}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+XAddShareUserReq::~XAddShareUserReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XAddShareUserReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XAddShareUserReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.users_.~RepeatedPtrField();
+}
+
+void XAddShareUserReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XAddShareUserReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XAddShareUserReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.users_.Clear();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XAddShareUserReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .xdisk.XShareUser users = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_users(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XAddShareUserReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XAddShareUserReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // repeated .xdisk.XShareUser users = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_users_size()); i < n; i++) {
+    const auto& repfield = this->_internal_users(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XAddShareUserReq)
+  return target;
+}
+
+size_t XAddShareUserReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XAddShareUserReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .xdisk.XShareUser users = 2;
+  total_size += 1UL * this->_internal_users_size();
+  for (const auto& msg : this->_impl_.users_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XAddShareUserReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XAddShareUserReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XAddShareUserReq::GetClassData() const { return &_class_data_; }
+
+
+void XAddShareUserReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XAddShareUserReq*>(&to_msg);
+  auto& from = static_cast<const XAddShareUserReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XAddShareUserReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.users_.MergeFrom(from._impl_.users_);
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XAddShareUserReq::CopyFrom(const XAddShareUserReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XAddShareUserReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XAddShareUserReq::IsInitialized() const {
+  return true;
+}
+
+void XAddShareUserReq::InternalSwap(XAddShareUserReq* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.users_.InternalSwap(&other->_impl_.users_);
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XAddShareUserReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[15]);
+}
+
+// ===================================================================
+
+class XRemoveShareUserReq::_Internal {
+ public:
+};
+
+XRemoveShareUserReq::XRemoveShareUserReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XRemoveShareUserReq)
+}
+XRemoveShareUserReq::XRemoveShareUserReq(const XRemoveShareUserReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XRemoveShareUserReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.usernames_){from._impl_.usernames_}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XRemoveShareUserReq)
+}
+
+inline void XRemoveShareUserReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.usernames_){arena}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+XRemoveShareUserReq::~XRemoveShareUserReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XRemoveShareUserReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XRemoveShareUserReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.usernames_.~RepeatedPtrField();
+}
+
+void XRemoveShareUserReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XRemoveShareUserReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XRemoveShareUserReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.usernames_.Clear();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XRemoveShareUserReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string usernames = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_usernames();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "xdisk.XRemoveShareUserReq.usernames"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XRemoveShareUserReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XRemoveShareUserReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // repeated string usernames = 2;
+  for (int i = 0, n = this->_internal_usernames_size(); i < n; i++) {
+    const auto& s = this->_internal_usernames(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XRemoveShareUserReq.usernames");
+    target = stream->WriteString(2, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XRemoveShareUserReq)
+  return target;
+}
+
+size_t XRemoveShareUserReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XRemoveShareUserReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string usernames = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.usernames_.size());
+  for (int i = 0, n = _impl_.usernames_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.usernames_.Get(i));
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XRemoveShareUserReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XRemoveShareUserReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XRemoveShareUserReq::GetClassData() const { return &_class_data_; }
+
+
+void XRemoveShareUserReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XRemoveShareUserReq*>(&to_msg);
+  auto& from = static_cast<const XRemoveShareUserReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XRemoveShareUserReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.usernames_.MergeFrom(from._impl_.usernames_);
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XRemoveShareUserReq::CopyFrom(const XRemoveShareUserReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XRemoveShareUserReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XRemoveShareUserReq::IsInitialized() const {
+  return true;
+}
+
+void XRemoveShareUserReq::InternalSwap(XRemoveShareUserReq* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.usernames_.InternalSwap(&other->_impl_.usernames_);
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XRemoveShareUserReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[16]);
+}
+
+// ===================================================================
+
+class XGetSharedFoldersReq::_Internal {
+ public:
+};
+
+XGetSharedFoldersReq::XGetSharedFoldersReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XGetSharedFoldersReq)
+}
+XGetSharedFoldersReq::XGetSharedFoldersReq(const XGetSharedFoldersReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XGetSharedFoldersReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_username().empty()) {
+    _this->_impl_.username_.Set(from._internal_username(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:xdisk.XGetSharedFoldersReq)
+}
+
+inline void XGetSharedFoldersReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.username_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.username_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.username_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XGetSharedFoldersReq::~XGetSharedFoldersReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XGetSharedFoldersReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XGetSharedFoldersReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.username_.Destroy();
+}
+
+void XGetSharedFoldersReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XGetSharedFoldersReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XGetSharedFoldersReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.username_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XGetSharedFoldersReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string username = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_username();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XGetSharedFoldersReq.username"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XGetSharedFoldersReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XGetSharedFoldersReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_username().data(), static_cast<int>(this->_internal_username().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XGetSharedFoldersReq.username");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_username(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XGetSharedFoldersReq)
+  return target;
+}
+
+size_t XGetSharedFoldersReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XGetSharedFoldersReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string username = 1;
+  if (!this->_internal_username().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_username());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XGetSharedFoldersReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XGetSharedFoldersReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XGetSharedFoldersReq::GetClassData() const { return &_class_data_; }
+
+
+void XGetSharedFoldersReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XGetSharedFoldersReq*>(&to_msg);
+  auto& from = static_cast<const XGetSharedFoldersReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XGetSharedFoldersReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_username().empty()) {
+    _this->_internal_set_username(from._internal_username());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XGetSharedFoldersReq::CopyFrom(const XGetSharedFoldersReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XGetSharedFoldersReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XGetSharedFoldersReq::IsInitialized() const {
+  return true;
+}
+
+void XGetSharedFoldersReq::InternalSwap(XGetSharedFoldersReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.username_, lhs_arena,
+      &other->_impl_.username_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XGetSharedFoldersReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[17]);
+}
+
+// ===================================================================
+
+class XGetSharedFoldersRes::_Internal {
+ public:
+};
+
+XGetSharedFoldersRes::XGetSharedFoldersRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XGetSharedFoldersRes)
+}
+XGetSharedFoldersRes::XGetSharedFoldersRes(const XGetSharedFoldersRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XGetSharedFoldersRes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.folders_){from._impl_.folders_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:xdisk.XGetSharedFoldersRes)
+}
+
+inline void XGetSharedFoldersRes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.folders_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+XGetSharedFoldersRes::~XGetSharedFoldersRes() {
+  // @@protoc_insertion_point(destructor:xdisk.XGetSharedFoldersRes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XGetSharedFoldersRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.folders_.~RepeatedPtrField();
+}
+
+void XGetSharedFoldersRes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XGetSharedFoldersRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XGetSharedFoldersRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.folders_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XGetSharedFoldersRes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .xdisk.XSharedFolderInfo folders = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_folders(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XGetSharedFoldersRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XGetSharedFoldersRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .xdisk.XSharedFolderInfo folders = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_folders_size()); i < n; i++) {
+    const auto& repfield = this->_internal_folders(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XGetSharedFoldersRes)
+  return target;
+}
+
+size_t XGetSharedFoldersRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XGetSharedFoldersRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .xdisk.XSharedFolderInfo folders = 1;
+  total_size += 1UL * this->_internal_folders_size();
+  for (const auto& msg : this->_impl_.folders_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XGetSharedFoldersRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XGetSharedFoldersRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XGetSharedFoldersRes::GetClassData() const { return &_class_data_; }
+
+
+void XGetSharedFoldersRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XGetSharedFoldersRes*>(&to_msg);
+  auto& from = static_cast<const XGetSharedFoldersRes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XGetSharedFoldersRes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.folders_.MergeFrom(from._impl_.folders_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XGetSharedFoldersRes::CopyFrom(const XGetSharedFoldersRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XGetSharedFoldersRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XGetSharedFoldersRes::IsInitialized() const {
+  return true;
+}
+
+void XGetSharedFoldersRes::InternalSwap(XGetSharedFoldersRes* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.folders_.InternalSwap(&other->_impl_.folders_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XGetSharedFoldersRes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[18]);
+}
+
+// ===================================================================
+
+class XGetSharedDirReq::_Internal {
+ public:
+};
+
+XGetSharedDirReq::XGetSharedDirReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XGetSharedDirReq)
+}
+XGetSharedDirReq::XGetSharedDirReq(const XGetSharedDirReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XGetSharedDirReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.path_){}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_path().empty()) {
+    _this->_impl_.path_.Set(from._internal_path(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XGetSharedDirReq)
+}
+
+inline void XGetSharedDirReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.path_){}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XGetSharedDirReq::~XGetSharedDirReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XGetSharedDirReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XGetSharedDirReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.path_.Destroy();
+}
+
+void XGetSharedDirReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XGetSharedDirReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XGetSharedDirReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.path_.ClearToEmpty();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XGetSharedDirReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string path = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_path();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XGetSharedDirReq.path"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XGetSharedDirReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XGetSharedDirReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // string path = 2;
+  if (!this->_internal_path().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_path().data(), static_cast<int>(this->_internal_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XGetSharedDirReq.path");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_path(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XGetSharedDirReq)
+  return target;
+}
+
+size_t XGetSharedDirReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XGetSharedDirReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string path = 2;
+  if (!this->_internal_path().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_path());
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XGetSharedDirReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XGetSharedDirReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XGetSharedDirReq::GetClassData() const { return &_class_data_; }
+
+
+void XGetSharedDirReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XGetSharedDirReq*>(&to_msg);
+  auto& from = static_cast<const XGetSharedDirReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XGetSharedDirReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_path().empty()) {
+    _this->_internal_set_path(from._internal_path());
+  }
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XGetSharedDirReq::CopyFrom(const XGetSharedDirReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XGetSharedDirReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XGetSharedDirReq::IsInitialized() const {
+  return true;
+}
+
+void XGetSharedDirReq::InternalSwap(XGetSharedDirReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.path_, lhs_arena,
+      &other->_impl_.path_, rhs_arena
+  );
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XGetSharedDirReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[19]);
+}
+
+// ===================================================================
+
+class XGetSharedDirRes::_Internal {
+ public:
+};
+
+XGetSharedDirRes::XGetSharedDirRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XGetSharedDirRes)
+}
+XGetSharedDirRes::XGetSharedDirRes(const XGetSharedDirRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XGetSharedDirRes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.files_){from._impl_.files_}
+    , decltype(_impl_.msg_){}
+    , decltype(_impl_.code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.code_ = from._impl_.code_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XGetSharedDirRes)
+}
+
+inline void XGetSharedDirRes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.files_){arena}
+    , decltype(_impl_.msg_){}
+    , decltype(_impl_.code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XGetSharedDirRes::~XGetSharedDirRes() {
+  // @@protoc_insertion_point(destructor:xdisk.XGetSharedDirRes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XGetSharedDirRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.files_.~RepeatedPtrField();
+  _impl_.msg_.Destroy();
+}
+
+void XGetSharedDirRes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XGetSharedDirRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XGetSharedDirRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.files_.Clear();
+  _impl_.msg_.ClearToEmpty();
+  _impl_.code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XGetSharedDirRes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes msg = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .xdisk.XFileInfo files = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_files(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XGetSharedDirRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XGetSharedDirRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_code(), target);
+  }
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_msg(), target);
+  }
+
+  // repeated .xdisk.XFileInfo files = 3;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_files_size()); i < n; i++) {
+    const auto& repfield = this->_internal_files(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(3, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XGetSharedDirRes)
+  return target;
+}
+
+size_t XGetSharedDirRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XGetSharedDirRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .xdisk.XFileInfo files = 3;
+  total_size += 1UL * this->_internal_files_size();
+  for (const auto& msg : this->_impl_.files_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_msg());
+  }
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XGetSharedDirRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XGetSharedDirRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XGetSharedDirRes::GetClassData() const { return &_class_data_; }
+
+
+void XGetSharedDirRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XGetSharedDirRes*>(&to_msg);
+  auto& from = static_cast<const XGetSharedDirRes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XGetSharedDirRes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.files_.MergeFrom(from._impl_.files_);
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
+  if (from._internal_code() != 0) {
+    _this->_internal_set_code(from._internal_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XGetSharedDirRes::CopyFrom(const XGetSharedDirRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XGetSharedDirRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XGetSharedDirRes::IsInitialized() const {
+  return true;
+}
+
+void XGetSharedDirRes::InternalSwap(XGetSharedDirRes* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.files_.InternalSwap(&other->_impl_.files_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.msg_, lhs_arena,
+      &other->_impl_.msg_, rhs_arena
+  );
+  swap(_impl_.code_, other->_impl_.code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XGetSharedDirRes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[20]);
+}
+
+// ===================================================================
+
+class XDownloadSharedFileReq::_Internal {
+ public:
+};
+
+XDownloadSharedFileReq::XDownloadSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XDownloadSharedFileReq)
+}
+XDownloadSharedFileReq::XDownloadSharedFileReq(const XDownloadSharedFileReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XDownloadSharedFileReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filename_){}
+    , decltype(_impl_.filedir_){}
+    , decltype(_impl_.local_path_){}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_filename().empty()) {
+    _this->_impl_.filename_.Set(from._internal_filename(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_filedir().empty()) {
+    _this->_impl_.filedir_.Set(from._internal_filedir(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.local_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.local_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_local_path().empty()) {
+    _this->_impl_.local_path_.Set(from._internal_local_path(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XDownloadSharedFileReq)
+}
+
+inline void XDownloadSharedFileReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filename_){}
+    , decltype(_impl_.filedir_){}
+    , decltype(_impl_.local_path_){}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.local_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.local_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XDownloadSharedFileReq::~XDownloadSharedFileReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XDownloadSharedFileReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XDownloadSharedFileReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.filename_.Destroy();
+  _impl_.filedir_.Destroy();
+  _impl_.local_path_.Destroy();
+}
+
+void XDownloadSharedFileReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XDownloadSharedFileReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XDownloadSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.filename_.ClearToEmpty();
+  _impl_.filedir_.ClearToEmpty();
+  _impl_.local_path_.ClearToEmpty();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XDownloadSharedFileReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string filename = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_filename();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XDownloadSharedFileReq.filename"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string filedir = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_filedir();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XDownloadSharedFileReq.filedir"));
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes local_path = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_local_path();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XDownloadSharedFileReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XDownloadSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // string filename = 2;
+  if (!this->_internal_filename().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XDownloadSharedFileReq.filename");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_filename(), target);
+  }
+
+  // string filedir = 3;
+  if (!this->_internal_filedir().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filedir().data(), static_cast<int>(this->_internal_filedir().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XDownloadSharedFileReq.filedir");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_filedir(), target);
+  }
+
+  // bytes local_path = 4;
+  if (!this->_internal_local_path().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_local_path(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XDownloadSharedFileReq)
+  return target;
+}
+
+size_t XDownloadSharedFileReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XDownloadSharedFileReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string filename = 2;
+  if (!this->_internal_filename().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filename());
+  }
+
+  // string filedir = 3;
+  if (!this->_internal_filedir().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filedir());
+  }
+
+  // bytes local_path = 4;
+  if (!this->_internal_local_path().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_local_path());
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XDownloadSharedFileReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XDownloadSharedFileReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XDownloadSharedFileReq::GetClassData() const { return &_class_data_; }
+
+
+void XDownloadSharedFileReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XDownloadSharedFileReq*>(&to_msg);
+  auto& from = static_cast<const XDownloadSharedFileReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XDownloadSharedFileReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_filename().empty()) {
+    _this->_internal_set_filename(from._internal_filename());
+  }
+  if (!from._internal_filedir().empty()) {
+    _this->_internal_set_filedir(from._internal_filedir());
+  }
+  if (!from._internal_local_path().empty()) {
+    _this->_internal_set_local_path(from._internal_local_path());
+  }
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XDownloadSharedFileReq::CopyFrom(const XDownloadSharedFileReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XDownloadSharedFileReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XDownloadSharedFileReq::IsInitialized() const {
+  return true;
+}
+
+void XDownloadSharedFileReq::InternalSwap(XDownloadSharedFileReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.filename_, lhs_arena,
+      &other->_impl_.filename_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.filedir_, lhs_arena,
+      &other->_impl_.filedir_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.local_path_, lhs_arena,
+      &other->_impl_.local_path_, rhs_arena
+  );
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XDownloadSharedFileReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[21]);
+}
+
+// ===================================================================
+
+class XDownloadSharedFileRes::_Internal {
+ public:
+  static const ::xdisk::XFileInfo& file_info(const XDownloadSharedFileRes* msg);
+};
+
+const ::xdisk::XFileInfo&
+XDownloadSharedFileRes::_Internal::file_info(const XDownloadSharedFileRes* msg) {
+  return *msg->_impl_.file_info_;
+}
+XDownloadSharedFileRes::XDownloadSharedFileRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XDownloadSharedFileRes)
+}
+XDownloadSharedFileRes::XDownloadSharedFileRes(const XDownloadSharedFileRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XDownloadSharedFileRes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){}
+    , decltype(_impl_.authorized_path_){}
+    , decltype(_impl_.file_info_){nullptr}
+    , decltype(_impl_.code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.authorized_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.authorized_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_authorized_path().empty()) {
+    _this->_impl_.authorized_path_.Set(from._internal_authorized_path(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_file_info()) {
+    _this->_impl_.file_info_ = new ::xdisk::XFileInfo(*from._impl_.file_info_);
+  }
+  _this->_impl_.code_ = from._impl_.code_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XDownloadSharedFileRes)
+}
+
+inline void XDownloadSharedFileRes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.msg_){}
+    , decltype(_impl_.authorized_path_){}
+    , decltype(_impl_.file_info_){nullptr}
+    , decltype(_impl_.code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.authorized_path_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.authorized_path_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XDownloadSharedFileRes::~XDownloadSharedFileRes() {
+  // @@protoc_insertion_point(destructor:xdisk.XDownloadSharedFileRes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XDownloadSharedFileRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.msg_.Destroy();
+  _impl_.authorized_path_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.file_info_;
+}
+
+void XDownloadSharedFileRes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XDownloadSharedFileRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XDownloadSharedFileRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.msg_.ClearToEmpty();
+  _impl_.authorized_path_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.file_info_ != nullptr) {
+    delete _impl_.file_info_;
+  }
+  _impl_.file_info_ = nullptr;
+  _impl_.code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XDownloadSharedFileRes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes msg = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string authorized_path = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_authorized_path();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XDownloadSharedFileRes.authorized_path"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .xdisk.XFileInfo file_info = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_file_info(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XDownloadSharedFileRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XDownloadSharedFileRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_code(), target);
+  }
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        2, this->_internal_msg(), target);
+  }
+
+  // string authorized_path = 3;
+  if (!this->_internal_authorized_path().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_authorized_path().data(), static_cast<int>(this->_internal_authorized_path().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XDownloadSharedFileRes.authorized_path");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_authorized_path(), target);
+  }
+
+  // .xdisk.XFileInfo file_info = 4;
+  if (this->_internal_has_file_info()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::file_info(this),
+        _Internal::file_info(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XDownloadSharedFileRes)
+  return target;
+}
+
+size_t XDownloadSharedFileRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XDownloadSharedFileRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes msg = 2;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_msg());
+  }
+
+  // string authorized_path = 3;
+  if (!this->_internal_authorized_path().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_authorized_path());
+  }
+
+  // .xdisk.XFileInfo file_info = 4;
+  if (this->_internal_has_file_info()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.file_info_);
+  }
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XDownloadSharedFileRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XDownloadSharedFileRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XDownloadSharedFileRes::GetClassData() const { return &_class_data_; }
+
+
+void XDownloadSharedFileRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XDownloadSharedFileRes*>(&to_msg);
+  auto& from = static_cast<const XDownloadSharedFileRes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XDownloadSharedFileRes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
+  if (!from._internal_authorized_path().empty()) {
+    _this->_internal_set_authorized_path(from._internal_authorized_path());
+  }
+  if (from._internal_has_file_info()) {
+    _this->_internal_mutable_file_info()->::xdisk::XFileInfo::MergeFrom(
+        from._internal_file_info());
+  }
+  if (from._internal_code() != 0) {
+    _this->_internal_set_code(from._internal_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XDownloadSharedFileRes::CopyFrom(const XDownloadSharedFileRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XDownloadSharedFileRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XDownloadSharedFileRes::IsInitialized() const {
+  return true;
+}
+
+void XDownloadSharedFileRes::InternalSwap(XDownloadSharedFileRes* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.msg_, lhs_arena,
+      &other->_impl_.msg_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.authorized_path_, lhs_arena,
+      &other->_impl_.authorized_path_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(XDownloadSharedFileRes, _impl_.code_)
+      + sizeof(XDownloadSharedFileRes::_impl_.code_)
+      - PROTOBUF_FIELD_OFFSET(XDownloadSharedFileRes, _impl_.file_info_)>(
+          reinterpret_cast<char*>(&_impl_.file_info_),
+          reinterpret_cast<char*>(&other->_impl_.file_info_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XDownloadSharedFileRes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[22]);
+}
+
+// ===================================================================
+
+class XUploadSharedFileReq::_Internal {
+ public:
+};
+
+XUploadSharedFileReq::XUploadSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XUploadSharedFileReq)
+}
+XUploadSharedFileReq::XUploadSharedFileReq(const XUploadSharedFileReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XUploadSharedFileReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filedir_){}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_filedir().empty()) {
+    _this->_impl_.filedir_.Set(from._internal_filedir(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XUploadSharedFileReq)
+}
+
+inline void XUploadSharedFileReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filedir_){}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XUploadSharedFileReq::~XUploadSharedFileReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XUploadSharedFileReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XUploadSharedFileReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.filedir_.Destroy();
+}
+
+void XUploadSharedFileReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XUploadSharedFileReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XUploadSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.filedir_.ClearToEmpty();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XUploadSharedFileReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string filedir = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_filedir();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XUploadSharedFileReq.filedir"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XUploadSharedFileReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XUploadSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // string filedir = 2;
+  if (!this->_internal_filedir().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filedir().data(), static_cast<int>(this->_internal_filedir().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XUploadSharedFileReq.filedir");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_filedir(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XUploadSharedFileReq)
+  return target;
+}
+
+size_t XUploadSharedFileReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XUploadSharedFileReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string filedir = 2;
+  if (!this->_internal_filedir().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filedir());
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XUploadSharedFileReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XUploadSharedFileReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XUploadSharedFileReq::GetClassData() const { return &_class_data_; }
+
+
+void XUploadSharedFileReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XUploadSharedFileReq*>(&to_msg);
+  auto& from = static_cast<const XUploadSharedFileReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XUploadSharedFileReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_filedir().empty()) {
+    _this->_internal_set_filedir(from._internal_filedir());
+  }
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XUploadSharedFileReq::CopyFrom(const XUploadSharedFileReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XUploadSharedFileReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XUploadSharedFileReq::IsInitialized() const {
+  return true;
+}
+
+void XUploadSharedFileReq::InternalSwap(XUploadSharedFileReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.filedir_, lhs_arena,
+      &other->_impl_.filedir_, rhs_arena
+  );
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XUploadSharedFileReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[23]);
+}
+
+// ===================================================================
+
+class XUploadSharedFileRes::_Internal {
+ public:
+};
+
+XUploadSharedFileRes::XUploadSharedFileRes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XUploadSharedFileRes)
+}
+XUploadSharedFileRes::XUploadSharedFileRes(const XUploadSharedFileRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XUploadSharedFileRes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.authorized_filedir_){}
+    , decltype(_impl_.msg_){}
+    , decltype(_impl_.code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.authorized_filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.authorized_filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_authorized_filedir().empty()) {
+    _this->_impl_.authorized_filedir_.Set(from._internal_authorized_filedir(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_msg().empty()) {
+    _this->_impl_.msg_.Set(from._internal_msg(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.code_ = from._impl_.code_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XUploadSharedFileRes)
+}
+
+inline void XUploadSharedFileRes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.authorized_filedir_){}
+    , decltype(_impl_.msg_){}
+    , decltype(_impl_.code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.authorized_filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.authorized_filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.msg_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.msg_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XUploadSharedFileRes::~XUploadSharedFileRes() {
+  // @@protoc_insertion_point(destructor:xdisk.XUploadSharedFileRes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XUploadSharedFileRes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.authorized_filedir_.Destroy();
+  _impl_.msg_.Destroy();
+}
+
+void XUploadSharedFileRes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XUploadSharedFileRes::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XUploadSharedFileRes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.authorized_filedir_.ClearToEmpty();
+  _impl_.msg_.ClearToEmpty();
+  _impl_.code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XUploadSharedFileRes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string authorized_filedir = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_authorized_filedir();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XUploadSharedFileRes.authorized_filedir"));
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes msg = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_msg();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XUploadSharedFileRes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XUploadSharedFileRes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_code(), target);
+  }
+
+  // string authorized_filedir = 2;
+  if (!this->_internal_authorized_filedir().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_authorized_filedir().data(), static_cast<int>(this->_internal_authorized_filedir().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XUploadSharedFileRes.authorized_filedir");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_authorized_filedir(), target);
+  }
+
+  // bytes msg = 3;
+  if (!this->_internal_msg().empty()) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_msg(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XUploadSharedFileRes)
+  return target;
+}
+
+size_t XUploadSharedFileRes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XUploadSharedFileRes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string authorized_filedir = 2;
+  if (!this->_internal_authorized_filedir().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_authorized_filedir());
+  }
+
+  // bytes msg = 3;
+  if (!this->_internal_msg().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_msg());
+  }
+
+  // int32 code = 1;
+  if (this->_internal_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XUploadSharedFileRes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XUploadSharedFileRes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XUploadSharedFileRes::GetClassData() const { return &_class_data_; }
+
+
+void XUploadSharedFileRes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XUploadSharedFileRes*>(&to_msg);
+  auto& from = static_cast<const XUploadSharedFileRes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XUploadSharedFileRes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_authorized_filedir().empty()) {
+    _this->_internal_set_authorized_filedir(from._internal_authorized_filedir());
+  }
+  if (!from._internal_msg().empty()) {
+    _this->_internal_set_msg(from._internal_msg());
+  }
+  if (from._internal_code() != 0) {
+    _this->_internal_set_code(from._internal_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XUploadSharedFileRes::CopyFrom(const XUploadSharedFileRes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XUploadSharedFileRes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XUploadSharedFileRes::IsInitialized() const {
+  return true;
+}
+
+void XUploadSharedFileRes::InternalSwap(XUploadSharedFileRes* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.authorized_filedir_, lhs_arena,
+      &other->_impl_.authorized_filedir_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.msg_, lhs_arena,
+      &other->_impl_.msg_, rhs_arena
+  );
+  swap(_impl_.code_, other->_impl_.code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XUploadSharedFileRes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[24]);
+}
+
+// ===================================================================
+
+class XDeleteSharedFileReq::_Internal {
+ public:
+};
+
+XDeleteSharedFileReq::XDeleteSharedFileReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:xdisk.XDeleteSharedFileReq)
+}
+XDeleteSharedFileReq::XDeleteSharedFileReq(const XDeleteSharedFileReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  XDeleteSharedFileReq* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filename_){}
+    , decltype(_impl_.filedir_){}
+    , decltype(_impl_.folder_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_filename().empty()) {
+    _this->_impl_.filename_.Set(from._internal_filename(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_filedir().empty()) {
+    _this->_impl_.filedir_.Set(from._internal_filedir(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.folder_id_ = from._impl_.folder_id_;
+  // @@protoc_insertion_point(copy_constructor:xdisk.XDeleteSharedFileReq)
+}
+
+inline void XDeleteSharedFileReq::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.filename_){}
+    , decltype(_impl_.filedir_){}
+    , decltype(_impl_.folder_id_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.filename_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filename_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.filedir_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.filedir_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+XDeleteSharedFileReq::~XDeleteSharedFileReq() {
+  // @@protoc_insertion_point(destructor:xdisk.XDeleteSharedFileReq)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void XDeleteSharedFileReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.filename_.Destroy();
+  _impl_.filedir_.Destroy();
+}
+
+void XDeleteSharedFileReq::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void XDeleteSharedFileReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:xdisk.XDeleteSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.filename_.ClearToEmpty();
+  _impl_.filedir_.ClearToEmpty();
+  _impl_.folder_id_ = int64_t{0};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* XDeleteSharedFileReq::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 folder_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.folder_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string filename = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_filename();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XDeleteSharedFileReq.filename"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string filedir = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_filedir();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "xdisk.XDeleteSharedFileReq.filedir"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* XDeleteSharedFileReq::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:xdisk.XDeleteSharedFileReq)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_folder_id(), target);
+  }
+
+  // string filename = 2;
+  if (!this->_internal_filename().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XDeleteSharedFileReq.filename");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_filename(), target);
+  }
+
+  // string filedir = 3;
+  if (!this->_internal_filedir().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_filedir().data(), static_cast<int>(this->_internal_filedir().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "xdisk.XDeleteSharedFileReq.filedir");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_filedir(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:xdisk.XDeleteSharedFileReq)
+  return target;
+}
+
+size_t XDeleteSharedFileReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:xdisk.XDeleteSharedFileReq)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string filename = 2;
+  if (!this->_internal_filename().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filename());
+  }
+
+  // string filedir = 3;
+  if (!this->_internal_filedir().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_filedir());
+  }
+
+  // int64 folder_id = 1;
+  if (this->_internal_folder_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_folder_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData XDeleteSharedFileReq::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    XDeleteSharedFileReq::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*XDeleteSharedFileReq::GetClassData() const { return &_class_data_; }
+
+
+void XDeleteSharedFileReq::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<XDeleteSharedFileReq*>(&to_msg);
+  auto& from = static_cast<const XDeleteSharedFileReq&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:xdisk.XDeleteSharedFileReq)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_filename().empty()) {
+    _this->_internal_set_filename(from._internal_filename());
+  }
+  if (!from._internal_filedir().empty()) {
+    _this->_internal_set_filedir(from._internal_filedir());
+  }
+  if (from._internal_folder_id() != 0) {
+    _this->_internal_set_folder_id(from._internal_folder_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void XDeleteSharedFileReq::CopyFrom(const XDeleteSharedFileReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:xdisk.XDeleteSharedFileReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool XDeleteSharedFileReq::IsInitialized() const {
+  return true;
+}
+
+void XDeleteSharedFileReq::InternalSwap(XDeleteSharedFileReq* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.filename_, lhs_arena,
+      &other->_impl_.filename_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.filedir_, lhs_arena,
+      &other->_impl_.filedir_, rhs_arena
+  );
+  swap(_impl_.folder_id_, other->_impl_.folder_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata XDeleteSharedFileReq::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_getter, &descriptor_table_xms_5fdisk_5fclient_5fgui_2eproto_once,
+      file_level_metadata_xms_5fdisk_5fclient_5fgui_2eproto[25]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace xdisk
 PROTOBUF_NAMESPACE_OPEN
@@ -3161,6 +7468,66 @@ Arena::CreateMaybeMessage< ::xdisk::XFileTask >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::xdisk::XFileTaskList*
 Arena::CreateMaybeMessage< ::xdisk::XFileTaskList >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xdisk::XFileTaskList >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XShareUser*
+Arena::CreateMaybeMessage< ::xdisk::XShareUser >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XShareUser >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XSharedFolderInfo*
+Arena::CreateMaybeMessage< ::xdisk::XSharedFolderInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XSharedFolderInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XCreateShareFolderReq*
+Arena::CreateMaybeMessage< ::xdisk::XCreateShareFolderReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XCreateShareFolderReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XCreateShareFolderRes*
+Arena::CreateMaybeMessage< ::xdisk::XCreateShareFolderRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XCreateShareFolderRes >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XAddShareUserReq*
+Arena::CreateMaybeMessage< ::xdisk::XAddShareUserReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XAddShareUserReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XRemoveShareUserReq*
+Arena::CreateMaybeMessage< ::xdisk::XRemoveShareUserReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XRemoveShareUserReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XGetSharedFoldersReq*
+Arena::CreateMaybeMessage< ::xdisk::XGetSharedFoldersReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XGetSharedFoldersReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XGetSharedFoldersRes*
+Arena::CreateMaybeMessage< ::xdisk::XGetSharedFoldersRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XGetSharedFoldersRes >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XGetSharedDirReq*
+Arena::CreateMaybeMessage< ::xdisk::XGetSharedDirReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XGetSharedDirReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XGetSharedDirRes*
+Arena::CreateMaybeMessage< ::xdisk::XGetSharedDirRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XGetSharedDirRes >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XDownloadSharedFileReq*
+Arena::CreateMaybeMessage< ::xdisk::XDownloadSharedFileReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XDownloadSharedFileReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XDownloadSharedFileRes*
+Arena::CreateMaybeMessage< ::xdisk::XDownloadSharedFileRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XDownloadSharedFileRes >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XUploadSharedFileReq*
+Arena::CreateMaybeMessage< ::xdisk::XUploadSharedFileReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XUploadSharedFileReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XUploadSharedFileRes*
+Arena::CreateMaybeMessage< ::xdisk::XUploadSharedFileRes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XUploadSharedFileRes >(arena);
+}
+template<> PROTOBUF_NOINLINE ::xdisk::XDeleteSharedFileReq*
+Arena::CreateMaybeMessage< ::xdisk::XDeleteSharedFileReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::xdisk::XDeleteSharedFileReq >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

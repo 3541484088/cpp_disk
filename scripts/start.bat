@@ -3,7 +3,7 @@ chcp 65001 >nul
 title cpp_disk Service Starter
 
 set BIN_DIR=%~dp0..\build\debug\bin
-set SERVER_ROOT=%~dp0..\server_root
+set SERVER_ROOT=%BIN_DIR%\server_root
 
 if not exist "%BIN_DIR%" (
     echo [FAIL] Build dir not found: %BIN_DIR%
@@ -23,8 +23,8 @@ echo [1/8] Starting register_server (Port 20018)...
 start /b "" "%BIN_DIR%\register_server.exe" 20018
 timeout /t 2 /nobreak >nul
 
-echo [2/8] Starting xauth_server (Port 20012)...
-start /b "" "%BIN_DIR%\xauth_server.exe" 20012 127.0.0.1 20018
+echo [2/8] Starting xauth_server (Port 20020)...
+start /b "" "%BIN_DIR%\xauth_server.exe" 20020 127.0.0.1 20018
 timeout /t 1 /nobreak >nul
 
 echo [3/8] Starting xlog_server (Port 20030)...
@@ -47,8 +47,12 @@ echo [7/8] Starting xms_upload_service (Port 20100)...
 start /b "" "%BIN_DIR%\xms_upload_service.exe" 127.0.0.1 20018 20100
 timeout /t 1 /nobreak >nul
 
-echo [8/8] Starting xms_download_service (Port 20200)...
+echo [8/9] Starting xms_download_service (Port 20200)...
 start /b "" "%BIN_DIR%\xms_download_service.exe" 127.0.0.1 20018 20200
+timeout /t 1 /nobreak >nul
+
+echo [9/9] Starting xms_share_service (Port 20400)...
+start /b "" "%BIN_DIR%\xms_share_service.exe" 127.0.0.1 20018 20400
 timeout /t 1 /nobreak >nul
 
 echo.
@@ -69,5 +73,6 @@ taskkill /F /IM xms_gateway.exe 2>nul
 taskkill /F /IM xms_dir_service.exe 2>nul
 taskkill /F /IM xms_upload_service.exe 2>nul
 taskkill /F /IM xms_download_service.exe 2>nul
+taskkill /F /IM xms_share_service.exe 2>nul
 echo All services stopped.
 timeout /t 1 /nobreak >nul

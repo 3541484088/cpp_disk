@@ -1,14 +1,10 @@
 #pragma once
 
 #include <QObject>
+#include <atomic>
 #include "xms_disk_client_gui.pb.h"
 #include "xmsg_com.pb.h"
-//struct XFileData
-//{
-//    std::string filename;
-//    long long filesize;
-//    std::string filetime;
-//};
+#include "xmsg.h"
 class XFileManager:public QObject
 {
 
@@ -41,20 +37,46 @@ public:
 
     //等待：0~1000
     //返回上传列表，线程安全
-    virtual void UploadProcess(int task_id,int sended);
+    virtual void UploadProcess(int task_id, long long sended);
     virtual void UploadEnd(int task_id);
-    
+
 
 
     ///开始下载文件
     ///@ file_local_path 本地文件（要保存的文件）的全路径
     virtual void DownloadFile(xdisk::XFileInfo file) = 0;
-    virtual void DownloadProcess(int task_id, int recved);
+    virtual void DownloadProcess(int task_id, long long recved);
     virtual void DownloadEnd(int task_id);
 
     virtual void DeleteFile(xdisk::XFileInfo file) = 0;
 
+    // Batch-delete coordination: call BeginBatchDelete(n) before issuing n
+    // DeleteFile calls, then call DeleteDone() in each DeleteFileRes callback.
+    // Only the last DeleteDone() triggers the directory refresh.
+    void BeginBatchDelete(int count);
+    // Returns true when this is the last pending delete (caller should refresh).
+    bool DeleteDone();
+
     virtual void NewDir(std::string path) = 0;
+
+    // ===== 共享文件夹接口 =====
+    virtual void CreateShareFolder(const std::string &name,
+                                   const std::vector<xdisk::XShareUser> &users) = 0;
+    virtual void GetSharedFolders() = 0;
+    virtual void GetSharedDir(int64_t folder_id, const std::string &path) = 0;
+    virtual void UploadToSharedFolder(int64_t folder_id,
+                                      const std::string &sub_dir) = 0;
+    virtual void AddSharedUser(int64_t folder_id,
+                               const std::vector<xdisk::XShareUser> &users) = 0;
+    virtual void RemoveSharedUser(int64_t folder_id,
+                                  const std::vector<std::string> &usernames) = 0;
+    virtual void DownloadFromSharedFolder(int64_t folder_id,
+                                          const std::string &filename,
+                                          const std::string &filedir,
+                                          const std::string &local_path) = 0;
+    virtual void DeleteFromSharedFolder(int64_t folder_id,
+                                        const std::string &filename,
+                                        const std::string &filedir) = 0;
     //等待：0~1000
     //返回上传列表，线程安全
     //virtual void DownloadProcess(int task_id, int sended);
@@ -82,6 +104,12 @@ signals:
     void RefreshCompleteTask(std::list<xdisk::XFileTask> file_list);
     void RefreshDiskInfo(xdisk::XDiskInfo info);
     void ErrorSig(std::string str);
+    void InfoSig(std::string str);  // non-error informational notice (e.g. instant upload)
+    // 共享文件夹信号
+    void SigSharedFolders(std::vector<xdisk::XSharedFolderInfo> folders);
+    void SigSharedDir(xdisk::XFileInfoList files);
+    void SigSharedUploadAuthorized(std::string authorized_filedir);
+    void SigSharedDeleteDone(bool success, std::string msg);
 protected:
     XFileManager() {};
     //virtual bool CreateDir() = 0;
@@ -96,6 +124,8 @@ protected:
     std::list<xdisk::XFileTask> completes_;
     std::mutex completes_mutex_;
     xmsg::XLoginRes login_;
+
+    std::atomic<int> pending_deletes_{0};
 
     //上传服务器列表
     std::mutex servers_mutex_;

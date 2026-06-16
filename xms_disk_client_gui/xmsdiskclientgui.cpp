@@ -15,8 +15,8 @@
 #include <QMessageBox>
 #include <QLineEdit>
 #include "filepassword.h"
-//#include "file_manager.h"
 #include "task_list_gui.h"
+#include "share_dialog.h"
 #include "xtools.h"
 using namespace std;
 using namespace xdisk;
@@ -35,6 +35,11 @@ XMSDiskClientGui::~XMSDiskClientGui()
 void XMSDiskClientGui::ErrorSlot(std::string err)
 {
     QMessageBox::information(this, "XMS ERROR", QString::fromUtf8(err.c_str()));
+}
+
+void XMSDiskClientGui::InfoSlot(std::string msg)
+{
+    QMessageBox::information(this, QString::fromUtf8("提示"), QString::fromUtf8(msg.c_str()));
 }
 
 XMSDiskClientGui::XMSDiskClientGui(XFileManager *xfm, QWidget *parent)
@@ -85,9 +90,10 @@ XMSDiskClientGui::XMSDiskClientGui(XFileManager *xfm, QWidget *parent)
     connect(this->xfm_, SIGNAL(RefreshDiskInfo(xdisk::XDiskInfo)), this, SLOT(RefreshDiskInfo(xdisk::XDiskInfo)));
     
     connect(this->xfm_, SIGNAL(ErrorSig(std::string)), this, SLOT(ErrorSlot(std::string)));
+    connect(this->xfm_, SIGNAL(InfoSig(std::string)),  this, SLOT(InfoSlot(std::string)));
 
-    
-    // 只获取用户目录
+    qRegisterMetaType<std::vector<xdisk::XSharedFolderInfo>>("std::vector<xdisk::XSharedFolderInfo>");
+
     //FileManager::Get()->GetDir("/");
 
     Refresh();
@@ -152,8 +158,8 @@ void XMSDiskClientGui::DoubleClicked(int row, int col)
     // 双击进入目录或下载文件
     auto item = ui.filetableWidget->item(row, 1);
     QString dir = item->text();
-    string filename(dir.toLocal8Bit().constData());
-    
+    string filename(dir.toUtf8().constData());
+
     // 检查是否为目录
     for (auto file : file_list)
     {
@@ -161,22 +167,25 @@ void XMSDiskClientGui::DoubleClicked(int row, int col)
         {
             if (file.is_dir())
             {
-                // 如果是目录，进入目录
-                this->xfm_->GetDir(remote_dir_+"/"+filename);
+                // Build next path without duplicate slashes.
+                string next = remote_dir_;
+                while (!next.empty() && next.back() == '/') next.pop_back();
+                next += "/" + filename;
+                this->xfm_->GetDir(next);
             }
             else
             {
                 QString localpath = QFileDialog::getExistingDirectory(this, QString::fromUtf8("请选择保存路径"));
                 if (localpath.isEmpty())
                     return;
-                    
+
                 XFileInfo task;
                 QString filename = item->text();
-                task.set_filename(filename.toStdString());
+                task.set_filename(filename.toUtf8().constData());
                 task.set_filedir(remote_dir_);
                 QString rawpath = QDir(localpath).filePath(filename);
                 QString filepath = QDir::toNativeSeparators(rawpath);
-                task.set_local_path(filepath.toStdString());
+                task.set_local_path(filepath.toUtf8().constData());
 
                 // 检查是否为加密文件，弹窗输入密码
                 if (file.is_enc())
@@ -230,7 +239,7 @@ void XMSDiskClientGui::NewDir()
     }
     if (edit.text().isEmpty()) return;
 
-    string dir = edit.text().toLocal8Bit().constData(); // 输入新建目录名称
+    string dir = edit.text().toUtf8().constData(); // 输入新建目录名称
     xfm_->NewDir(remote_dir_+"/"+dir);
 }
 
@@ -245,12 +254,16 @@ void XMSDiskClientGui::Back()
     if (remote_dir_.empty() || remote_dir_ == "/")
         return;
     string tmp = remote_dir_;
-    if (tmp[tmp.size() - 1] == '/')
-    {
-        tmp = tmp.substr(0, tmp.size() - 1);
-    }
-    int index = tmp.find_last_of('/');
-    remote_dir_ = tmp.substr(0, index);
+    // Strip trailing slash
+    while (!tmp.empty() && tmp.back() == '/')
+        tmp.pop_back();
+    auto pos = tmp.find_last_of('/');
+    if (pos == string::npos)
+        remote_dir_ = "/";   // no slash found → already at top level
+    else
+        remote_dir_ = tmp.substr(0, pos);
+    if (remote_dir_.empty())
+        remote_dir_ = "/";
     xfm_->GetDir(remote_dir_);
 }
 
@@ -274,8 +287,21 @@ void XMSDiskClientGui::Delete()
     }
 
     auto re = QMessageBox::information(this, "", QString::fromUtf8("确认删除文件吗"), QMessageBox::Ok | QMessageBox::Cancel);
-    if (re & QMessageBox::Cancel)
+    if (re == QMessageBox::Cancel)
         return;
+
+    // Count how many files are selected before issuing any deletes, so
+    // the directory is only refreshed once after the last response arrives.
+    int delete_count = 0;
+    for (int i = 0; i < tab->rowCount(); i++)
+    {
+        auto w = tab->cellWidget(i, 0);
+        if (!w) continue;
+        auto check = (QCheckBox*)w->layout()->itemAt(0)->widget();
+        if (check && check->isChecked()) delete_count++;
+    }
+    if (delete_count == 0) return;
+    this->xfm_->BeginBatchDelete(delete_count);
 
     // 遍历所有选中项逐个删除
     for (int i = 0; i < tab->rowCount(); i++)
@@ -288,7 +314,7 @@ void XMSDiskClientGui::Delete()
         auto item = tab->item(i, 1);
         if (!item) continue;
 
-        string filename(item->text().toLocal8Bit().constData());
+        string filename(item->text().toUtf8().constData());
 
         // 检查该文件是否为目录
         bool is_dir = false;
@@ -341,11 +367,11 @@ void XMSDiskClientGui::Download()
     if (localpath.isEmpty())
         return;
     XFileInfo task;
-    task.set_filename(filename.toStdString());
+    task.set_filename(filename.toUtf8().constData());
     task.set_filedir(remote_dir_);
     QString rawpath = QDir(localpath).filePath(filename);
     QString filepath = QDir::toNativeSeparators(rawpath);
-    task.set_local_path(filepath.toStdString());
+    task.set_local_path(filepath.toUtf8().constData());
 
     // 检查是否为加密文件，弹窗输入密码
     for (auto &f : ::file_list)
@@ -414,7 +440,7 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
 {
     remote_dir_ = dir;
     QString view_dir = "";
-    QString dir_str = QString::fromLocal8Bit(dir.c_str());
+    QString dir_str = QString::fromUtf8(dir.c_str());
     auto dir_list = dir_str.split("/");
     for (auto d : dir_list)
     {
@@ -438,6 +464,7 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
 
     auto tab = ui.filetableWidget;
     while (tab->rowCount() > 0) tab->removeRow(0);
+    check_list.clear();
     for (auto file : file_list.files())
     {
         // 文件名
@@ -466,8 +493,9 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
         iconpath += XGetIconFilename(filename, file.is_dir());
         iconpath += "Type.png";
         // 插入表格
-        tab->insertRow(0);
-        
+        int newRow = tab->rowCount();
+        tab->insertRow(newRow);
+
         // 添加一个选择框，居中显示
         QCheckBox *ckb = new QCheckBox(tab);
         check_list.push_back(ckb);
@@ -477,15 +505,15 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
         hLayout->setContentsMargins(0, 0, 0, 0);  // 设置边距，让CheckBox居中显示
         hLayout->setAlignment(ckb, Qt::AlignCenter);
         widget->setLayout(hLayout);
-        tab->setCellWidget(0, 0, widget);
+        tab->setCellWidget(newRow, 0, widget);
 
         // 设置文件图标
         QString qfilename;
-        qfilename = QString::fromLocal8Bit(filename.c_str());
-        tab->setItem(0, 1, new QTableWidgetItem(QIcon(iconpath.c_str()), qfilename));
+        qfilename = QString::fromUtf8(filename.c_str());
+        tab->setItem(newRow, 1, new QTableWidgetItem(QIcon(iconpath.c_str()), qfilename));
         
         // 文件时间
-        tab->setItem(0, 2, new QTableWidgetItem(file.filetime().c_str()));
+        tab->setItem(newRow, 2, new QTableWidgetItem(file.filetime().c_str()));
 
         // 文件大小 B KB MB GB
         string filesize_str = "";
@@ -494,7 +522,7 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
             filesize_str = XGetSizeString(file.filesize());
         }
         
-        tab->setItem(0, 3, new QTableWidgetItem(filesize_str.c_str()));
+        tab->setItem(newRow, 3, new QTableWidgetItem(filesize_str.c_str()));
     }
 
     // 文件数量
@@ -517,8 +545,8 @@ void XMSDiskClientGui::Upload()
     qDebug() << fileinfo.fileName();
     qDebug() << fileinfo.canonicalFilePath();
     qDebug() << fileinfo.absoluteFilePath();
-    string file_real_path(filepath.toLocal8Bit().constData());
-    string filename(fileinfo.fileName().toLocal8Bit().constData());/*
+    string file_real_path(filepath.toUtf8().constData());
+    string filename(fileinfo.fileName().toUtf8().constData());/*
     string filedir = file_real_path.substr(0, file_real_path.size() - filename.size());*/
     XFileInfo task;
     task.set_filename(filename);
@@ -529,21 +557,29 @@ void XMSDiskClientGui::Upload()
 
 void XMSDiskClientGui::Refresh()
 {
-    //FileManager::Get()->GetDir(remote_dir_);
-    xfm_->GetDir(remote_dir_);
+    // 如果远程目录为空，默认使用根目录 "/"
+    std::string dir = remote_dir_.empty() ? "/" : remote_dir_;
+    xfm_->GetDir(dir);
 }
 
 void XMSDiskClientGui::contextMenuEvent(QContextMenuEvent *event)
 {
-    // 右键菜单
     QMenu Context;
     Context.addAction(ui.action_new_dir);
     Context.addAction(ui.upaction);
     Context.addAction(ui.downaction);
     Context.addAction(ui.refreshaction);
-
-    
+    QAction share_action(QString::fromUtf8("共享文件夹"), &Context);
+    Context.addSeparator();
+    Context.addAction(&share_action);
+    connect(&share_action, &QAction::triggered, this, &XMSDiskClientGui::ShowSharePanel);
     Context.exec(QCursor::pos());
+}
+
+void XMSDiskClientGui::ShowSharePanel()
+{
+    ShareDialog dlg(xfm_, this);
+    dlg.exec();
 }
 
 static bool mouse_press = false;
