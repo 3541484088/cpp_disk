@@ -136,6 +136,11 @@ void XMSFileManager::DeleteFromSharedFolder(int64_t folder_id,
 {
     XShareClient::Get()->DeleteSharedFile(folder_id, filename, filedir);
 }
+
+void XMSFileManager::DeleteShareFolder(int64_t folder_id)
+{
+    XShareClient::Get()->DeleteShareFolder(folder_id);
+}
 void XMSFileManager::DownloadFile(xdisk::XFileInfo file)
 {
     string ip = "127.0.0.1";

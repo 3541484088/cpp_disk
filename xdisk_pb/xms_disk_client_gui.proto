@@ -42,6 +42,8 @@ enum XFileMsgType
 	UPLOAD_SHARED_FILE_RES   = 2014;
 	DELETE_SHARED_FILE_REQ   = 2015;
 	DELETE_SHARED_FILE_RES   = 2016;
+	DELETE_SHARE_FOLDER_REQ  = 2017;
+	DELETE_SHARE_FOLDER_RES  = 2018;
 }
 
 message XDiskInfo
@@ -198,4 +200,8 @@ message XDeleteSharedFileReq {
     int64  folder_id = 1;
     string filename = 2;
     string filedir = 3;
+}
+
+message XDeleteShareFolderReq {
+    int64  folder_id = 1;
 }

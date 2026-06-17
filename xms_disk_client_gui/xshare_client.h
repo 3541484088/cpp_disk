@@ -27,6 +27,7 @@ public:
     void UploadSharedFile(int64_t folder_id, const std::string &filedir);
     void DeleteSharedFile(int64_t folder_id, const std::string &filename,
                           const std::string &filedir);
+    void DeleteShareFolder(int64_t folder_id);
 
     // response callbacks
     void CreateShareFolderRes(xmsg::XMsgHead *head, XMsg *msg);
@@ -37,6 +38,7 @@ public:
     void DownloadSharedFileRes(xmsg::XMsgHead *head, XMsg *msg);
     void UploadSharedFileRes(xmsg::XMsgHead *head, XMsg *msg);
     void DeleteSharedFileRes(xmsg::XMsgHead *head, XMsg *msg);
+    void DeleteShareFolderRes(xmsg::XMsgHead *head, XMsg *msg);
 
     static void RegMsgCallback()
     {
@@ -48,6 +50,7 @@ public:
         RegCB((xmsg::MsgType)xdisk::DOWNLOAD_SHARED_FILE_RES, (MsgCBFunc)&XShareClient::DownloadSharedFileRes);
         RegCB((xmsg::MsgType)xdisk::UPLOAD_SHARED_FILE_RES,   (MsgCBFunc)&XShareClient::UploadSharedFileRes);
         RegCB((xmsg::MsgType)xdisk::DELETE_SHARED_FILE_RES,   (MsgCBFunc)&XShareClient::DeleteSharedFileRes);
+        RegCB((xmsg::MsgType)xdisk::DELETE_SHARE_FOLDER_RES,  (MsgCBFunc)&XShareClient::DeleteShareFolderRes);
     }
 
 private:

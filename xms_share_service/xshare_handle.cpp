@@ -671,3 +671,43 @@ void XShareHandle::DeleteSharedFileReq(XMsgHead *head, XMsg *msg)
     head->set_msg_type((MsgType)DELETE_SHARED_FILE_RES);
     SendMsg(head, &res);
 }
+
+void XShareHandle::DeleteShareFolderReq(XMsgHead *head, XMsg *msg)
+{
+    XDeleteShareFolderReq req;
+    xmsg::XMessageRes res;
+    if (!req.ParseFromArray(msg->data, msg->size))
+    {
+        res.set_return_(XMessageRes::ERROR); res.set_msg("parse error");
+        head->set_msg_type((MsgType)DELETE_SHARE_FOLDER_RES);
+        SendMsg(head, &res); return;
+    }
+    if (!db_)
+    {
+        res.set_return_(XMessageRes::ERROR); res.set_msg("DB unavailable");
+        head->set_msg_type((MsgType)DELETE_SHARE_FOLDER_RES);
+        SendMsg(head, &res); return;
+    }
+    // Only the owner (admin) can delete the folder entirely.
+    string owner = GetFolderOwner(db_, req.folder_id());
+    if (owner.empty() || owner != head->username())
+    {
+        res.set_return_(XMessageRes::ERROR); res.set_msg("PERMISSION_DENIED: owner only");
+        head->set_msg_type((MsgType)DELETE_SHARE_FOLDER_RES);
+        SendMsg(head, &res); return;
+    }
+    // Delete files on disk (best-effort, ignore errors).
+    string sandbox = DIR_ROOT + string("_shared/") + to_string(req.folder_id());
+    namespace fs = std::filesystem;
+    error_code ec;
+    fs::remove_all(sandbox, ec);
+
+    // Delete DB record — cascades to shared_folder_permissions via FK.
+    stringstream ss;
+    ss << "DELETE FROM shared_folders WHERE id=" << req.folder_id();
+    db_->Query(ss.str().c_str());
+
+    res.set_return_(XMessageRes::OK);
+    head->set_msg_type((MsgType)DELETE_SHARE_FOLDER_RES);
+    SendMsg(head, &res);
+}

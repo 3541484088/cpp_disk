@@ -33,7 +33,9 @@ public:
         folder_list_ = new QListWidget(this);
         left->addWidget(folder_list_);
         auto *btn_create = new QPushButton(QString::fromUtf8("新建共享"), this);
+        auto *btn_delete_folder = new QPushButton(QString::fromUtf8("删除共享"), this);
         left->addWidget(btn_create);
+        left->addWidget(btn_delete_folder);
         main_layout->addLayout(left, 1);
 
         // right: file table
@@ -61,6 +63,7 @@ public:
         main_layout->addLayout(right, 3);
 
         connect(btn_create,   &QPushButton::clicked, this, &ShareDialog::CreateFolder);
+        connect(btn_delete_folder, &QPushButton::clicked, this, &ShareDialog::DeleteFolder);
         connect(btn_download, &QPushButton::clicked, this, &ShareDialog::DownloadFile);
         connect(btn_upload,   &QPushButton::clicked, this, &ShareDialog::UploadFile);
         connect(btn_delete,   &QPushButton::clicked, this, &ShareDialog::DeleteFile);
@@ -129,6 +132,31 @@ private slots:
             QString::fromUtf8("文件夹名称:"), QLineEdit::Normal, "", &ok);
         if (!ok || name.isEmpty()) return;
         xfm_->CreateShareFolder(name.toUtf8().constData(), {});
+    }
+    void DeleteFolder()
+    {
+        if (cur_folder_id_ <= 0)
+        {
+            QMessageBox::information(this, "", QString::fromUtf8("请先选择要删除的共享文件夹"));
+            return;
+        }
+        // Find the folder name for the confirmation dialog.
+        QString folder_name;
+        for (auto &f : folders_)
+        {
+            if (f.id() == cur_folder_id_)
+            {
+                folder_name = QString::fromUtf8(f.name().c_str());
+                break;
+            }
+        }
+        auto ans = QMessageBox::question(
+            this, QString::fromUtf8("确认"),
+            QString::fromUtf8("确定删除共享文件夹 \"") + folder_name +
+            QString::fromUtf8("\"？\n此操作不可恢复！"));
+        if (ans != QMessageBox::Yes) return;
+        xfm_->DeleteShareFolder(cur_folder_id_);
+        cur_folder_id_ = -1;
     }
     void DownloadFile()
     {
@@ -201,18 +229,40 @@ private slots:
     void ManageUsers()
     {
         if (cur_folder_id_ <= 0) return;
+        QStringList options;
+        options << QString::fromUtf8("添加成员")
+                << QString::fromUtf8("移除成员");
         bool ok;
-        QString input = QInputDialog::getText(
-            this, QString::fromUtf8("添加成员"),
-            QString::fromUtf8("格式: 用户名,权限(read/write/admin)"),
-            QLineEdit::Normal, "", &ok);
-        if (!ok || input.isEmpty()) return;
-        auto parts = input.split(",");
-        if (parts.size() < 2) return;
-        xdisk::XShareUser u;
-        u.set_username(parts[0].trimmed().toUtf8().constData());
-        u.set_permission_level(parts[1].trimmed().toUtf8().constData());
-        xfm_->AddSharedUser(cur_folder_id_, {u});
+        QString choice = QInputDialog::getItem(
+            this, QString::fromUtf8("管理成员"),
+            QString::fromUtf8("请选择操作:"),
+            options, 0, false, &ok);
+        if (!ok) return;
+        if (choice == QString::fromUtf8("添加成员"))
+        {
+            QString input = QInputDialog::getText(
+                this, QString::fromUtf8("添加成员"),
+                QString::fromUtf8("格式: 用户名,权限(read/write/admin)"),
+                QLineEdit::Normal, "", &ok);
+            if (!ok || input.isEmpty()) return;
+            auto parts = input.split(",");
+            if (parts.size() < 2) return;
+            xdisk::XShareUser u;
+            u.set_username(parts[0].trimmed().toUtf8().constData());
+            u.set_permission_level(parts[1].trimmed().toUtf8().constData());
+            xfm_->AddSharedUser(cur_folder_id_, {u});
+        }
+        else
+        {
+            QString input = QInputDialog::getText(
+                this, QString::fromUtf8("移除成员"),
+                QString::fromUtf8("请输入要移除的用户名:"),
+                QLineEdit::Normal, "", &ok);
+            if (!ok || input.isEmpty()) return;
+            std::vector<std::string> names;
+            names.push_back(input.trimmed().toUtf8().constData());
+            xfm_->RemoveSharedUser(cur_folder_id_, names);
+        }
     }
 
 private:

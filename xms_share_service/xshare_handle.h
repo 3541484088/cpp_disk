@@ -18,6 +18,7 @@ public:
     void DownloadSharedFileReq(xmsg::XMsgHead *head, XMsg *msg);
     void UploadSharedFileReq(xmsg::XMsgHead *head, XMsg *msg);
     void DeleteSharedFileReq(xmsg::XMsgHead *head, XMsg *msg);
+    void DeleteShareFolderReq(xmsg::XMsgHead *head, XMsg *msg);
 
     static void RegMsgCallback()
     {
@@ -29,6 +30,7 @@ public:
         RegCB((xmsg::MsgType)xdisk::DOWNLOAD_SHARED_FILE_REQ, (MsgCBFunc)&XShareHandle::DownloadSharedFileReq);
         RegCB((xmsg::MsgType)xdisk::UPLOAD_SHARED_FILE_REQ,   (MsgCBFunc)&XShareHandle::UploadSharedFileReq);
         RegCB((xmsg::MsgType)xdisk::DELETE_SHARED_FILE_REQ,   (MsgCBFunc)&XShareHandle::DeleteSharedFileReq);
+        RegCB((xmsg::MsgType)xdisk::DELETE_SHARE_FOLDER_REQ,  (MsgCBFunc)&XShareHandle::DeleteShareFolderReq);
     }
 
 private:

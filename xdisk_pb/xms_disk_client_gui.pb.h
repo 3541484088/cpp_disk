@@ -58,6 +58,9 @@ extern XCreateShareFolderReqDefaultTypeInternal _XCreateShareFolderReq_default_i
 class XCreateShareFolderRes;
 struct XCreateShareFolderResDefaultTypeInternal;
 extern XCreateShareFolderResDefaultTypeInternal _XCreateShareFolderRes_default_instance_;
+class XDeleteShareFolderReq;
+struct XDeleteShareFolderReqDefaultTypeInternal;
+extern XDeleteShareFolderReqDefaultTypeInternal _XDeleteShareFolderReq_default_instance_;
 class XDeleteSharedFileReq;
 struct XDeleteSharedFileReqDefaultTypeInternal;
 extern XDeleteSharedFileReqDefaultTypeInternal _XDeleteSharedFileReq_default_instance_;
@@ -132,6 +135,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::xdisk::XAddShareUserReq* Arena::CreateMaybeMessage<::xdisk::XAddShareUserReq>(Arena*);
 template<> ::xdisk::XCreateShareFolderReq* Arena::CreateMaybeMessage<::xdisk::XCreateShareFolderReq>(Arena*);
 template<> ::xdisk::XCreateShareFolderRes* Arena::CreateMaybeMessage<::xdisk::XCreateShareFolderRes>(Arena*);
+template<> ::xdisk::XDeleteShareFolderReq* Arena::CreateMaybeMessage<::xdisk::XDeleteShareFolderReq>(Arena*);
 template<> ::xdisk::XDeleteSharedFileReq* Arena::CreateMaybeMessage<::xdisk::XDeleteSharedFileReq>(Arena*);
 template<> ::xdisk::XDiskInfo* Arena::CreateMaybeMessage<::xdisk::XDiskInfo>(Arena*);
 template<> ::xdisk::XDownloadSharedFileReq* Arena::CreateMaybeMessage<::xdisk::XDownloadSharedFileReq>(Arena*);
@@ -195,6 +199,8 @@ enum XFileMsgType : int {
   UPLOAD_SHARED_FILE_RES = 2014,
   DELETE_SHARED_FILE_REQ = 2015,
   DELETE_SHARED_FILE_RES = 2016,
+  DELETE_SHARE_FOLDER_REQ = 2017,
+  DELETE_SHARE_FOLDER_RES = 2018,
   XFileMsgType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   XFileMsgType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
@@ -4748,6 +4754,154 @@ class XDeleteSharedFileReq final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
 };
+// -------------------------------------------------------------------
+
+class XDeleteShareFolderReq final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:xdisk.XDeleteShareFolderReq) */ {
+ public:
+  inline XDeleteShareFolderReq() : XDeleteShareFolderReq(nullptr) {}
+  ~XDeleteShareFolderReq() override;
+  explicit PROTOBUF_CONSTEXPR XDeleteShareFolderReq(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  XDeleteShareFolderReq(const XDeleteShareFolderReq& from);
+  XDeleteShareFolderReq(XDeleteShareFolderReq&& from) noexcept
+    : XDeleteShareFolderReq() {
+    *this = ::std::move(from);
+  }
+
+  inline XDeleteShareFolderReq& operator=(const XDeleteShareFolderReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline XDeleteShareFolderReq& operator=(XDeleteShareFolderReq&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const XDeleteShareFolderReq& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const XDeleteShareFolderReq* internal_default_instance() {
+    return reinterpret_cast<const XDeleteShareFolderReq*>(
+               &_XDeleteShareFolderReq_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    26;
+
+  friend void swap(XDeleteShareFolderReq& a, XDeleteShareFolderReq& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(XDeleteShareFolderReq* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(XDeleteShareFolderReq* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  XDeleteShareFolderReq* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<XDeleteShareFolderReq>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const XDeleteShareFolderReq& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const XDeleteShareFolderReq& from) {
+    XDeleteShareFolderReq::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(XDeleteShareFolderReq* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "xdisk.XDeleteShareFolderReq";
+  }
+  protected:
+  explicit XDeleteShareFolderReq(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kFolderIdFieldNumber = 1,
+  };
+  // int64 folder_id = 1;
+  void clear_folder_id();
+  int64_t folder_id() const;
+  void set_folder_id(int64_t value);
+  private:
+  int64_t _internal_folder_id() const;
+  void _internal_set_folder_id(int64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:xdisk.XDeleteShareFolderReq)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    int64_t folder_id_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_xms_5fdisk_5fclient_5fgui_2eproto;
+};
 // ===================================================================
 
 
@@ -7651,9 +7805,35 @@ inline void XDeleteSharedFileReq::set_allocated_filedir(std::string* filedir) {
   // @@protoc_insertion_point(field_set_allocated:xdisk.XDeleteSharedFileReq.filedir)
 }
 
+// -------------------------------------------------------------------
+
+// XDeleteShareFolderReq
+
+// int64 folder_id = 1;
+inline void XDeleteShareFolderReq::clear_folder_id() {
+  _impl_.folder_id_ = int64_t{0};
+}
+inline int64_t XDeleteShareFolderReq::_internal_folder_id() const {
+  return _impl_.folder_id_;
+}
+inline int64_t XDeleteShareFolderReq::folder_id() const {
+  // @@protoc_insertion_point(field_get:xdisk.XDeleteShareFolderReq.folder_id)
+  return _internal_folder_id();
+}
+inline void XDeleteShareFolderReq::_internal_set_folder_id(int64_t value) {
+  
+  _impl_.folder_id_ = value;
+}
+inline void XDeleteShareFolderReq::set_folder_id(int64_t value) {
+  _internal_set_folder_id(value);
+  // @@protoc_insertion_point(field_set:xdisk.XDeleteShareFolderReq.folder_id)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

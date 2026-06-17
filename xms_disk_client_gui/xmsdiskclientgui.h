@@ -37,6 +37,7 @@ public slots:
     void InfoSlot(std::string msg);
     void FileEnc();
     void ShowSharePanel();
+    void ChangePassword();
     void set_xfm(XFileManager *fm) { xfm_ = fm; }
 private:
     Ui::XMSDiskClientGuiClass ui;

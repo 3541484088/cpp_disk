@@ -95,6 +95,13 @@ void XShareClient::DeleteSharedFile(int64_t folder_id,
     SendMsg((MsgType)DELETE_SHARED_FILE_REQ, &req);
 }
 
+void XShareClient::DeleteShareFolder(int64_t folder_id)
+{
+    XDeleteShareFolderReq req;
+    req.set_folder_id(folder_id);
+    SendMsg((MsgType)DELETE_SHARE_FOLDER_REQ, &req);
+}
+
 // ===== response callbacks =====
 
 void XShareClient::CreateShareFolderRes(XMsgHead *head, XMsg *msg)
@@ -183,4 +190,17 @@ void XShareClient::DeleteSharedFileRes(XMsgHead *head, XMsg *msg)
         XFileManager::Instance()->ErrorSig(string("删除失败: ") + res.msg());
     // Emit signal so the dialog can refresh after the delete actually completes.
     XFileManager::Instance()->SigSharedDeleteDone(ok, res.msg());
+}
+
+void XShareClient::DeleteShareFolderRes(XMsgHead *head, XMsg *msg)
+{
+    XMessageRes res;
+    if (!res.ParseFromArray(msg->data, msg->size)) return;
+    if (res.return_() != XMessageRes::OK)
+    {
+        XFileManager::Instance()->ErrorSig(string("删除共享文件夹失败: ") + res.msg());
+        return;
+    }
+    // Refresh the folder list after successful deletion.
+    GetSharedFolders();
 }

@@ -32,5 +32,6 @@ public:
     virtual void DeleteFromSharedFolder(int64_t folder_id,
                                         const std::string &filename,
                                         const std::string &filedir) override;
+    virtual void DeleteShareFolder(int64_t folder_id) override;
 };
 

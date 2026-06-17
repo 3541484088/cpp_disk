@@ -120,9 +120,19 @@ bool XAuthDao::ChangePassword(const xmsg::XChangePasswordReq *pass)
         return false;
     }
 
+    // 验证旧密码是否正确
+    string check_where = " where xms_username='" + pass->username() +
+                         "' and xms_password='" + pass->password() + "'";
+    auto rows = my_->GetResult(("select xms_username from xms_auth" + check_where).c_str());
+    if (rows.empty())
+    {
+        LOGERROR("Old password verification failed!");
+        return false;
+    }
+
     // 准备更新数据
     XDATA data;
-    data["xms_password"] = pass->password().c_str();
+    data["xms_password"] = pass->new_password().c_str();
     string where = " where xms_username='" + pass->username() + "'";
 
     // 更新数据库

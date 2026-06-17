@@ -14,10 +14,12 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QLineEdit>
+#include <QInputDialog>
 #include "filepassword.h"
 #include "task_list_gui.h"
 #include "share_dialog.h"
 #include "xtools.h"
+#include "xauth_client.h"
 using namespace std;
 using namespace xdisk;
 
@@ -570,9 +572,12 @@ void XMSDiskClientGui::contextMenuEvent(QContextMenuEvent *event)
     Context.addAction(ui.downaction);
     Context.addAction(ui.refreshaction);
     QAction share_action(QString::fromUtf8("共享文件夹"), &Context);
+    QAction chpwd_action(QString::fromUtf8("修改密码"), &Context);
     Context.addSeparator();
     Context.addAction(&share_action);
+    Context.addAction(&chpwd_action);
     connect(&share_action, &QAction::triggered, this, &XMSDiskClientGui::ShowSharePanel);
+    connect(&chpwd_action, &QAction::triggered, this, &XMSDiskClientGui::ChangePassword);
     Context.exec(QCursor::pos());
 }
 
@@ -580,6 +585,26 @@ void XMSDiskClientGui::ShowSharePanel()
 {
     ShareDialog dlg(xfm_, this);
     dlg.exec();
+}
+
+void XMSDiskClientGui::ChangePassword()
+{
+    bool ok;
+    QString old_pwd = QInputDialog::getText(
+        this, QString::fromUtf8("修改密码"),
+        QString::fromUtf8("旧密码:"), QLineEdit::Password, "", &ok);
+    if (!ok || old_pwd.isEmpty()) return;
+
+    QString new_pwd = QInputDialog::getText(
+        this, QString::fromUtf8("修改密码"),
+        QString::fromUtf8("新密码:"), QLineEdit::Password, "", &ok);
+    if (!ok || new_pwd.isEmpty()) return;
+
+    xmsg::XChangePasswordReq req;
+    req.set_username(xfm_->login().username());
+    req.set_password(XMD5_base64((unsigned char*)old_pwd.toUtf8().constData(), old_pwd.toUtf8().size()));
+    req.set_new_password(XMD5_base64((unsigned char*)new_pwd.toUtf8().constData(), new_pwd.toUtf8().size()));
+    XAuthClient::Get()->ChangePasswordReq(&req);
 }
 
 static bool mouse_press = false;

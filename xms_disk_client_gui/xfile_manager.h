@@ -77,6 +77,7 @@ public:
     virtual void DeleteFromSharedFolder(int64_t folder_id,
                                         const std::string &filename,
                                         const std::string &filedir) = 0;
+    virtual void DeleteShareFolder(int64_t folder_id) = 0;
     //等待：0~1000
     //返回上传列表，线程安全
     //virtual void DownloadProcess(int task_id, int sended);
