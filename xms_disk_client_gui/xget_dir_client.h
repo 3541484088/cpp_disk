@@ -44,6 +44,7 @@ public:
     //获取磁盘空间使用情况
     void GetDiskInfoRes(xmsg::XMsgHead *head, XMsg *msg);
 
+    virtual void ConnectedCB() override;
     //定时获取上传下载服务器服务列表
     virtual void TimerCB() override;
 

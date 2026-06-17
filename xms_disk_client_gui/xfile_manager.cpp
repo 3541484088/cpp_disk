@@ -4,6 +4,16 @@ using namespace std;
 using namespace xdisk;
 XFileManager *XFileManager::instance_ = 0;
 
+void XFileManager::BeginBatchDelete(int count)
+{
+    pending_deletes_ += count;
+}
+
+bool XFileManager::DeleteDone()
+{
+    return --pending_deletes_ <= 0;
+}
+
 
 xmsg::XServiceList XFileManager::upload_servers()
 {
@@ -75,6 +85,9 @@ void XFileManager::UploadEnd(int task_id)
             task.set_is_complete(true);
             task.mutable_file()->set_net_size(task.file().filesize());
             completes_.push_back(task);
+            // Cap completed list at 100 entries (drop oldest).
+            while (completes_.size() > 100)
+                completes_.pop_front();
             up = uploads_.erase(up);
         }
         else
@@ -87,7 +100,7 @@ void XFileManager::UploadEnd(int task_id)
 }
 
 //���ȴ�
-void XFileManager::UploadProcess(int task_id, int sended)
+void XFileManager::UploadProcess(int task_id, long long sended)
 {
     XMutex mutex(&uploads_mutex_);
     //uploads_mutex_.lock();
@@ -114,6 +127,9 @@ void XFileManager::DownloadEnd(int task_id)
             task.set_is_complete(true);
             task.mutable_file()->set_net_size(task.file().filesize());
             completes_.push_back(task);
+            // Cap completed list at 100 entries (drop oldest).
+            while (completes_.size() > 100)
+                completes_.pop_front();
             down = downloads_.erase(down);
         }
         else
@@ -126,7 +142,7 @@ void XFileManager::DownloadEnd(int task_id)
 }
 
 
-void XFileManager::DownloadProcess(int task_id, int recved)
+void XFileManager::DownloadProcess(int task_id, long long recved)
 {
     XMutex mutex(&downloads_mutex_);
     //uploads_mutex_.lock();

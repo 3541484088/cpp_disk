@@ -14,9 +14,7 @@ target_include_directories(config_client
     PRIVATE ${XDISK_ENV_ROOT}/include
 )
 
-target_compile_definitions(config_client PRIVATE
-    _CRT_SECURE_NO_WARNINGS
-)
+# _CRT_SECURE_NO_WARNINGS 已在 XdiskCommon.cmake 中全局配置
 
 target_link_libraries(config_client PUBLIC
     xplatform

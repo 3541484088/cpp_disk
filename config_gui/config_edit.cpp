@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include "xconfig_client.h"
 #include "xconfig_manager.h"
+#include <cfloat>
 #include <fstream>
 using namespace std;
 using namespace xmsg;

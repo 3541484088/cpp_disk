@@ -4,21 +4,57 @@
  * 
  * 处理文件目录相关的消息：获取磁盘信息、创建目录、获取目录列表、删除文件等
  */
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#define _HAS_STD_BYTE 0
+#include <windows.h>  // Must be before protobuf headers to avoid ERROR macro conflict
+#undef ERROR  // Prevent conflict with protobuf XMessageRes::ERROR enum
+#endif
 #include "xdir_handle.h"
 #include "xtools.h"
 #include "xlog_client.h"
+#include <filesystem>
+#include <fstream>
+
+#ifdef _WIN32
+static std::filesystem::path utf8_to_path(const std::string &utf8)
+{
+    int wlen = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), -1, nullptr, 0);
+    std::wstring wpath(wlen - 1, L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), -1, &wpath[0], wlen);
+    return std::filesystem::path(wpath);
+}
+#else
+static std::filesystem::path utf8_to_path(const std::string &utf8)
+{
+    return std::filesystem::path(utf8);
+}
+#endif
+
+// Rejects paths that contain ".." components to prevent directory traversal.
+static bool IsPathSafe(const std::string &path)
+{
+    if (path.size() > 512) return false;
+    std::string seg;
+    for (char c : path + "/")
+    {
+        if (c == '/' || c == '\\')
+        {
+            if (seg == "..") return false;
+            seg.clear();
+        }
+        else { seg += c; }
+    }
+    return true;
+}
 
 // 平台相关的根目录定义
-#ifdef _WIN32
-#define DIR_ROOT "./server_root/"
-#else
-#define DIR_ROOT "/mnt/xms/"
-#endif
+#define DIR_ROOT (GetDirRoot())
 
 // 文件信息文件前缀
 #define FILE_INFO_NAME_PRE ".info_"
 
-// 用户空间大小（10G）
+// 用户空间大小（1GB）
 #define USER_SPACE 1073741824
 
 using namespace xdisk;
@@ -95,12 +131,30 @@ void XDirHandle::NewDirReq(xmsg::XMsgHead *head, XMsg *msg)
     }
 
     string path = GetUserPath(head);
+    if (!IsPathSafe(req.root()))
+    {
+        XMessageRes res;
+        res.set_return_(XMessageRes::ERROR);
+        res.set_msg("INVALID_PATH");
+        head->set_msg_type((MsgType)NEW_DIR_RES);
+        SendMsg(head, &res);
+        return;
+    }
     path += req.root();
     path += "/";
-
-    // 创建目录
-    XNewDir(path);
+    namespace fs = std::filesystem;
+    std::error_code ec;
+    fs::create_directories(utf8_to_path(path), ec);
     XMessageRes res;
+    if (ec)
+    {
+        res.set_return_(XMessageRes::ERROR);
+        res.set_msg(string("Create dir failed: ") + ec.message());
+        head->set_msg_type((MsgType)NEW_DIR_RES);
+        SendMsg(head, &res);
+        return;
+    }
+    // 无论是新建还是已存在，只要没有错误就返回 OK
     res.set_return_(XMessageRes::OK);
     res.set_msg("OK");
     head->set_msg_type((MsgType)NEW_DIR_RES);
@@ -125,9 +179,26 @@ void XDirHandle::GetDirReq(xmsg::XMsgHead *head, XMsg *msg)
     }
     cout << req.DebugString();
     string path = GetUserPath(head);
+    if (!IsPathSafe(req.root()))
+    {
+        XFileInfoList empty;
+        head->set_msg_type((xmsg::MsgType)xdisk::GET_DIR_RES);
+        SendMsg(head, &empty);
+        return;
+    }
     path += req.root();
+    // Normalize: strip trailing slashes so GetDirList never receives "//" or "///"
+    while (path.size() > 1 && (path.back() == '/' || path.back() == '\\'))
+        path.pop_back();
     cout << "GetDirReq path = " << path << endl;
+    
+    // 自动创建用户目录（如果不存在）
+    namespace fs = std::filesystem;
+    std::error_code ec;
+    fs::create_directories(utf8_to_path(path + "/"), ec);
+    
     auto files = GetDirList(path);
+    cout << "GetDirList returned " << files.size() << " entries for path: " << path << endl;
     XFileInfoList file_list;
 
     for (auto file : files)
@@ -143,16 +214,30 @@ void XDirHandle::GetDirReq(xmsg::XMsgHead *head, XMsg *msg)
         info->set_filesize(file.filesize);
         info->set_filetime(file.time_str);
         info->set_is_dir(file.is_dir);
+
+        // 读取 .info_ 元数据文件，填充加密相关字段
+        if (!file.is_dir)
+        {
+            string info_path = path + "/" + FILE_INFO_NAME_PRE + file.filename;
+            ifstream ifs_info(utf8_to_path(info_path));
+            if (ifs_info)
+            {
+                xdisk::XFileInfo file_info;
+                if (file_info.ParseFromIstream(&ifs_info))
+                {
+                    info->set_is_enc(file_info.is_enc());
+                    info->set_md5(file_info.md5());
+                    info->set_ori_size(file_info.ori_size());
+                }
+                ifs_info.close();
+            }
+        }
     }
     head->set_msg_type((xmsg::MsgType)xdisk::GET_DIR_RES);
+    cout << "GetDirReq: sending " << file_list.files_size() << " files in response" << endl;
     SendMsg(head, &file_list);
 }
 
-/**
- * @brief 处理删除文件请求
- * @param head 消息头
- * @param msg 消息体
- */
 void XDirHandle::DeleteFileReq(xmsg::XMsgHead *head, XMsg *msg)
 {
     XFileInfo req;
@@ -162,6 +247,15 @@ void XDirHandle::DeleteFileReq(xmsg::XMsgHead *head, XMsg *msg)
         return;
     }
     string path = GetUserPath(head);
+    if (!IsPathSafe(req.filedir()) || !IsPathSafe(req.filename()))
+    {
+        XMessageRes res;
+        res.set_return_(XMessageRes::ERROR);
+        res.set_msg("INVALID_PATH");
+        head->set_msg_type((MsgType)DELETE_FILE_RES);
+        SendMsg(head, &res);
+        return;
+    }
     path += req.filedir();
     path += "/";
 
@@ -172,10 +266,18 @@ void XDirHandle::DeleteFileReq(xmsg::XMsgHead *head, XMsg *msg)
     info_path += req.filename();
     
     // 删除文件（如果是目录需要递归删除）
-    XDelFile(path);
-
-    // 删除信息文件
-    XDelFile(info_path);
+    if (req.is_dir())
+    {
+        // 递归删除目录及其内容
+        XDelDir(path);
+    }
+    else
+    {
+        // 删除实际文件
+        XDelFile(path);
+        // 删除信息文件（目录没有信息文件）
+        XDelFile(info_path);
+    }
     
     // 判断是否删除成功，检查是否存在文件
     head->set_msg_type((xmsg::MsgType)xdisk::DELETE_FILE_RES);

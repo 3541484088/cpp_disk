@@ -15,9 +15,10 @@ target_include_directories(config_server PRIVATE
 
 target_compile_definitions(config_server PRIVATE
     STATIC
-    _CRT_SECURE_NO_WARNINGS
-    _CONSOLE
 )
+if(WIN32)
+    target_compile_definitions(config_server PRIVATE _CONSOLE)
+endif()
 
 target_link_libraries(config_server PRIVATE
     xplatform

@@ -23,6 +23,8 @@ void XAuthHandle::CheckTokenReq(xmsg::XMsgHead *head, XMsg *msg)
 {
     XLoginRes res;
     XAuthDao::Get()->CheckToken(head, &res);
+    head->set_msg_type(MSG_CHECK_TOKEN_RES);
+    SendMsg(head, &res);
 }
 
 /**

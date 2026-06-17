@@ -23,8 +23,8 @@ LoginGUI::~LoginGUI()
 void LoginGUI::Login()
 {
     ui.err_frame->show();
-    string username(ui.usernameEdit->text().toLocal8Bit().constData());
-    string password(ui.passwordEdit->text().toLocal8Bit().constData());
+    string username(ui.usernameEdit->text().toUtf8().constData());
+    string password(ui.passwordEdit->text().toUtf8().constData());
     if (username.empty() || password.empty())
     {
         ui.err_msg->setText(QString::fromUtf8("用户名密码不能为空"));

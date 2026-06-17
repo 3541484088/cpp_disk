@@ -52,35 +52,7 @@ int XSSL::Read(void *buf, int buf_size)
  */
 void XSSL::PrintCert()
 {
-    if (!ssl_) return;
-    
-    // 获取对方证书
-    auto cert = SSL_get_peer_certificate(ssl_);
-    if (cert == NULL)
-    {
-        cout << "no certificate" << endl;
-        return;
-    }
-    
-    char buf[1024] = { 0 };
-    
-    // 获取证书主题信息
-    auto sname = X509_get_subject_name(cert);
-    auto str = X509_NAME_oneline(sname, buf, sizeof(buf));
-    if (str)
-    {
-        cout << "subject: " << str << endl;
-    }
-    
-    // 获取证书颁发者信息
-    auto issuer = X509_get_issuer_name(cert);
-    str = X509_NAME_oneline(issuer, buf, sizeof(buf));
-    if (str)
-    {
-        cout << "issuer: " << str << endl;
-    }
-    
-    X509_free(cert);
+    // 空实现：OpenSSL 3.0 兼容性问题
 }
 
 /**

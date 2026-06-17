@@ -7,15 +7,24 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets
-    PATHS ${XDISK_QT_DIR} NO_DEFAULT_PATH)
+if(WIN32)
+    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets
+        PATHS ${XDISK_QT_DIR} NO_DEFAULT_PATH)
+else()
+    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+endif()
 
 file(GLOB_RECURSE SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/*.qrc"
 )
 
-add_executable(xms_disk_client_gui WIN32 ${SOURCES})
+if(WIN32)
+    add_executable(xms_disk_client_gui WIN32 ${SOURCES})
+else()
+    add_executable(xms_disk_client_gui ${SOURCES})
+endif()
 
 target_include_directories(xms_disk_client_gui PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -23,10 +32,6 @@ target_include_directories(xms_disk_client_gui PRIVATE
     ${CMAKE_SOURCE_DIR}/xms_dir_service
     ${CMAKE_SOURCE_DIR}/xdisk_pb
     ${XDISK_ENV_ROOT}/include
-)
-
-target_compile_definitions(xms_disk_client_gui PRIVATE
-    _CRT_SECURE_NO_WARNINGS
 )
 
 target_link_libraries(xms_disk_client_gui PRIVATE

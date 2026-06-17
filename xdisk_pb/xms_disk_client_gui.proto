@@ -5,65 +5,81 @@ package xdisk;		//名称空间
 enum XFileMsgType
 {
 	FILE_MSG_NONE = 0;
-	GET_DIR_REQ = 1001;			//XGetDirReq
-	GET_DIR_RES = 1002;			//XFileInfoList 失败统一走失败，通过
-	UPLOAD_FILE_REQ = 1003;		//1发起上传文件指定 XFileInfo 包括全路径，链接服务器做md5(计算成本) 每发一个客户端只传一个文件，多个文件需要重复调用
-	UPLOAD_FILE_RES = 1004;		//XMessageRes 2确认链接可以接收文件，校验权限和空间大小
-	SEND_SLICE_REQ = 1005;		// XFileSlice 3 发送文件片
-	//SEND_SLICE_DATA = 1006;	// 发送片数据消息，就是具体的文件
-	SEND_SLICE_RES = 1007;		//XFileSlice 返回文件片信息 4文件片接收成功或失败，包含校验这个文件片大小校验，失败返回原因
-	UPLOAD_FILE_END_REQ = 1008;	//XFileInfo 5
-	UPLOAD_FILE_END_RES = 1009;		//XMessageRes 6 文件接收成功或失败，写入缓存写完数据，校验文件最终大小和md5，失败返回原因
-	DOWNLOAD_FILE_REQ = 1010;		// 客户端发送下载请求 XFileInfo 包含文件路径和偏移位置，用于断点续传
-	DOWNLOAD_FILE_RES = 1011;		// 服务端返回响应 XFileInfo 返回文件大小和MD5校验
-	DOWNLOAD_FILE_BEGTIN = 10012;	//客户端开始传输文件
-	DOWNLOAD_SLICE_REQ = 1012;		//服务端发送文件片
-	DOWNLOAD_SLICE_RES = 1013;		//客户端校验文件片成功
-	DELETE_FILE_REQ = 1014;			// XFileSlice
-	DELETE_FILE_RES = 1015;			//XMessageRes
-	NEW_DIR_REQ = 1016;				//创建目录 XGetDirReq
-	NEW_DIR_RES = 1017;				//XMessageRes
-	GET_DISK_INFO_REQ = 1018;		//XMessageRes
-	GET_DISK_INFO_RES = 1019;		//XDiskInfo
+	GET_DIR_REQ = 1001;
+	GET_DIR_RES = 1002;
+	UPLOAD_FILE_REQ = 1003;
+	UPLOAD_FILE_RES = 1004;
+	SEND_SLICE_REQ = 1005;
+	SEND_SLICE_RES = 1007;
+	UPLOAD_FILE_END_REQ = 1008;
+	UPLOAD_FILE_END_RES = 1009;
+	DOWNLOAD_FILE_REQ = 1010;
+	DOWNLOAD_FILE_RES = 1011;
+	DOWNLOAD_FILE_BEGIN = 10012;	// 客户端开始传输文件（值保持兼容）
+	DOWNLOAD_SLICE_REQ = 1012;
+	DOWNLOAD_SLICE_RES = 1013;
+	DELETE_FILE_REQ = 1014;
+	DELETE_FILE_RES = 1015;
+	NEW_DIR_REQ = 1016;
+	NEW_DIR_RES = 1017;
+	GET_DISK_INFO_REQ = 1018;
+	GET_DISK_INFO_RES = 1019;
+
+	// 共享文件夹相关 (2001+)
+	CREATE_SHARE_FOLDER_REQ  = 2001;
+	CREATE_SHARE_FOLDER_RES  = 2002;
+	ADD_SHARE_USER_REQ       = 2003;
+	ADD_SHARE_USER_RES       = 2004;
+	REMOVE_SHARE_USER_REQ    = 2005;
+	REMOVE_SHARE_USER_RES    = 2006;
+	GET_SHARED_FOLDERS_REQ   = 2007;
+	GET_SHARED_FOLDERS_RES   = 2008;
+	GET_SHARED_DIR_REQ       = 2009;
+	GET_SHARED_DIR_RES       = 2010;
+	DOWNLOAD_SHARED_FILE_REQ = 2011;
+	DOWNLOAD_SHARED_FILE_RES = 2012;
+	UPLOAD_SHARED_FILE_REQ   = 2013;
+	UPLOAD_SHARED_FILE_RES   = 2014;
+	DELETE_SHARED_FILE_REQ   = 2015;
+	DELETE_SHARED_FILE_RES   = 2016;
+	DELETE_SHARE_FOLDER_REQ  = 2017;
+	DELETE_SHARE_FOLDER_RES  = 2018;
 }
 
 message XDiskInfo
 {
-	int64 avail = 1;	//用户可用空间（字节）
-	int64 total = 2;	//磁盘空间，普通用户10G
-	int64 free = 3;		//磁盘剩余空间 普通用户就是这个
-	int64 dir_size = 4;	//用户目录占用的空间大小
+	int64 avail = 1;
+	int64 total = 2;
+	int64 free = 3;
+	int64 dir_size = 4;
 }
 message XGetDirReq
 {
 	bytes root = 1;
 }
 
-//文件片 用来读写文件
 message XFileSlice
 {
 	XFileInfo file = 1;
-	int64 size = 2;			//文件片大小 字节
-	int64 offset = 3;		//文件偏移，从0开始 字节单位
-	bytes md5 = 4;			//文件片md5
-	bool is_ok = 5;			//是否校验成功，是否上传成功
+	int64 size = 2;
+	int64 offset = 3;
+	bytes md5 = 4;
+	bool is_ok = 5;
 }
 
-//文件信息，添加到文件管理器和文件列表，浏览时显示
 message XFileInfo
 {
     bytes filename = 1;
-    bytes filedir = 2;				//文件路径，上一级目录的文件
-    int64 filesize = 3;				//byte 如果是加密文件 则是实际存储大小，原文件大小用ori_size
-    string filetime = 4;			//2020-01-20 18:30
-    bool is_dir = 5;				//是否目录
-	bytes md5 = 6;					//文件校验
-	bytes local_path = 7;			//本地路径，用于上传
-	int64 net_size = 8;				//已经接收或者发送的文件大小 字节单位
-	bool is_enc = 9;				//是否加密 第一密钥就是用户密码
-	int64 ori_size = 10;			//加密文件的源文件大小
-	bytes password = 11;			//用于传输密钥，存储信息
-
+    bytes filedir = 2;
+    int64 filesize = 3;
+    string filetime = 4;
+    bool is_dir = 5;
+	bytes md5 = 6;
+	bytes local_path = 7;
+	int64 net_size = 8;
+	bool is_enc = 9;
+	int64 ori_size = 10;
+	bytes password = 11;
 }
 
 message XMsgTask
@@ -82,8 +98,6 @@ message XFileMsgMap
 	map<int32, XTaskList> msg_map = 1;
 }
 
-// 文件列表
-//服务器返回 文件列表
 message XFileInfoList
 {
 	repeated XFileInfo files = 4;
@@ -93,13 +107,101 @@ message XFileTask
 {
 	int32 index = 1;
 	string tasktime = 6;
-	bool is_complete = 7;	// 任务是否完成
-	bool is_sec = 8;		// 是否还在传
+	bool is_complete = 7;
+	bool is_sec = 8;
 	XFileInfo file = 9;
 }
 
 message XFileTaskList
 {
-	repeated XFileTask uploads = 1;		// 上传任务
-	repeated XFileTask downloads = 2;	// 下载任务
+	repeated XFileTask uploads = 1;
+	repeated XFileTask downloads = 2;
+}
+
+// ===== 共享文件夹相关消息 =====
+// 注意：用户可控字段使用 string（强制 UTF-8 语义），防止多字节编码 SQL 注入
+
+message XShareUser {
+    string username = 1;         // UTF-8, max 64 chars enforced server-side
+    string permission_level = 2; // "read" / "write" / "admin"
+}
+
+message XSharedFolderInfo {
+    int64  id = 1;
+    string owner = 2;
+    string name = 3;
+    string created_at = 4;
+    int32  user_count = 5;
+    int32  file_count = 6;
+}
+
+message XCreateShareFolderReq {
+    string name = 1;             // UTF-8, max 128 chars enforced server-side
+    repeated XShareUser users = 2;
+}
+message XCreateShareFolderRes {
+    int32 code = 1;
+    bytes msg = 2;
+    int64 folder_id = 3;
+}
+
+message XAddShareUserReq {
+    int64 folder_id = 1;
+    repeated XShareUser users = 2;
+}
+
+message XRemoveShareUserReq {
+    int64 folder_id = 1;
+    repeated string usernames = 2;
+}
+
+message XGetSharedFoldersReq {
+    // username field ignored by server; server always uses token-verified identity
+    string username = 1;
+}
+message XGetSharedFoldersRes {
+    repeated XSharedFolderInfo folders = 1;
+}
+
+message XGetSharedDirReq {
+    int64  folder_id = 1;
+    string path = 2;
+}
+message XGetSharedDirRes {
+    int32 code = 1;
+    bytes msg = 2;
+    repeated XFileInfo files = 3;
+}
+
+message XDownloadSharedFileReq {
+    int64  folder_id = 1;
+    string filename = 2;
+    string filedir = 3;
+    bytes  local_path = 4;
+}
+message XDownloadSharedFileRes {
+    int32  code = 1;
+    bytes  msg = 2;
+    string authorized_path = 3;
+    XFileInfo file_info = 4;
+}
+
+message XUploadSharedFileReq {
+    int64  folder_id = 1;
+    string filedir = 2;
+}
+message XUploadSharedFileRes {
+    int32  code = 1;
+    string authorized_filedir = 2;
+    bytes  msg = 3;
+}
+
+message XDeleteSharedFileReq {
+    int64  folder_id = 1;
+    string filename = 2;
+    string filedir = 3;
+}
+
+message XDeleteShareFolderReq {
+    int64  folder_id = 1;
 }

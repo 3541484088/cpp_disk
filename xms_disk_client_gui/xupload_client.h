@@ -60,4 +60,9 @@ private:
     //加密文件类
     XAES *aes_ = 0;
 
+    // 是否秒传
+    bool is_sec_upload_ = false;
+
+    // 续传起始偏移量（用于进度跟踪）
+    long long resume_offset_ = 0;
 };

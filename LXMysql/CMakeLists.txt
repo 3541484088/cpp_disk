@@ -15,9 +15,13 @@ target_include_directories(LXMysql
     PRIVATE ${XDISK_ENV_ROOT}/include
 )
 
+# Linux: mysql.h 在 /usr/include/mysql/ 子目录下
+if(NOT WIN32)
+    target_include_directories(LXMysql PUBLIC ${XDISK_MYSQL_DIR}/include/mysql)
+endif()
+
 target_compile_definitions(LXMysql PUBLIC
     STATIC
-    _CRT_SECURE_NO_WARNINGS
 )
 
 # 源文件为 UTF-8 编码，强制 MSVC 按 UTF-8 解析
@@ -26,9 +30,15 @@ if(MSVC)
     target_compile_options(LXMysql PRIVATE /utf-8 /FS)
 endif()
 
-target_link_libraries(LXMysql PUBLIC
-    ${XDISK_MYSQL_DIR}/lib/libmysql.lib
-)
+if(WIN32)
+    target_link_libraries(LXMysql PUBLIC
+        ${XDISK_MYSQL_DIR}/lib/libmysql.lib
+    )
+else()
+    target_link_libraries(LXMysql PUBLIC
+        mysqlclient
+    )
+endif()
 
 set_target_properties(LXMysql PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY_DEBUG   ${CMAKE_BINARY_DIR}/lib

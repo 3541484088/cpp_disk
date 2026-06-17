@@ -17,7 +17,7 @@ public:
     static void RegMsgCallback()
     {
         RegCB((xmsg::MsgType)xdisk::DOWNLOAD_FILE_REQ, (MsgCBFunc)&XDownloadHandle::DownloadFileReq);
-        RegCB((xmsg::MsgType)xdisk::DOWNLOAD_FILE_BEGTIN, (MsgCBFunc)&XDownloadHandle::DownloadFileBegin);
+        RegCB((xmsg::MsgType)xdisk::DOWNLOAD_FILE_BEGIN, (MsgCBFunc)&XDownloadHandle::DownloadFileBegin);
         RegCB((xmsg::MsgType)xdisk::DOWNLOAD_SLICE_RES, (MsgCBFunc)&XDownloadHandle::DownloadSliceRes);
     }
 private:
@@ -27,7 +27,8 @@ private:
     std::list<XMsg> cur_data_;          //当前发送的文件片数据
     std::list<XMsg> caches_;            //缓冲文件的缓存
     std::ifstream ifs_;                 //读本地文件
-    int filesize_ = 0;                  //文件大小
-    int sendsize_ = 0;                  //已经发送的文件大小
+    long long filesize_ = 0;                  //文件大小
+    long long sendsize_ = 0;                  //已经发送的文件大小
     char *slice_buf_ = 0;
+    long long resume_offset_ = 0;       //断点续传偏移量（从该位置开始发送）
 };

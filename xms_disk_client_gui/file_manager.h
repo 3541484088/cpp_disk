@@ -47,7 +47,7 @@ public:
 
 
     //等待：0~1000
-    void UploadProcess(int task_id, int process);
+    void UploadProcess(int task_id, long long process);
 
 signals:
     //刷新目录显示

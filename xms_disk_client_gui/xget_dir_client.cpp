@@ -90,9 +90,26 @@ void XGetDirClient::NewDirReq(std::string path)
 void XGetDirClient::NewDirRes(xmsg::XMsgHead *head, XMsg *msg)
 {
     cout << "NewDirRes" << endl;
+
+    XMessageRes res;
+    if (res.ParseFromArray(msg->data, msg->size))
+    {
+        if (res.return_() != XMessageRes::OK)
+        {
+            XFileManager::Instance()->ErrorSig(res.msg());
+        }
+    }
+
+    // 无论成功失败都刷新目录
     xdisk::XGetDirReq req;
     req.set_root(cur_dir_);
-    
+    GetDirReq(req);
+}
+
+void XGetDirClient::ConnectedCB()
+{
+    xdisk::XGetDirReq req;
+    req.set_root(cur_dir_.empty() ? "/" : cur_dir_);
     GetDirReq(req);
 }
 
@@ -161,9 +178,11 @@ void XGetDirClient::DeleteFileReq(xdisk::XFileInfo file)
 void XGetDirClient::DeleteFileRes(xmsg::XMsgHead *head, XMsg *msg)
 {
     cout << "DeleteFileRes" << endl;
+    // Only refresh the directory after all pending batch deletes have responded.
+    if (!XFileManager::Instance()->DeleteDone())
+        return;
     xdisk::XGetDirReq req;
     req.set_root(cur_dir_);
-
     GetDirReq(req);
 }
 XGetDirClient::~XGetDirClient()

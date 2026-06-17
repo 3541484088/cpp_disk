@@ -7,23 +7,27 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets
-    PATHS ${XDISK_QT_DIR} NO_DEFAULT_PATH)
+if(WIN32)
+    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets
+        PATHS ${XDISK_QT_DIR} NO_DEFAULT_PATH)
+else()
+    find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+endif()
 
 file(GLOB_RECURSE SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/*.qrc"
 )
 
-add_executable(config_gui WIN32 ${SOURCES})
+if(WIN32)
+    add_executable(config_gui WIN32 ${SOURCES})
+else()
+    add_executable(config_gui ${SOURCES})
+endif()
 
 target_include_directories(config_gui PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${XDISK_ENV_ROOT}/include
-)
-
-target_compile_definitions(config_gui PRIVATE
-    _CRT_SECURE_NO_WARNINGS
 )
 
 target_link_libraries(config_gui PRIVATE

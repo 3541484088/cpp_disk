@@ -12,10 +12,10 @@ target_include_directories(xms_dir_service PRIVATE
     ${XDISK_ENV_ROOT}/include
 )
 
-target_compile_definitions(xms_dir_service PRIVATE
-    _CRT_SECURE_NO_WARNINGS
-    _CONSOLE
-)
+# _CRT_SECURE_NO_WARNINGS 已在 XdiskCommon.cmake 中全局配置
+if(WIN32)
+    target_compile_definitions(xms_dir_service PRIVATE _CONSOLE)
+endif()
 
 target_link_libraries(xms_dir_service PRIVATE
     xplatform

@@ -39,6 +39,11 @@ private:
     //开始传输数据时已经接收的值，需要确认数据已经接收成功
     long long begin_recv_data_size_ = -1;
 
+    //本地已存在的文件大小（用于断点续传）
+    long long exist_size_ = 0;
+    //是否为断点续传模式
+    bool is_resume_ = false;
+
     //std::list<std::string> md5_base64s_;
     std::string all_md5_base64_ = "";
 
