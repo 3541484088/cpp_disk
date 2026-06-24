@@ -140,6 +140,28 @@ background-color: rgb(46, 91, 255);
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="aipushButton">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>20</y>
+      <width>90</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{background:#06a8ff;color:#fff;border:none;border-radius:4px;font:11pt "微软雅黑";}QPushButton:hover{background:#0590d8;}QPushButton:checked{background:#0070b8;}</string>
+    </property>
+    <property name="text">
+     <string>AI 助手</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="line1widget" native="true">
    <property name="enabled">

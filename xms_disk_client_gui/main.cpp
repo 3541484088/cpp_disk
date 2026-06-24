@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 
     XMSFileManager xsm_fm;
     QApplication a(argc, argv);
+    a.setOrganizationName("XMS");
+    a.setApplicationName("XMSDiskClient");
     /*
     FileManager::Get()->StartThread();*/
     ////设置服务器地址 

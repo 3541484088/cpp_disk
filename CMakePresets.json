@@ -17,7 +17,11 @@
         "XDISK_OPENSSL_DIR":    "E:/environment/openssl",
         "XDISK_PROTOBUF_DIR":   "E:/environment/protobuf-3.21.12/install",
         "XDISK_MYSQL_DIR":      "E:/environment/mysql",
-        "CMAKE_PREFIX_PATH":    "D:/Qt/6.8.3/msvc2022_64"
+        "CMAKE_PREFIX_PATH":    "D:/Qt/6.8.3/msvc2022_64",
+        "CURL_INCLUDE_DIR":     "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/include",
+        "CURL_LIBRARY":         "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/lib/libcurl.lib",
+        "JSONCPP_INCLUDE_DIRS": "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/include",
+        "JSONCPP_LIBRARIES":    "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/lib/jsoncpp.lib"
       }
     },
     {
@@ -41,7 +45,11 @@
         "XDISK_PROTOBUF_DIR":    "/opt/xdisk_env/protobuf",
         "XDISK_MYSQL_DIR":       "/usr",
         "XDISK_QT_DIR":          "/usr",
-        "CMAKE_PREFIX_PATH":     "/opt/xdisk_env/protobuf"
+        "CMAKE_PREFIX_PATH":     "/opt/xdisk_env/protobuf",
+        "CURL_INCLUDE_DIR":      "/usr/include",
+        "CURL_LIBRARY":          "/usr/lib/x86_64-linux-gnu/libcurl.so",
+        "JSONCPP_INCLUDE_DIRS":  "/usr/include/jsoncpp",
+        "JSONCPP_LIBRARIES":     "/usr/lib/x86_64-linux-gnu/libjsoncpp.so"
       }
     },
     {

@@ -5,6 +5,8 @@
 #include <list>
 //#include "file_manager.h"
 #include "xfile_manager.h"
+#include "xai_panel.h"
+
 class XMSDiskClientGui : public QWidget
 {
     Q_OBJECT
@@ -39,9 +41,15 @@ public slots:
     void ShowSharePanel();
     void ChangePassword();
     void set_xfm(XFileManager *fm) { xfm_ = fm; }
+
+    // AI 面板相关
+    void HighlightFiles(QStringList file_names);
+    void AINavigateDir(QString dir_path);
+    void ToggleAIPanel();
+
 private:
     Ui::XMSDiskClientGuiClass ui;
     std::string remote_dir_ = "";//远程路径
-    //std::list<std::string> dir_list_;
     XFileManager *xfm_ = 0;
+    XAIPanel     *ai_panel_ = nullptr;
 };

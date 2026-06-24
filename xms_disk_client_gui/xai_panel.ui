@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>XAIPanelClass</class>
+ <widget class="QWidget" name="XAIPanelClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(249, 250, 251);</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="margin">
+    <number>8</number>
+   </property>
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <!-- 标题栏 -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QLabel" name="titleLabel">
+       <property name="text">
+        <string>AI 文件助手</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: bold 13pt "微软雅黑"; color: #333;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearButton">
+       <property name="text">
+        <string>清除</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border:none;color:#888;font:11pt;}QPushButton:hover{color:#06a8ff;}</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="settingsButton">
+       <property name="text">
+        <string>设置</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{border:none;color:#888;font:11pt;}QPushButton:hover{color:#06a8ff;}</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <!-- 对话区 -->
+   <item>
+    <widget class="QTextBrowser" name="chatDisplay">
+     <property name="styleSheet">
+      <string notr="true">QTextBrowser{background:#fff;border:1px solid #e0e0e0;border-radius:6px;font:11pt "微软雅黑";color:#333;padding:4px;}</string>
+     </property>
+     <property name="openExternalLinks">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <!-- 状态提示（loading） -->
+   <item>
+    <widget class="QLabel" name="statusLabel">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:#888;font:10pt;min-height:16px;</string>
+     </property>
+    </widget>
+   </item>
+   <!-- 输入区 -->
+   <item>
+    <layout class="QHBoxLayout">
+     <property name="spacing">
+      <number>4</number>
+     </property>
+     <item>
+      <widget class="QLineEdit" name="inputEdit">
+       <property name="placeholderText">
+        <string>问 AI 关于文件的问题...</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit{border:1px solid #ccc;border-radius:4px;padding:4px 8px;font:11pt "微软雅黑";}QLineEdit:focus{border:1px solid #06a8ff;}</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sendButton">
+       <property name="text">
+        <string>发送</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{background:#06a8ff;color:#fff;border:none;border-radius:4px;padding:4px 12px;font:11pt "微软雅黑";}QPushButton:hover{background:#0590d8;}QPushButton:disabled{background:#ccc;}</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+</ui>

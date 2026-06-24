@@ -31,7 +31,10 @@ target_include_directories(xms_disk_client_gui PRIVATE
     ${CMAKE_SOURCE_DIR}/xauth
     ${CMAKE_SOURCE_DIR}/xms_dir_service
     ${CMAKE_SOURCE_DIR}/xdisk_pb
+    ${CMAKE_SOURCE_DIR}/xai_lib
     ${XDISK_ENV_ROOT}/include
+    ${CURL_INCLUDE_DIR}
+    ${JSONCPP_INCLUDE_DIRS}
 )
 
 target_link_libraries(xms_disk_client_gui PRIVATE
@@ -41,9 +44,22 @@ target_link_libraries(xms_disk_client_gui PRIVATE
     xplatform
     xauth_client
     xdisk_pb
+    xai_lib
+    ${CURL_LIBRARY}
+    ${JSONCPP_LIBRARIES}
 )
 
 set_target_properties(xms_disk_client_gui PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_DEBUG   ${CMAKE_BINARY_DIR}/bin
     RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/bin
 )
+
+if(WIN32)
+    add_custom_command(TARGET xms_disk_client_gui POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/bin/libcurl.dll"
+            "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/bin/jsoncpp.dll"
+            "E:/cpp/cpp_project/vcpkg/vcpkg-master/installed/x64-windows/bin/z.dll"
+            "$<TARGET_FILE_DIR:xms_disk_client_gui>"
+    )
+endif()

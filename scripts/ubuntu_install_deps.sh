@@ -40,6 +40,14 @@ echo "========== 安装 MySQL 客户端库 =========="
 sudo apt install -y libmysqlclient-dev || sudo apt install -y default-libmysqlclient-dev
 
 echo ""
+echo "========== 安装 libcurl (xai_lib 需要) =========="
+sudo apt install -y libcurl4-openssl-dev
+
+echo ""
+echo "========== 安装 jsoncpp (xai_lib 需要) =========="
+sudo apt install -y libjsoncpp-dev
+
+echo ""
 echo "========== 安装 Qt6 (GUI客户端需要，可选) =========="
 sudo apt install -y qt6-base-dev
 

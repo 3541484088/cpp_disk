@@ -18,6 +18,7 @@
 #include "filepassword.h"
 #include "task_list_gui.h"
 #include "share_dialog.h"
+#include "xai_panel.h"
 #include "xtools.h"
 #include "xauth_client.h"
 using namespace std;
@@ -102,10 +103,17 @@ XMSDiskClientGui::XMSDiskClientGui(XFileManager *xfm, QWidget *parent)
 
     // 显示用户名
     ui.username_label->setText(xfm_->login().username().c_str());
-    
-    //ui.username_label->set_text(xfm_->login()->username().c_str());
-    
-    //TaskTab();
+
+    // ---- AI 面板初始化 ----
+    ai_panel_ = new XAIPanel(xfm_, this);
+    ai_panel_->setFixedWidth(300);
+    ai_panel_->hide(); // 默认折叠，点 AI 按钮展开
+
+    // AI 面板 → 主界面：高亮文件、导航目录
+    connect(ai_panel_, &XAIPanel::HighlightFiles, this, &XMSDiskClientGui::HighlightFiles);
+    connect(ai_panel_, &XAIPanel::NavigateDir,    this, &XMSDiskClientGui::AINavigateDir);
+    connect(ui.aipushButton, &QPushButton::clicked, this, &XMSDiskClientGui::ToggleAIPanel);
+
     return;
 
 }
@@ -378,7 +386,7 @@ void XMSDiskClientGui::Download()
     // 检查是否为加密文件，弹窗输入密码
     for (auto &f : ::file_list)
     {
-        if (f.filename() == filename && f.is_enc())
+        if (f.filename() == filename.toStdString() && f.is_enc())
         {
             FilePassword pass_dia;
             pass_dia.setWindowTitle("Download encrypted file");
@@ -531,6 +539,65 @@ void XMSDiskClientGui::RefreshData(xdisk::XFileInfoList file_list, std::string d
     stringstream ss;
     ss << tab->rowCount();
     ui.file_count->setText(ss.str().c_str());
+
+    // 同步当前文件列表给 AI 面板
+    if (ai_panel_)
+        ai_panel_->SetCurrentFiles(file_list, dir);
+}
+
+// ─────────────────────────────────────────────
+// AI 面板：高亮指定文件名的行
+// ─────────────────────────────────────────────
+void XMSDiskClientGui::HighlightFiles(QStringList file_names)
+{
+    auto tab = ui.filetableWidget;
+    for (int i = 0; i < tab->rowCount(); i++)
+    {
+        auto item = tab->item(i, 1);
+        if (!item) continue;
+        bool match = file_names.contains(item->text());
+        // 高亮：匹配行用黄色背景，其余恢复白色
+        QColor bg = match ? QColor(255, 255, 153) : QColor(255, 255, 255);
+        for (int col = 1; col < tab->columnCount(); col++)
+        {
+            auto ci = tab->item(i, col);
+            if (ci) ci->setBackground(bg);
+        }
+    }
+}
+
+// ─────────────────────────────────────────────
+// AI 面板：导航到指定目录
+// ─────────────────────────────────────────────
+void XMSDiskClientGui::AINavigateDir(QString dir_path)
+{
+    if (!xfm_) return;
+    xfm_->GetDir(dir_path.toUtf8().constData());
+}
+
+// ─────────────────────────────────────────────
+// 切换 AI 面板显示/隐藏
+// ─────────────────────────────────────────────
+void XMSDiskClientGui::ToggleAIPanel()
+{
+    if (!ai_panel_) return;
+
+    if (ai_panel_->isVisible())
+    {
+        ai_panel_->hide();
+        // 恢复文件列表宽度
+        ui.fileviewwidget->setGeometry(160, 40, width() - 160, height() - 80);
+    }
+    else
+    {
+        // 把文件列表收窄，右侧留给 AI 面板
+        int panel_w = 300;
+        int file_w  = width() - 160 - panel_w - 4;
+        ui.fileviewwidget->setGeometry(160, 40, file_w, height() - 80);
+        ai_panel_->setGeometry(160 + file_w + 4, 40, panel_w, height() - 80);
+        ai_panel_->show();
+        ai_panel_->raise();
+    }
 }
 
 void XMSDiskClientGui::Upload()
